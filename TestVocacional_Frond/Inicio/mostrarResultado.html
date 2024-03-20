@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Test Vocacional</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styleMostrarResultado.css">
+</head>
+<body>
+    <!-- <header class="card-header header">
+        <h1>Test Vocacional: Área Informática</h1>
+        <button class=" btn btn-outline-primary bi bi-box-arrow-right" type="submit">Cerrar Sesión</button>
+    </header> -->
+    <header class="card-header header">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1>Test Vocacional: Área Informática</h1>
+            </div>
+            <div class="col-md-6 text-end d-flex align-items-center justify-content-end mt-3">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Visualizador
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="selectOption(1, 'allResults')">Ver todos los resultados</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption(2,'viewEsResident')">Ver los que residen en la Argentina</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption(3,'viewEsNoResident')">Ver los que no residen en la Argentina</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption(4,'viewSchoolInSanLuis')">Ver los estudiantes de las escuelas de San Luis</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption(5,'graficaBarras')">Ver gráficas de aspirantes por carrera</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="selectOption(6,'graficaBarras')">Ver gráficas de aspirantes no interesado por carrera</a></li>
+                    </ul>
+                </div>
+                &nbsp;
+                <button class="btn btn-outline-primary bi bi-box-arrow-right" onclick="logOut()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+    <!-- <br> -->
+    <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+        <i class="bi bi-list"></i>
+    </button> -->
+
+    <!-- <label for="busqueda">Buscar por nombre o carrera:</label>
+    <input type="text" id="busqueda"> -->
+    
+    <div class="container mt-3">
+        <!-- <div class="form-group">
+            <label for="age-filter">Filtrar por edad:</label>
+            <input type="range" class="form-control-range" id="age-filter" min="16" max="99" value="18,99">
+            <output for="age-filter">16 - 99</output>
+          </div>
+        <div id="age-results"></div> -->
+
+        
+
+        <div id="filtrado">
+            <tr>
+                <th scope="col">
+                    <form class="d-flex" onsubmit="filtrarTabla(event)">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+                              Edad
+                            </button>
+                            <!-- <ul class="dropdown-menu">
+                                <label for="rangoEdad">Rango de Edad:</label>
+                                <div class="my-js-slider"></div>
+                                <button type="button" class="btn btn-secondary" onclick="obtenerValores()">Obtener Valores</button>
+                            </ul> -->
+                            <div class=" dropdown-menu">
+                                <div class="mb-3">
+                                    <label for="rangoEdad">Rango de Edad:</label>
+                                    <div class="my-js-slider"></div>
+                                </div>
+                                <br>
+                                <button id="btnAplicar" type="button" class="btn btn-secondary" onclick="obtenerValores()">Aplicar</button>
+                            </div>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select class="form-select" aria-label="Filtrar por" id="filtroOpcion">
+                            <option selected value="0">Ver Todos</option>
+                            <option value="email">Email</option>
+                            <option value="carreraObtenida">Carrera Obtenida</option>
+                        </select>
+                        &nbsp;
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="filtroValor">
+                        &nbsp;
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Interés" id="interesCheckbox" checked>
+                            <label class="form-check-label" for="interesCheckbox">
+                                Interés
+                            </label>
+                        </div>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+                </th>
+            </tr>
+        </div>
+
+        <div id="allResults" class="result-view">
+            <table id="miTabla" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Carrera Obtenida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se llenarán aquí mediante JavaScript -->
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example" class="text-center">
+                <ul id="paginacion" class="pagination justify-content-center">
+                    <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
+                </ul>
+            </nav>
+        </div>
+
+        <div id="viewEsResident" class="result-view" style="display: none;">
+            <table id="tablaEsResidente" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Provincia</th>
+                        <th scope="col">Carrera Obtenida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se llenarán aquí mediante JavaScript -->
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example" class="text-center">
+                <ul id="paginacion2" class="pagination justify-content-center">
+                    <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
+                </ul>
+            </nav>
+        </div>
+
+        <div id="viewEsNoResident" class="result-view" style="display: none;">
+            <table id="tablaEsNoResidente" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Pais Origen</th>
+                        <th scope="col">Carrera Obtenida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se llenarán aquí mediante JavaScript -->
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example" class="text-center">
+                <ul id="paginacion3" class="pagination justify-content-center">
+                    <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
+                </ul>
+            </nav>
+        </div>
+
+        <div id="viewSchoolInSanLuis" class="result-view" style="display: none;">
+            <table id="tablaSchoolInSanLuis" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Escuela</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Carrera Obtenida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se llenarán aquí mediante JavaScript -->
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example" class="text-center">
+                <ul id="paginacion4" class="pagination justify-content-center">
+                    <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Elemento canvas para la gráfica -->
+        <canvas id="graficaBarras" width="250" height="100" ></canvas>
+
+    </div>
+
+    <!-- <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="staticBackdropLabel">Menú de opciones de visualización</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body"> 
+            <div>
+                Seleccione el tipo de visualización que desea ver para el test vocacional.
+            </div>
+            <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Visualizador
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" onclick="selectOption(1, 'allResults')">Ver todos los resultados</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="selectOption(2,'viewEsResident')">Ver los que residen en la Argentina</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="selectOption(3,'viewEsNoResident')">Ver los que no residen en la Argentina</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="selectOption(4,'graficaBarras')">Ver gráficas</a></li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+
+
+    <footer class="text-center footer" id="footer1">
+        <div class="container">
+            <h7>Hecho por Braian Paez - UNSL</h7>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="sesionExpiradaModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Sesión expirada</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Sesión expirada, por favor vuelva a iniciar sesión para seguir usando explorando.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="volverBtn">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->
+
+<!-- <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>   -->
+<!-- wRunner CSS -->
+<link rel="stylesheet" href="filterofEdad/wrunner-default-theme.css">
+<!-- wRunner Vanilla JS -->
+<script src="filterofEdad/wrunner-native.js"></script>
+
+<!-- wRunner jQuery -->
+<script src="filterofEdad/wrunner-jquery.js"></script>
+
+<script src="displayResults.js"></script>
+
+<script>
+
+    // function obtenerValores() {
+    //   var valores = slider.getValue();
+    //   console.log("Valor mínimo:", valores.minValue);
+    //   console.log("Valor máximo:", valores.maxValue);
+    //   var btnAplicar = document.getElementById('btnAplicar');
+    //   var dropdown = new bootstrap.Dropdown(btnAplicar); // Crear un nuevo objeto Dropdown
+        
+    //     // Verificar si el dropdown está abierto antes de intentar cerrarlo
+    //   if (dropdown._menu) {
+    //     dropdown.hide(); // Ocultar el dropdown al hacer clic en el botón
+    //   }
+    
+    // }
+</script>

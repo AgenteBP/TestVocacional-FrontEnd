@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de aspirantes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+</head>
+<body>
+    <header class="text-center card-header header">
+        <h1>Test Vocacional: Área Informática</h1>
+    </header>
+    <main>
+        &nbsp;<i class="bi bi-arrow-left-square" type="button" style="font-size: 2rem;" onclick="volver()"></i>
+        <div class="container mt-4 ">
+            <form style="max-width: 400px; margin: auto;">
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Nunca compartiremos su email con nadie más.</div>
+                </div>
+                <div class="mb-3">
+                <label for="exampleInputEdad" class="form-label">Edad</label>
+                <input type="number" min="15" max="120" step="1" class="form-control form-control-sm" id="exampleEdad">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">¿Eres residente de Argentina?</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="residenteRadio" id="residenteSi">
+                        <label class="form-check-label" for="residenteSi">Sí</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="residenteRadio" id="residenteNo">
+                        <label class="form-check-label" for="residenteNo">No</label>
+                    </div>
+                </div>
+                <div id="paisOrigen" style="display: none;">
+                    <div class="mb-3">
+                        <label for="paisOrigenInput" class="form-label">País de Origen</label>
+                        <input type="text" class="form-control form-control-sm" id="paisOrigenInput">
+                    </div>
+                </div>
+                <div id="provinciaArg" style="display: none;">
+                    <div class="mb-3">
+                        <label for="exampleProvince" class="form-label">Provincia</label>
+                        <select class="form-select form-select-sm" id="exampleProvince"></select>
+                    </div>
+                </div>
+                <div id="schoolArg" style="display: none;">
+                    <div class="mb-3">
+                        <label for="exampleSchool" class="form-label">Escuela de donde provienes</label>
+                        <select class="form-select form-select-sm selectpicker show-tick"  data-live-search="true" data-width="50%" data-size="10" id="exampleSchool" name="exampleSchool" title='Seleccione una Escuela...'>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-primary" onclick="validarCampos(1)">Ir al test Vocacional</button>
+                    <button type="button" class="btn btn-primary" onclick="validarCampos(2)">Ir al consulta de una carrera</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    
+
+    <footer class="text-center footer" id="footer1">
+        <div class="container">
+            <h7>Hecho por Braian Paez - UNSL</h7>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script>
+        const radioSi = document.getElementById('residenteSi');
+        const radioNo = document.getElementById('residenteNo');
+        const paisOrigen = document.getElementById('paisOrigen');
+        const provinciaArg = document.getElementById('provinciaArg');
+        const schoolArg = document.getElementById('schoolArg');  // Agregado
+
+        radioSi.addEventListener('change', function () {
+            paisOrigen.style.display = 'none';
+            provinciaArg.style.display = 'block';
+        });
+
+        radioNo.addEventListener('change', function () {
+            paisOrigen.style.display = 'block';
+            provinciaArg.style.display = 'none';
+            schoolArg.style.display = 'none';
+        });
+        // Array de provincias
+        var provincias = [
+            "Ciudad Autónoma de Buenos Aires",
+            "Neuquén",
+            "San Luis",
+            "Santa Fe",
+            "La Rioja",
+            "Catamarca",
+            "Tucumán",
+            "Chaco",
+            "Formosa",
+            "Santa Cruz",
+            "Chubut",
+            "Mendoza",
+            "Entre Ríos",
+            "San Juan",
+            "Jujuy",
+            "Santiago del Estero",
+            "Río Negro",
+            "Corrientes",
+            "Misiones",
+            "Salta",
+            "Córdoba",
+            "Buenos Aires",
+            "La Pampa",
+            "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
+        ];
+
+        // Obtener el elemento select
+        var selectProvincia = document.getElementById("exampleProvince");
+        var selectSchool = document.getElementById("exampleSchool");
+
+        // Agregar opciones al select
+        for (var i = 0; i < provincias.length; i++) {
+            var option = document.createElement("option");
+            option.text = provincias[i];
+            selectProvincia.add(option);
+        }
+        
+        // fetch('https://apis.datos.gob.ar/georef/api/provincias')
+        // .then(response => response.json())
+        // .then(data => {
+        //     const select = document.getElementById('exampleProvince');
+        //     data.provincias.forEach(province => {
+        //         const option = document.createElement('option');
+        //         option.value = province.nombre;
+        //         option.textContent = province.nombre;
+        //         select.appendChild(option);
+        //     });
+        // })
+        // .catch(error => console.log(error));
+
+
+        function obtenerFechaActual() {
+            const fechaActual = new Date();
+            
+            // Obtén los componentes de la fecha
+            const dia = fechaActual.getUTCDate() + 1;
+            const mes = fechaActual.getUTCMonth() + 1; // Los meses en JavaScript van de 0 a 11
+            const anio = fechaActual.getUTCFullYear();
+
+            // Formatea la fecha como "YYYY-MM-DD" (puedes ajustar el formato según tus necesidades)
+            const fechaFormateada = `${anio}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '0' : ''}${dia}`;
+
+            return fechaFormateada;
+        }
+
+        function validarCampos(option) {
+            const email = document.getElementById('exampleInputEmail1').value;
+            const edad = document.getElementById('exampleEdad').value;
+            const edadCheck = parseInt(edad, 10); 
+            const residenteSi = document.getElementById('residenteSi').checked;
+            const residenteNo = document.getElementById('residenteNo').checked;
+
+            var esResidenteArg = document.getElementById('residenteSi').checked;
+            var paisOrigen = document.getElementById('paisOrigenInput').value;
+            var provinciaArg = document.getElementById('exampleProvince').value;
+            var schoolInSanLuis = document.getElementById("exampleSchool").value;
+
+            console.log('Email:', email);
+            console.log('Edad:', edad);
+            console.log('Es residente de Argentina:', esResidenteArg);
+            console.log('País de Origen:', paisOrigen);
+            console.log('Provincia en Argentina:', provinciaArg);
+            console.log('escuela de San Luis ssss:', schoolInSanLuis);
+            // edad.trim() === '' 
+
+            if (email.trim() === '' || (!residenteSi && !residenteNo) || isNaN(edadCheck) || edadCheck <= 16) {
+                if(email.trim() === '' || (!residenteSi && !residenteNo) || isNaN(edadCheck)){
+                    alert('Por favor, complete todos los campos antes de continuar.');
+                }
+                else{
+                    if(edadCheck <= 15){
+                        alert('Para poder realizar este este debes ser mayor de 16 años.');
+                    }
+                } 
+            } else {
+
+                const url = 'http://localhost:8081/usuarios';  // Reemplaza con la URL de tu endpoint en el backend
+                const data = {
+                    email: email,
+                    edad: edad,
+                    esResidenteArg: esResidenteArg,
+                    paisOrigen: paisOrigen,
+                    provincia: provinciaArg,
+                    schoolInSanLuis: schoolInSanLuis
+                };
+
+                fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+                })
+                .then(response => {
+                    console.log('Estado de la respuesta:', response.status);
+                    console.log('Cabeceras de la respuesta:', response.headers);
+
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta del servidor: ' + response.status);
+                    }
+
+                    // Verifica si la respuesta tiene un tipo de contenido adecuado
+                    const contentType = response.headers.get('content-type');
+                    console.log('Tipo de contenido de la respuesta:', contentType);
+
+                    if (contentType && contentType.includes('application/json')) {
+                        return response.json();  // Analiza la respuesta como JSON
+                    } else {
+                        return response.text();
+                    }
+                })
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);
+                    console.log('ID del usuario:', data.id);
+                    // Realizar acciones adicionales según la respuesta del servidor
+                    // localStorage.setItem('email', email);
+                    // localStorage.setItem('id', data.id);
+                    // localStorage.setItem('edad', edad);
+                    // localStorage.setItem('esResidenteArg', esResidenteArg);
+                    // localStorage.setItem('paisOrigen', paisOrigen);
+                    // localStorage.setItem('provinciaArg', provinciaArg);
+                    if(option == 1){
+                        window.location.href = 'index.html'+
+                        '?email=' + encodeURIComponent(email) +
+                        '&id=' + encodeURIComponent(data.id) +
+                        '&edad=' + encodeURIComponent(edad) +
+                        '&esResidenteArg=' + encodeURIComponent(esResidenteArg) +
+                        '&paisOrigen=' + encodeURIComponent(paisOrigen) +
+                        '&provinciaArg=' + encodeURIComponent(provinciaArg)+
+                        '&schoolInSanLuis=' + encodeURIComponent(schoolInSanLuis);
+                        // window.location.href = 'index.html';
+                    }else{
+                        if(option == 2){
+                        window.location.href = 'CarrerasDisponibles/quickQuestion.html'+
+                        '?email=' + encodeURIComponent(email) +
+                        '&id=' + encodeURIComponent(data.id) +
+                        '&edad=' + encodeURIComponent(edad) +
+                        '&esResidenteArg=' + encodeURIComponent(esResidenteArg) +
+                        '&paisOrigen=' + encodeURIComponent(paisOrigen) +
+                        '&provinciaArg=' + encodeURIComponent(provinciaArg)+
+                        '&schoolInSanLuis=' + encodeURIComponent(schoolInSanLuis);
+                        // window.location.href = 'CarrerasDisponibles/quickQuestion.html';
+                        }
+                    
+                    }
+                    
+                })
+                .catch(error => {
+                    console.error('Error al realizar la solicitud:', error);
+                });
+            }
+        }
+
+        // En el evento 'DOMContentLoaded', establecer los valores de los campos en el formulario
+        document.addEventListener('DOMContentLoaded', function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            // Obtener los valores de los parámetros de la URL
+            const email = urlParams.get('email');
+            const edad = urlParams.get('edad');
+            const esResidenteArg = urlParams.get('esResidenteArg');
+            const provinciaArgValue = urlParams.get('provinciaArg');
+            const schoolInSanLuis = urlParams.get('schoolInSanLuis');
+
+            // Establecer los valores en los campos del formulario
+            document.getElementById('exampleInputEmail1').value = email || '';
+            document.getElementById('exampleEdad').value = edad || '';
+            // Establecer los valores en los campos del formulario
+            if (esResidenteArg === 'true') {
+                radioSi.checked = true;
+                paisOrigen.style.display = 'none';
+                provinciaArg.style.display = 'block';
+                selectProvincia.value = provinciaArgValue || '';
+                selectSchool.value = schoolInSanLuis || '';
+            } else {
+                radioNo.checked = true;
+                paisOrigen.style.display = 'block';
+                provinciaArg.style.display = 'none';
+            }
+
+            // Actualizar la visibilidad de la lista de escuelas
+            updateSchoolVisibility();
+        });
+
+        function volver(){
+            window.location.href = '../Inicio/launch.html';
+        }
+
+        var schoolsInSanLuis = [
+            "Esc N° 51 F. Segundo Mendoza",
+            "Esc N° 9 A.P.A.D.I.S",
+            "Ctro. Ed. N° 28 Rene Favaloro",
+            "Ctro Ed N° 23 Dr C.J.Rodriguez",
+            "Esc N°77 Maestros Puntanos",
+            "Col N°4 Fray Luis Beltran",
+            "Esc N°7 Constanzo C. Vigil",
+            "Esc N°98 Gob.Jose Santos Ortiz",
+            "Esc N°314 La Rioja",
+            "Inst De Formacion Doc Cont",
+            "Esc N°9 Esteban Adaro",
+            "Col N°10 Martin M Guémes",
+            "Esc. Nº 7 M. Belgrano",
+            "Esc N° 184 Belgrano",
+            "Col N° 12 R.Carrillo",
+            "Esc. Nº 1 Dra Carolina Tobar Garcia",
+            "Colegio 36 Bernardo A. Houssay",
+            "Esc. Nº 342 C Del Peregrino I Prim",
+            "Col Nº 35 C Del Peregrino II Sec",
+            "Esc. N° 2 Puertas Del Sol",
+            "Esc. Tec Nº 5 Alvarez Condarco",
+            "Esc N°49 Gdor. Lindor Quiroga",
+            "Esc. N° 2 Nicolas A. De San Luis",
+            "Esc N° 70 Pcia.De San Luis",
+            "Unsl Edificio Bloque I",
+            "Esc Nº 175 Gral.San Martin",
+            "Esc N Mixta J.P.Pringles",
+            "Centro Ed Nº 1 J.Pascual Pringles",
+            "Esc N° 427 Pcia.De Cordoba",
+            "Colegio San Luis Rey De Francia",
+            "Esc N° 8 Sargento Baigorria",
+            "Univ.Catolica De Cuyo",
+            "Esc N° 5 B.Mitre",
+            "Esc Nº 3 Manuel Belgrano",
+            "Ctro. Ed. Nº 2 P.D. Bazan",
+            "Esc N° 313 Rosario M. Simon",
+            "Esc N° 2 Bernardino Rivadavia",
+            "Esc. N° 172 Misiones",
+            "Esc N° 27 S.Camarero",
+            "Ctro.Educ.N° 3 Eva Peron",
+            "Esc N° 6 Sta.Maria Eufrasia",
+            "Esc Nº 16 Maria Delia Gatica",
+            "Esc Nº 17 Polo Godoy Rojo",
+            "Esc Tec N° 9 D.F.Sarmiento",
+            "Esc N°24 Pancha Hernandez",
+            "Esc. Nº 4 Juan Tulio Zabala",
+            "Colegio Nº 38 Marie Curie",
+            "Escuela Nº 5 Modelo San Luis",
+            "C.D. Nº 21 Puerta De Cuyo",
+            "Colegio N°13 R.Moyano",
+            "Esc. Tec N° 37 G.Ave Lallemant",
+            "Escuela N°264 Juan Martin De P",
+            "Esc Nº 139 B.Mitre",
+            "Esc Nº 23 H.Rodriguez Saa",
+            "Epa Nº 1 Rosenda Quiroga",
+            "Colegio 40 Heroes De Malvinas",
+            "Esc.434 Nuevos Desafios",
+            "Esc. Nelson Mandela",
+            "Epa Nº 14 Martin L King Secundario",
+            "Epa Nº 13 Esther Guevara Primaria",
+            "Centro E.N°6 'Sadoc S.Martin'",
+            "Escuela N° 267 Gdor.E.Mendoza",
+            "Esc N° 22 Bernardo O'Higgins",
+            "Esc. Nº 323 Juan W Gez",
+            "Escuela N° 141 Los Andes",
+            "Escuela N° 17 L. Jofre Y Menese",
+            "Escuela N° 10 Juan E. Vaca",
+            "Escuela N° 311 Luis Jofre",
+            "Municipio Desaguadero",
+            "Hogar N° 436 Juan Jose Paso",
+            "Centro Educ.N° 16 Tucuman",
+            "Escuela N° 337 Indep.Argentina",
+            "Escuela N° 13 Ant. Argentina",
+            "Hogar Esc.N° 22 Gdor.L.Landaburu",
+            "Escuela N° 142 Gdor.S.Besso",
+            "Esc N°441 Cap De F.P.E.Giachino",
+            "Escuela N°113 J.A.Ortiz Estrada",
+            "Ctro.Ed N°22 Urbano J Nuñez",
+            "Esc N°357 Maximo Camargo",
+            "Esc Tec N°28 J.M.De Pueyrredon",
+            "Colegio N°3 Manuel Belgrano",
+            "Esc. N°114 Dr.R.Gutierrez",
+            "Esc.Hogar N°11 Gran.J.R.Aguirre",
+            "Ex Esc.N°217 Maria R. De Astudillo",
+            "Esc N°204 Maest.N.Villegas",
+            "Esc N°201 Daniel Villegas",
+            "Esc. N°202 Gdor.G.Mendoza",
+            "Esc. N°146 Gran.T.Cuello",
+            "Ctro.Educ.N°5 Sen.A.Bertin",
+            "Esc N°179 Ejerc.Argentino",
+            "Esc N°381 Soldado Puntano",
+            "Ex.Esc.N°120 R.B.Pastor/Actual Epd Nº2 Estancia Grande-Primario",
+            "Ex.Esc. Nº145 Patricio Guanca/Actual Epd Nº2 Estancia Grande-Secundario",
+            "Esc N°328 H.P.Del ARA.G.Belgrano",
+            "Int. Ntra Señora Del Carmen",
+            "Epa N°10 M.E.V.Lucero-Primaria",
+            "Esc.Dig Bilingue M Gandhi",
+            "Epa N°10 M.E.V.Lucero-Secundar",
+            "Esc N°176 Maestra N.E.Perez De Fer",
+            "Epa Nº 7 E. Galeano",
+            "Esc Tec N°20 Antonio Berni",
+            "Esc N°106 Prof.T. Ferrari",
+            "Esc Tec N°15 Ing. A. Mercau",
+            "Esc. N°187 Jose Hernandez",
+            "Esc Nº 18 Nicolasa Berrondo De",
+            "Esc N°40 Ricardo Rojas",
+            "Esc. N°147 Prov. De Mendoza",
+            "Esc. N°240 Prov. De Corrientes",
+            "Universidad Catolica De Cuyo",
+            "Esc. N°33 Vicente Dupuy",
+            "Esc N°29 R.De Esc.De S.Martin",
+            "Col. Nº 2 Juan Esteban Pedernera",
+            "Esc N° 444 M.Eva D.De Peron",
+            "Ifdc",
+            "Centro Educ.N°9 Dr.J.Llerena",
+            "Esc. N°31 Mariano Moreno",
+            "Esc Nº 32 Justo Daract",
+            "Colegio N°11 B. Juarez",
+            "Esc Nº 30 Gral. Pedernera",
+            "Escuela N°388 Sgto. E.Romero",
+            "Esc. N°43 Dr. Tomas Jofre",
+            "Esc. N°152 Alas Argentinas",
+            "Esc. N° 371 Juan B. Alberdi",
+            "C. Ed Nº 20 Juan W.Gez",
+            "Epa Nº 6 Pf.Sor. L.R.Barroso",
+            "Esc. N°69 Mtra. O.E.Sarden",
+            "Centro Educ. N°10 R.Podetti",
+            "Esc. N° 431 Nely Chenau De Vecino",
+            "Esc N° 151 Pcia.De T.Del Fuego",
+            "Esc N°324 F.Muñoz De Fourcade",
+            "Esc N°200 Cap Fausto Gavazzi",
+            "Esc Nº 37 J.B.Alberdi",
+            "Esc N°429 Gregorio Aguero",
+            "Esc Tec N° 16 Jesus Obrero",
+            "Ctro.Educ.N°11 S.Cortinez",
+            "Esc N°272 Capital Federal",
+            "Esc. Nº 82 Gral Las Heras",
+            "Esc Tec N° 21 Maria Auxiliadora",
+            "Esc.Hogar N° 6 Dr.V.Luco",
+            "Esc N° 38 Gral.P.Lucero",
+            "Esc N° 210 Gral.Pedernera",
+            "Esc.Pcial.N° 270 A Del C Bazan",
+            "Esc N° 271 Cautivas Puntanas",
+            "Esc. Tec N° 17 V.Brigada Aerea",
+            "Esc N° 411 C.A.De San Juan",
+            "Esc. N°251 Santiago Del Estero",
+            "Esc.417 F.Navarro",
+            "Esc. N°73 Los Tres Granaderos",
+            "Esc. N° 76 L.Quiroga De Lucero",
+            "Esc N°74 Ben. Rodriguez Jurado",
+            "Col.Nº 27 Dr. Eleodoro Lobos",
+            "Cen Educ. N°14 D.O. De Masramon",
+            "Esc. N°225 Mtro. Pio R.Flores",
+            "C. Edu N°13 Rosa Burgos Aguirre",
+            "Esc. N°250 Tomas Espora",
+            "Escuela 277 Gral Belgrano",
+            "Esc. N°278 Gral F Lucero",
+            "C Educ. N°18 C. Rosales(EX ESC.103)",
+            "Esc.N°285 Gdro.D.Ortiz",
+            "Esc. N°104 D.F.Sarmiento",
+            "Esc N°215 Mntro.A.M.Garro",
+            "Esc N°178 J.I.Pedernera",
+            "Esc N°213 Maestros Sanluiseños",
+            "Esc N°362 Gdro.M.Perez",
+            "Esc N°249 C.Garcia Torres",
+            "Esc.Nº 442 A.Rodriguez Saa",
+            "Esc N°156 Gdro.Jose G.Bustos",
+            "C.Edu.N°17 H. Irigoyen (Ex Esc. N° 64)",
+            "Esc 398 Justo Daract",
+            "Esc N°395 Granadero V.Concha",
+            "Esc N°158 Jose M.Estrada",
+            "Esc. Hogar N° 7 J.C.Lafinur",
+            "Esc N° 220 H.De Ayohuma",
+            "Esc N° 219 A.Del C.G.Velez",
+            "Esc N° 295 M.E.S.De Amodey",
+            "Epa N° 9 Dr. H.De La Motta",
+            "Esc N° 435 Pueblo Comechingon",
+            "Esc N° 181 San Jose De Calazan",
+            "Esc N° 288 Antonio E.Aguero",
+            "Inst.Monseñor Orzali",
+            "Centro Ed.N°27 Gdor.S.Besso",
+            "Centro Ed.N°26 M.P.De Becerra",
+            "Esc N° 221 I.Romero De Pacheco",
+            "Esc N° 159 Pcia.De Jujuy",
+            "Esc N° 237 M.T.Chirino",
+            "Esc N° 223 G.J.M.Pringles",
+            "Esc N° 48 F.Berrondo",
+            "Ctro.Educ.N° 19 F.D.Sarmiento",
+            "Esc N° 296 Prof.C.Carletti",
+            "Esc N° 298 Mtro.E.Daract",
+            "Esc. N° 171 Pintor M.Muñoz",
+            "Esc N° 290 Dir.Teofilo Gatica",
+            "Esc N° 259 Vicedir.J.T.Lucero",
+            "Esc. Tec N° 30 Fragata P Sarmiento",
+            "Inst. San Jose",
+            "Esc N°50 Eulalio Astudillo",
+            "Esc.95 Victor Mercante",
+            "Esc N° 199 Pcia.De Buenos Aires",
+            "Esc N° 196 Mtra.M.De Ramirez",
+            "Esc N° 236 Vicedir.J.Belzunce",
+            "Esc N° 61 S.R.Domingo Matheu",
+            "Esc N° 198 P.Federal Argentina",
+            "Esc N° 292 Dip.R.Paez Montero",
+            "Esc N° 84 Dalmiro S.Adaro",
+            "Esc N° 224 Mtro.V.Guiñazu",
+            "Esc N° 308 Nicolas Avellaneda",
+            "Esc. 303 Sebastian Muñoz",
+            "Ctro.Ed.N° 25 J.J.De Urquiza",
+            "Esc. N° 85 Alvarez Condarco",
+            "Esc Nº 310 Gob R Rodriguez Saa",
+            "Hogar Esc.N° 20 Pol.Puntana",
+            "Ex Esc.N° 336 Mtro.Diog.Taboada",
+            "Esc N° 127 San Lorenzo",
+            "Hogar Esc.N° 4 Mtro.J.M.Tissera",
+            "Ctro.Educ.N° 7 Geol.R.Guiñazu",
+            "Esc. N° 302 Mtro.Celestino Jofre",
+            "Esc N° 306 Gob.Zoilo Concha",
+            "Esc N° 191 Pcia.De La Pampa",
+            "Esc.Epem N° 4 Cortes Aparicio",
+            "Hogar Esc.N° 9 P.A.De Sarmiento",
+            "Esc N° 422 Prof.E.F.De Gomez",
+            "Esc N° 440 Sarmiento",
+            "Esc N°149 Lainez",
+            "Esc N°188 Santa Cruz",
+            "Esc N° 438 B.Rivadavia",
+            "Col.22 J.M.Estrada",
+            "Esc N° 243 Rio Negro",
+            "Esc.Hogar 16 Gderos.Puntanos",
+            "Hogar Esc.N° 10 Neuquen",
+            "Esc N° 45 J.De Dios Escobar",
+            "Hogar Esc.N° 13 F.A.Argentina",
+            "Esc. Hogar Nº 18 M M P De Grillo"
+        ];
+
+        // // Función para reformatear los nombres de las escuelas
+        // function reformatearNombresEscuelas(nombresEscuelas) {
+        //     for (var i = 0; i < nombresEscuelas.length; i++) {
+        //         var nombreEscuela = nombresEscuelas[i];
+        //         // Reemplazar los puntos y espacios adicionales
+        //         nombreEscuela = nombreEscuela.replace(/\s+/g, ' ').trim();
+        //         // Reemplazar F. por F y N° por N° (sin espacios)
+        //         nombreEscuela = nombreEscuela.replace('F.', 'F').replace('N°', 'N°');
+        //         // Convertir las palabras a mayúsculas y minúsculas según corresponda
+        //         nombreEscuela = nombreEscuela.toLowerCase().split(' ').map(function(word) {
+        //             return word.charAt(0).toUpperCase() + word.slice(1);
+        //         }).join(' ');
+        //         nombresEscuelas[i] = nombreEscuela;
+        //     }
+        //     return nombresEscuelas;
+        // }
+
+        // // Reformatear los nombres de las escuelas
+        // schoolsInSanLuis = reformatearNombresEscuelas(schoolsInSanLuis);
+
+        // Agregar opciones al select
+        for (var i = 0; i < schoolsInSanLuis.length; i++) {
+            var option = document.createElement("option");
+            option.text = schoolsInSanLuis[i];
+            selectSchool.add(option);
+        }
+
+        selectProvincia.addEventListener('change', function () {
+            updateSchoolVisibility();
+        });
+
+        $('#exampleSchool').selectpicker();
+
+        function updateSchoolVisibility() {
+            const esResidenteArg = radioSi.checked;
+            const provinciaArgValue = selectProvincia.value;
+
+            // console.log("el valor del residente es: ",esResidenteArg);
+            // console.log("el valor del provincia es: ",provinciaArgValue);
+            // Mostrar la lista de escuelas solo si es residente de Argentina y selecciona San Luis
+            schoolArg.style.display = esResidenteArg && provinciaArgValue === 'San Luis' ? 'block' : 'none';
+        }
+
+
+    
+    </script>
+</body>
+</html>
