@@ -58,6 +58,22 @@ function backToResgistro(){
   window.location.href = nuevaURL;
 }
 
+function obtenerFechaActual() {
+    const fechaActual = new Date();
+    
+    // Obtén los componentes de la fecha
+    const dia = fechaActual.getUTCDate() + 1;
+    const mes = fechaActual.getUTCMonth() + 1; // Los meses en JavaScript van de 0 a 11
+    const anio = fechaActual.getUTCFullYear();
+
+    // Formatea la fecha como "YYYY-MM-DD" (puedes ajustar el formato según tus necesidades)
+    const fechaFormateada = `${anio}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '0' : ''}${dia}`;
+    // const fechaFormateada = `${dia < 10 ? '0' : ''}${dia}-${mes < 10 ? '0' : ''}${mes}-${anio}`;
+
+    return fechaFormateada;
+}
+
+
 function sendResultsQQ(results, interes){
     
   const queryString = window.location.search;
