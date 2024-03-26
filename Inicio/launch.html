@@ -80,6 +80,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="login.js"></script>
 <script>
+    localStorage.setItem('flagDatos', 0);
     document.addEventListener('DOMContentLoaded', function() {
         // Obtén el nombre de usuario del parámetro en la URL
         const userName = localStorage.getItem('userName');

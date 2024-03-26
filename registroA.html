@@ -30,7 +30,7 @@
                     <label class="form-label">¿Eres residente de Argentina?</label><br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="residenteRadio" id="residenteSi" checked>
-                        <label class="form-check-label" for="residenteSi">Sí</label>
+                        <label class="form-check-label" for="residenteSi" >Sí</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="residenteRadio" id="residenteNo">
@@ -84,6 +84,12 @@
         const provinciaArg = document.getElementById('provinciaArg');
         const schoolArg = document.getElementById('schoolArg');  // Agregado
 
+        let flagDatos = localStorage.getItem('flagDatos');
+        
+        if(radioSi.checked == true){
+            provinciaArg.style.display = 'block';
+        }
+
         radioSi.addEventListener('change', function () {
             paisOrigen.style.display = 'none';
             provinciaArg.style.display = 'block';
@@ -94,8 +100,8 @@
             provinciaArg.style.display = 'none';
             schoolArg.style.display = 'none';
         });
-        // Array de provincias
 
+        // Array de provincias
         var provincias = [    "Buenos Aires",    "Catamarca",    "Chaco",    "Chubut",    "Ciudad Autónoma de Buenos Aires",    "Córdoba",    "Corrientes",    "Entre Ríos",    "Formosa",    "Jujuy",    "La Pampa",    "La Rioja",    "Mendoza",    "Misiones",    "Neuquén",    "Río Negro",    "Salta",    "San Juan",    "San Luis",    "Santa Cruz",    "Santa Fe",    "Santiago del Estero",    "Tierra del Fuego, Antártida e Islas del Atlántico Sur",    "Tucumán"];
 
 
@@ -109,6 +115,7 @@
             option.text = provincias[i];
             selectProvincia.add(option);
         }
+        
         
         // fetch('https://apis.datos.gob.ar/georef/api/provincias')
         // .then(response => response.json())
@@ -169,6 +176,8 @@
                 } 
             } else {
 
+                flagDatos = 1;
+                localStorage.setItem('flagDatos', flagDatos);
                 const url = 'http://localhost:8081/usuarios';  // Reemplaza con la URL de tu endpoint en el backend
                 const data = {
                     email: email,
@@ -248,34 +257,40 @@
 
         // En el evento 'DOMContentLoaded', establecer los valores de los campos en el formulario
         document.addEventListener('DOMContentLoaded', function () {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
+            console.log("flagDatos tiene ", flagDatos);
+            if(flagDatos == 1){
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
 
-            // Obtener los valores de los parámetros de la URL
-            const email = urlParams.get('email');
-            const edad = urlParams.get('edad');
-            const esResidenteArg = urlParams.get('esResidenteArg');
-            const provinciaArgValue = urlParams.get('provinciaArg');
-            const schoolInSanLuis = urlParams.get('schoolInSanLuis');
+                // Obtener los valores de los parámetros de la URL
+                const email = urlParams.get('email');
+                const edad = urlParams.get('edad');
+                const esResidenteArg = urlParams.get('esResidenteArg');
+                const provinciaArgValue = urlParams.get('provinciaArg');
+                const schoolInSanLuis = urlParams.get('schoolInSanLuis');
 
-            // Establecer los valores en los campos del formulario
-            document.getElementById('exampleInputEmail1').value = email || '';
-            document.getElementById('exampleEdad').value = edad || '';
-            // Establecer los valores en los campos del formulario
-            if (esResidenteArg === 'true') {
-                radioSi.checked = true;
-                paisOrigen.style.display = 'none';
-                provinciaArg.style.display = 'block';
-                selectProvincia.value = provinciaArgValue || '';
-                selectSchool.value = schoolInSanLuis || '';
-            } else {
-                radioNo.checked = true;
-                paisOrigen.style.display = 'block';
-                provinciaArg.style.display = 'none';
+                // radioSi.checked = true; // Marcar el radio "Sí" como seleccionado al cargar la página
+
+                // Establecer los valores en los campos del formulario
+                document.getElementById('exampleInputEmail1').value = email || '';
+                document.getElementById('exampleEdad').value = edad || '';
+                // Establecer los valores en los campos del formulario
+                if (esResidenteArg === 'true') {
+                    radioSi.checked = true;
+                    paisOrigen.style.display = 'none';
+                    provinciaArg.style.display = 'block';
+                    selectProvincia.value = provinciaArgValue || '';
+                    selectSchool.value = schoolInSanLuis || '';
+                } else {
+                    radioNo.checked = true;
+                    paisOrigen.style.display = 'block';
+                    provinciaArg.style.display = 'none';
+                }
+
+                // Actualizar la visibilidad de la lista de escuelas
+                updateSchoolVisibility();
             }
-
-            // Actualizar la visibilidad de la lista de escuelas
-            updateSchoolVisibility();
+            
         });
 
         function volver(){
