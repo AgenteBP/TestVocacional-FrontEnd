@@ -145,7 +145,7 @@ function sendResultsQQ(results, interes){
         .then(response => response.text())
         .then(html => {
             // Enviamos el correo
-            sendEmail(email);
+            sendEmail(typeofPDF,email);
             // Crear un elemento temporal para cargar el HTML del archivo
             const tempEl = document.createElement('div');
             tempEl.innerHTML = html;
@@ -237,56 +237,56 @@ function reloadPage() {
   window.location.href = nuevaURL;
 }
 
-function sendEmail(email) {
-    // Obtiene el valor del correo electrónico desde el span
-    // var destinatario = document.getElementById('emailEnModal').innerText;
-    var destinatario = email;
+// function sendEmail(email) {
+//     // Obtiene el valor del correo electrónico desde el span
+//     // var destinatario = document.getElementById('emailEnModal').innerText;
+//     var destinatario = email;
 
-    // Abre una nueva ventana de correo electrónico con el destinatario
-    // window.open('mailto:' + email);
-    fetch('http://localhost:8081/sendEmail/enviar', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            destinatario: destinatario 
-        })
-    })
-    .then(response => {
-        console.log('Estado de la respuesta:', response.status);
-        console.log('Cabeceras de la respuesta:', response.headers);
+//     // Abre una nueva ventana de correo electrónico con el destinatario
+//     // window.open('mailto:' + email);
+//     fetch('http://localhost:8081/sendEmail/enviar', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             destinatario: destinatario 
+//         })
+//     })
+//     .then(response => {
+//         console.log('Estado de la respuesta:', response.status);
+//         console.log('Cabeceras de la respuesta:', response.headers);
 
-        if (!response.ok) {
-            throw new Error('Error en la respuesta del servidor: ' + response.status);
-        }
+//         if (!response.ok) {
+//             throw new Error('Error en la respuesta del servidor: ' + response.status);
+//         }
 
-        // Verifica si la respuesta tiene un tipo de contenido adecuado
-        const contentType = response.headers.get('content-type');
-        console.log('Tipo de contenido de la respuesta:', contentType);
+//         // Verifica si la respuesta tiene un tipo de contenido adecuado
+//         const contentType = response.headers.get('content-type');
+//         console.log('Tipo de contenido de la respuesta:', contentType);
 
-        if (contentType && contentType.includes('application/json')) {
-            return response.json();  // Analiza la respuesta como JSON
-        } else {
-            return response.text();
-        }
-    })
-    .then(data => {
-        console.log('Respuesta del servidor:', data);
-        console.log('Respuesta del status:', data.status);
+//         if (contentType && contentType.includes('application/json')) {
+//             return response.json();  // Analiza la respuesta como JSON
+//         } else {
+//             return response.text();
+//         }
+//     })
+//     .then(data => {
+//         console.log('Respuesta del servidor:', data);
+//         console.log('Respuesta del status:', data.status);
     
-        // Verifica si la respuesta indica que el mensaje fue enviado exitosamente
-        // if (data.status === 200) {
-            // Muestra un mensaje de alerta indicando que el mensaje fue enviado
-            // alert('Mensaje enviado exitosamente, presione aceptar para volver hacer el test');
-            // reloadPage();
-        // } else {
-        //     // Muestra un mensaje de alerta indicando que hubo un problema al enviar el mensaje
-        //     alert('Error al enviar el mensaje');
-        // }
+//         // Verifica si la respuesta indica que el mensaje fue enviado exitosamente
+//         // if (data.status === 200) {
+//             // Muestra un mensaje de alerta indicando que el mensaje fue enviado
+//             // alert('Mensaje enviado exitosamente, presione aceptar para volver hacer el test');
+//             // reloadPage();
+//         // } else {
+//         //     // Muestra un mensaje de alerta indicando que hubo un problema al enviar el mensaje
+//         //     alert('Error al enviar el mensaje');
+//         // }
         
-    })
-    .catch(error => {
-        console.error('Error al enviar el correo electrónico:', error);
-    });
-}
+//     })
+//     .catch(error => {
+//         console.error('Error al enviar el correo electrónico:', error);
+//     });
+// }

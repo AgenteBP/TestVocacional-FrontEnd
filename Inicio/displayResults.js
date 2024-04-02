@@ -33,6 +33,10 @@ let typeOfSearch = 0;
 let opcion = null;
 let valor = null;
 
+// Tabla seleccionada
+let numberTable = parseInt(localStorage.getItem('numberTable'));
+let tableId = localStorage.getItem('tableId');
+
 // Extraer los parámetros de la cadena de consulta
 // let urlParams = new URLSearchParams(window.location.search);
 
@@ -103,6 +107,7 @@ function cargarDatosYPaginacion(opcion, url) {
     // Verifica si el token está disponible
     console.log("el token tiene "+token);
     console.log("el userName tiene "+userName);
+    console.log("la url tiene "+url);
     if (token) {
         // Realizar la solicitud GET a la API con información de paginación
         fetch(url, {
@@ -258,13 +263,13 @@ function dataForTableViewAll(data){
     const tabla = document.getElementById("miTabla");
     const tbody = tabla.querySelector("tbody");
     const paginacion = document.getElementById("paginacion");
-    const canvas = document.getElementById("graficaBarras");
+    // const canvas = document.getElementById("graficaBarras");
     const filtro = document.getElementById("filtrado"); // Agregar esta línea
 
     // Limpiar la tabla y la paginación
     tbody.innerHTML = '';
     paginacion.innerHTML = '';
-    canvas.style.display =  'none';
+    // canvas.style.display =  'none';
     if (filtro) {
         filtro.style.display = 'table-row';
     }
@@ -304,13 +309,11 @@ function dataForTableViewEsResident(data){
     const tabla = document.getElementById("tablaEsResidente");
     const tbody = tabla.querySelector("tbody");
     const paginacion = document.getElementById("paginacion");
-    const canvas = document.getElementById("graficaBarras");
     const filtro = document.getElementById("filtrado"); // Agregar esta línea
 
     // Limpiar la tabla y la paginación
     tbody.innerHTML = '';
     paginacion.innerHTML = '';
-    canvas.style.display =  'none';
     filtro.style.display = 'table-row';
 
     // Llenar la tabla con los datos
@@ -342,13 +345,11 @@ function dataForTableViewEsNoResident(data){
     const tabla = document.getElementById("tablaEsNoResidente");
     const tbody = tabla.querySelector("tbody");
     const paginacion = document.getElementById("paginacion");
-    const canvas = document.getElementById("graficaBarras");
     const filtro = document.getElementById("filtrado"); // Agregar esta línea
 
     // Limpiar la tabla y la paginación
     tbody.innerHTML = '';
     paginacion.innerHTML = '';
-    canvas.style.display =  'none';
     filtro.style.display = 'table-row';
 
     // Llenar la tabla con los datos
@@ -380,13 +381,11 @@ function dataForTableSchoolInSanLuis(data){
     const tabla = document.getElementById("tablaSchoolInSanLuis");
     const tbody = tabla.querySelector("tbody");
     const paginacion = document.getElementById("paginacion");
-    const canvas = document.getElementById("graficaBarras");
     const filtro = document.getElementById("filtrado"); // Agregar esta línea
 
     // Limpiar la tabla y la paginación
     tbody.innerHTML = '';
     paginacion.innerHTML = '';
-    canvas.style.display =  'none';
     filtro.style.display = 'table-row';
 
     // Llenar la tabla con los datos
@@ -623,4 +622,7 @@ function agregarBotonesPaginacionBootstrap(data, idpaginacion, numberTable) {
 }
 
 // Cargar datos y paginación al cargar la página
-cargarDatosYPaginacion(1, urlViewAll);
+console.log("numberTable tiene ",numberTable);
+console.log("tableId tiene ",tableId);
+// cargarDatosYPaginacion(numberTable, tableId);
+selectOption(numberTable, tableId);

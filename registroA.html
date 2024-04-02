@@ -55,6 +55,11 @@
                         <select class="form-select form-select-sm selectpicker show-tick"  data-live-search="true" data-width="50%" data-size="10" id="exampleSchool" name="exampleSchool" title='Seleccione una Escuela...'>
                         </select>
                     </div>
+                    <div id="otherSchoolInput" style="display: none;">
+                        <label for="otherSchool" class="form-label">Ingrese Escuela</label>
+                        <input type="text" class="form-control" id="otherSchool" name="otherSchool">
+                    </div>
+                    &nbsp;&nbsp;
                 </div>
                 <div class="d-flex justify-content-between">
                     <button type="button" class="btn btn-primary" onclick="validarCampos(1)">Realizar Test Vocacional</button>
@@ -156,6 +161,7 @@
             var paisOrigen = document.getElementById('paisOrigenInput').value;
             var provinciaArg = document.getElementById('exampleProvince').value;
             var schoolInSanLuis = document.getElementById("exampleSchool").value;
+            var otherSchool = document.getElementById('otherSchool').value;
 
             console.log('Email:', email);
             console.log('Edad:', edad);
@@ -163,6 +169,7 @@
             console.log('País de Origen:', paisOrigen);
             console.log('Provincia en Argentina:', provinciaArg);
             console.log('escuela de San Luis ssss:', schoolInSanLuis);
+            console.log('escuela de San Luis no puesto en la lista es:', otherSchool);
             // edad.trim() === '' 
 
             if (email.trim() === '' || (!residenteSi && !residenteNo) || isNaN(edadCheck) || edadCheck <= 16) {
@@ -178,6 +185,9 @@
 
                 flagDatos = 1;
                 localStorage.setItem('flagDatos', flagDatos);
+                if(esResidenteArg && provinciaArg === 'San Luis' && schoolInSanLuis === "Otro"){
+                    schoolInSanLuis = otherSchool;
+                }
                 const url = 'http://localhost:8081/usuarios';  // Reemplaza con la URL de tu endpoint en el backend
                 const data = {
                     email: email,
@@ -298,6 +308,7 @@
         }
 
         var schoolsInSanLuis = [
+            "Otro",
             "Esc N° 51 F. Segundo Mendoza",
             "Esc N° 9 A.P.A.D.I.S",
             "Ctro. Ed. N° 28 Rene Favaloro",
@@ -569,11 +580,34 @@
             const esResidenteArg = radioSi.checked;
             const provinciaArgValue = selectProvincia.value;
 
-            // console.log("el valor del residente es: ",esResidenteArg);
-            // console.log("el valor del provincia es: ",provinciaArgValue);
             // Mostrar la lista de escuelas solo si es residente de Argentina y selecciona San Luis
-            schoolArg.style.display = esResidenteArg && provinciaArgValue === 'San Luis' ? 'block' : 'none';
+            // schoolArg.style.display = esResidenteArg && provinciaArgValue === 'San Luis' ? 'block' : 'none';
+            // Mostrar la lista de escuelas solo si es residente de Argentina y selecciona San Luis
+            if (esResidenteArg && provinciaArgValue === 'San Luis') {
+                schoolArg.style.display = 'block';
+                toggleOtherSchoolInput(); // Llamar a la función para manejar la visibilidad del input "Otro"
+            } else {
+                schoolArg.style.display = 'none';
+            }
         }
+
+        // Obtener elementos del DOM
+        // var selectSchool = document.getElementById('exampleSchool');
+        var otherSchoolInput = document.getElementById('otherSchoolInput');
+
+        // Función para mostrar u ocultar el input según la selección en el select
+        function toggleOtherSchoolInput() {
+            var selectedOption = selectSchool.options[selectSchool.selectedIndex].value;
+            if (selectedOption === 'Otro') {
+                otherSchoolInput.style.display = 'block';
+            } else {
+                otherSchoolInput.style.display = 'none';
+            }
+        }
+
+        selectSchool.addEventListener('change', function () {
+            toggleOtherSchoolInput();
+        });
 
 
     
