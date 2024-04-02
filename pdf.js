@@ -145,15 +145,14 @@ const dataIC = [
     ['Trabajo Final', 'Práctica Profesional Supervisada'],
     ['Dedicación completa (exigente)']
 ];
+const pdf = new jsPDF('p','pt', 'a4');
+// var margin = 20;
+// scale = (pdf.internal.pageSize.width - margin * 2) / document.body.clientWidth;
+var margin = 25;
+var scale = (pdf.internal.pageSize.width - (margin * 2)) / document.body.clientWidth;
 
-function generarPDF(typeofPDF){
-    // Obtén una instancia de jsPDF
-    // window.jsPDF = window.jspdf.jsPDF;
-    // const pdf = window.jsPDF;
-    const pdf = new jsPDF('p','pt', 'letter');
-    var margin = 20;
-    scale = (pdf.internal.pageSize.width - margin * 2) / document.body.clientWidth;
-
+function buildPDF(typeofPDF){
+    
     var data = null;
 
     // // Agrega el título al PDF
@@ -186,6 +185,46 @@ function generarPDF(typeofPDF){
             break;
     }
 
+    // Devuelve el contenido del PDF como una cadena
+    return pdf.output('datauristring');
+    // return data;
+
+}
+
+function generarPDF(typeofPDF){
+
+    var data = null;
+
+    // // Agrega el título al PDF
+    // pdf.setFontSize(18);
+
+    switch(typeofPDF){
+        case 1: 
+            pdf.text(carrerTW, 10, 10);
+            data = document.getElementById('tableTW');
+            break;
+        case 2:
+            pdf.text(carrerTR, 10, 10);
+            data = document.getElementById('tableTR');
+            break;
+        case 3:
+            pdf.text(carrerPC, 10, 10);
+            data = document.getElementById('tablePC');
+            break;
+        case 4:
+            pdf.text(carrerLC, 15, 20);
+            data = document.getElementById('tableLC');
+            break;
+        case 5:
+            pdf.text(carrerII, 10, 10);
+            data = document.getElementById('tableII');
+            break;
+        case 6:
+            pdf.text(carrerIC, 10, 10);
+            data = document.getElementById('tableIC');
+            break;
+    }
+
     pdf.html(
         data, 
         {
@@ -204,9 +243,105 @@ function generarPDF(typeofPDF){
     
 }
 
+function sendEmail(typeofPDF, destinatario) {
+    var data = null;
+    console.log("el destinatario es ", destinatario);
 
+    switch (typeofPDF) {
+        case 1:
+            pdf.text(carrerTW, 10, 10);
+            data = document.getElementById('tableTW');
+            break;
+        case 2:
+            pdf.text(carrerTR, 10, 10);
+            data = document.getElementById('tableTR');
+            break;
+        case 3:
+            pdf.text(carrerPC, 10, 10);
+            data = document.getElementById('tablePC');
+            break;
+        case 4:
+            pdf.text(carrerLC, 10, 10);
+            data = document.getElementById('tableLC');
+            break;
+        case 5:
+            pdf.text(carrerII, 10, 10);
+            data = document.getElementById('tableII');
+            break;
+        case 6:
+            pdf.text(carrerIC, 10, 10);
+            data = document.getElementById('tableIC');
+            break;
+    }
 
+    pdf.html(data, {
+        x: margin,
+        y: margin,
+        html2canvas: {
+            scale: scale,
+        },
+        callback: function (pdf) {
+            // Convertir el PDF en un Blob
+            var blob = new Blob([pdf.output('arraybuffer')], { type: 'application/pdf' });
 
+            // Crear el objeto FormData y agregar el PDF y el destinatario
+            var formData = new FormData();
+            formData.append('pdf', blob, 'carrera_informacion.pdf');
+            formData.append('destinatario', destinatario);
 
+            // Enviar la solicitud POST al backend
+            fetch('http://localhost:8081/sendEmail/enviar', {
+                method: 'POST',
+                body: formData
+            })
+                // .then(response => {
+                //     if (!response.ok) {
+                //         throw new Error('Error al enviar el PDF al servidor');
+                //     }
+                //     alert('PDF enviado al servidor correctamente');
+                // })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el PDF al servidor');
+            });
+        }
+    });
+}
 
+// .then(response => {
+//     console.log('Estado de la respuesta:', response.status);
+//     console.log('Cabeceras de la respuesta:', response.headers);
+
+//     if (!response.ok) {
+//         throw new Error('Error en la respuesta del servidor: ' + response.status);
+//     }
+
+//     // Verifica si la respuesta tiene un tipo de contenido adecuado
+//     const contentType = response.headers.get('content-type');
+//     console.log('Tipo de contenido de la respuesta:', contentType);
+
+//     if (contentType && contentType.includes('application/json')) {
+//         return response.json();  // Analiza la respuesta como JSON
+//     } else {
+//         return response.text();
+//     }
+// })
+// .then(data => {
+//     console.log('Respuesta del servidor:', data);
+//     console.log('Respuesta del status:', data.status);
+
+//     // Verifica si la respuesta indica que el mensaje fue enviado exitosamente
+//     // if (data.status === 200) {
+//         // Muestra un mensaje de alerta indicando que el mensaje fue enviado
+//         // alert('Mensaje enviado exitosamente, presione aceptar para volver hacer el test');
+//         // reloadPage();
+//     // } else {
+//     //     // Muestra un mensaje de alerta indicando que hubo un problema al enviar el mensaje
+//     //     alert('Error al enviar el mensaje');
+//     // }
+    
+// })
+// .catch(error => {
+//     console.error('Error al enviar el correo electrónico:', error);
+// });
 

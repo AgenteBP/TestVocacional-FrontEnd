@@ -56,7 +56,7 @@ function submitLogin(event) {
                 localStorage.setItem('authToken', data.token);
                 
                 // Si la autenticación es exitosa, redirige a la página mostrarResultado.html
-                window.location.href = 'mostrarResultado.html';
+                window.location.href = 'mostrarResultado3.html';
             })
             .catch(error => {
                 console.error('Error al realizar la solicitud:', error);
