@@ -66,6 +66,19 @@ body {
     color: #000;
 }
 
+.expandAside {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.expandAside i {
+    font-size: 1.5rem;
+    /* color: #FFF; */
+    color: #000;
+}
+
 .sidebar-logo {
     margin: auto 0;
 }

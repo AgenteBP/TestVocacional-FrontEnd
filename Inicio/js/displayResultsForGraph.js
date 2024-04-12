@@ -73,6 +73,35 @@ let valor = null;
 // Tabla seleccionada
 let numberGraph = parseInt(localStorage.getItem('numberGraph'));
 let graphId = localStorage.getItem('graphId');
+let typeOfGraph = parseInt(localStorage.getItem('typeOfGraph'));
+
+
+function handleModeChange() {
+    // Ocultar o mostrar los selectores según el typeOfGraph
+    if (typeOfGraph == 1) {
+        // Ocultar el selector de provincia
+        document.getElementById("selectProvincia").style.display = "none";
+        // Mostrar el selector de escuelas
+        document.getElementById("selectEscuela").style.display = "block";
+    } else if (typeOfGraph == 2) {
+        // Ocultar el selector de escuelas
+        document.getElementById("selectEscuela").style.display = "none";
+        // Mostrar el selector de provincias
+        document.getElementById("selectProvincia").style.display = "block";
+    }
+}
+
+// // Espera a que el documento esté completamente cargado
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Busca el modal por su id
+//     var modal = document.getElementById('exampleModal');
+//     // Vincula el evento 'shown.bs.modal' al modal
+//     modal.addEventListener('shown.bs.modal', function () {
+//         // Llama a la función handleModeChange() cuando se muestre el modal
+//         handleModeChange();
+//     });
+// });
+
 
 const token = localStorage.getItem('authToken');
 const userName = localStorage.getItem('userName');
@@ -95,7 +124,7 @@ function selectOption(numberTable, tableId){
     typeOfSearch = 0;
     switch (numberTable) {
         case 1:
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true`;
+            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true&modo=1`;
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
             break;
@@ -105,6 +134,16 @@ function selectOption(numberTable, tableId){
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
             break;
+        case 3:
+            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true&modo=2`;
+            showTable(tableId);
+            cargarDatosYPaginacion(numberTable,urlViewGraph);
+        break;
+        case 4:
+            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true&modo=3`;
+            showTable(tableId);
+            cargarDatosYPaginacion(numberTable,urlViewGraph);
+        break;
     }
 }
 
@@ -150,6 +189,12 @@ function cargarDatosYPaginacion(opcion, url) {
                 case 2:
                     dataForViewGraphBarOfSchool(data,1);
                     break;
+                case 3:
+                    dataForTableViewGraph(data);
+                    break;
+                case 4:
+                    dataForTableViewGraph(data);
+                    break;
                 
             }
         })
@@ -178,6 +223,35 @@ function mostrarModalSesionExpirada() {
             window.location.href = 'launch.html';
         }
     });
+}
+
+function acortarNombreEscuela(nombreEscuela) {
+    // Lista de palabras que se deben reemplazar
+    const reemplazos = [
+        { original: 'ESCUELA DE JORNADA EXTENDIDA', abreviado: 'ESC' },
+        { original: 'ESCUELA PÚBLICA AUTOGESTIONADA', abreviado: 'ESC P.A ' },
+        { original: 'ESCUELA ', abreviado: 'ESC ' },
+        { original: 'CENTRO EDUCATIVO', abreviado: 'C.E ' },
+        { original: 'ESCUELA TÉCNICA', abreviado: 'ESC TÉC ' },
+        { original: 'INSTITUTO', abreviado: 'INS ' },
+        { original: 'CENTRO EDUCATIVO NIVEL SUPERIOR', abreviado: 'C.E.N.S ' },
+        { original: 'ESCUELA DE EDUCACIÓN ESPECIAL', abreviado: 'ESC E.E ' },
+        { original: 'ESCUELA NACIONAL NORMAL', abreviado: 'ESC N.N ' },
+        { original: 'COLEGIO', abreviado: 'COL ' },
+        { original: 'ESCUELA DE COMERCIO', abreviado: 'ESC COM ' },
+        { original: 'ESCUELA SECUNDARIA', abreviado: 'ESC SEC ' },
+        { original: 'ESCUELA DE JORNADA COMPLETA', abreviado: 'ESC J.C ' },
+        { original: 'ESCUELA PÚBLICA DIGITAL', abreviado: 'ESC P.D ' },
+        { original: 'ESCUELA GENERATIVA', abreviado: 'ESC GE ' },
+
+    ];
+
+    // Aplicar los reemplazos
+    reemplazos.forEach(reemplazo => {
+        nombreEscuela = nombreEscuela.replace(reemplazo.original, reemplazo.abreviado);
+    });
+
+    return nombreEscuela;
 }
 
 function dataForTableViewGraph(data) {
@@ -221,13 +295,14 @@ function dataForTableViewGraph(data) {
     graficas = chart;
 }
 
-function filterGraphA(event){
+function filterGraphA(event, modo){
     event.preventDefault();
 
     // Obtener los valores del formulario
     var rangoEdad = slider.getValue();
     var rangoAño = slider2.getValue();
-    var exampleSchool = document.getElementById('exampleSchool').value;
+    var exampleSchool = modo == 1 ? document.getElementById('exampleSchool').value : "";
+    var exampleProvincia = modo == 2 ? document.getElementById('exampleProvince').value : "";
     var interesCheckboxG = document.getElementById('interesCheckboxG').checked;
 
     console.log("rangoEdad mínimo: ", rangoEdad.minValue);
@@ -235,12 +310,22 @@ function filterGraphA(event){
     console.log("rangoEdad máximo: ", rangoEdad.maxValue);
     console.log("rangoAño máximo: ", rangoAño.maxValue);
     console.log("exampleSchool: ", exampleSchool);
+    console.log("exampleProvincia: ", exampleProvincia);
     console.log("interesCheckboxG:", interesCheckboxG);
     if(exampleSchool == ""){
         console.log("esta vacio exampleScholl");
         exampleSchool= null;
     }
-    urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
+    switch(modo){
+        case 1:
+            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
+            break;
+        case 2:
+            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&provincia=${exampleProvincia}&modo=3`;
+            break;
+    }
+    // urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
+    
 
     cargarDatosYPaginacion(1, urlViewGraph);
 
@@ -269,7 +354,7 @@ function filterGraphM(event){
 }
 
 
-// Grafico de Escuelas 
+// Grafico de barras Escuelas 
 
 function dataForViewGraphBarOfSchool(data, currentPage) {
     // Ocultar el gráfico circular
@@ -284,7 +369,7 @@ function dataForViewGraphBarOfSchool(data, currentPage) {
     const endIndex = Math.min(startIndex + schoolsPerPage, data.length);
 
     // Obtener los datos de las escuelas y cantidades para la página actual
-    const schools = data.slice(startIndex, endIndex).map(item => item[0]);
+    const schools = data.slice(startIndex, endIndex).map(item => acortarNombreEscuela(item[0]));
     const cantidades = data.slice(startIndex, endIndex).map(item => item[1]);
 
     // Crear un arreglo de objetos que contengan las escuelas y las cantidades para la página actual

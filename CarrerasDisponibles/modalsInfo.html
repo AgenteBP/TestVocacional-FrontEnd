@@ -2,15 +2,17 @@
 <div class="modal fade" id="ModalLC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-flex justify-content-between align-items-center">
                 <h5 class="modal-title" id="exampleModalLabel">Información algunas conceptos de la informática</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div>
+                  <i class="bi bi-filetype-pdf" type="button" onclick="generarPDFCD(4)">Descargar PDF</i>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
             </div>
             <div class="modal-body">
               <strong>Que vas a aprender si estudias la carrera de Licenciatura en Ciencia de la Computación</strong>
-              <i class="bi bi-filetype-pdf" type="button" onclick="generarPDF(4)">Descargar PDF</i>
               <p>Esta carrera esta enfocada mas a la teoria y aplicacion de la informática. Por lo tanto vas a adquirir conocimientos preparándote en:</p>
               <p>
                 <strong>Programación.</strong>
@@ -51,7 +53,7 @@
               
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="sendResultsQQ('Licenciatura en Ciencia de la Computación', false)">No me interesa</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Licenciatura en Ciencia de la Computación', true)">Me interesa</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Licenciatura en Ciencia de la Computación', true, 4)">Me interesa</button>
             </div>
         </div>
     </div>
@@ -61,15 +63,17 @@
 <div class="modal fade" id="ModalPC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-flex justify-content-between align-items-center">
                 <h5 class="modal-title" id="exampleModalLabel">Información algunas conceptos de la informática</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div>
+                  <i class="bi bi-filetype-pdf" type="button" onclick="generarPDFCD(3)">Descargar PDF</i>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                  </button>
+                </div>
             </div>
             <div class="modal-body">
               <strong>Que vas a aprender si estudias la carrera de Profesorado en Ciencia de la Computación</strong>
-              <i class="bi bi-filetype-pdf" type="button" onclick="generarPDF(3)">Descargar PDF</i>
               <p>Esta carrera esta enfocada mas a la teoria para poder enseñar temas relacionados con la informática y la tecnología. Por lo tanto vas a adquirir conocimientos preparándote en:</p>
               <p>
                 <strong>Trasmitir enseñanzas de la informática en todos los niveles.</strong>
@@ -99,7 +103,7 @@
               <h5>Para obtener más información sobre la carrera, inscripción y cuando comienza la cursada haz clic en "Me interesa".</h5>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="sendResultsQQ('Profesorado en Ciencias de la Computación', false)">No me interesa</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Profesorado en Ciencias de la Computación', true)">Me interesa</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Profesorado en Ciencias de la Computación', true, 3)">Me interesa</button>
             </div>
         </div>
     </div>
@@ -109,15 +113,17 @@
 <div class="modal fade" id="ModalIF" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-flex justify-content-between align-items-center">
                 <h5 class="modal-title" id="exampleModalLabel">Información algunas conceptos de la informática</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div>
+                  <i class="bi bi-filetype-pdf" type="button" onclick="generarPDFCD(5)">Descargar PDF</i>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                  </button>
+                </div>
             </div>
             <div class="modal-body">
               <strong>Que vas a aprender si estudias la carrera de Ingeniería en Informática</strong>
-              <i class="bi bi-filetype-pdf" type="button" onclick="generarPDF(5)">Descargar PDF</i>
               <p>Esta carrera esta enfocada mas a la practica para obtener habilidades para diseñar, desarrollar y gestionar sistemas informáticos. Por lo tanto vas a adquirir conocimientos preparándote en:</p>
               <p>
                 <strong>Programación de alto nivel.</strong>
@@ -162,7 +168,7 @@
             <h5>Para obtener más información sobre la carrera, inscripción y cuando comienza la cursada haz clic en "Me interesa".</h5>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="sendResultsQQ('Ingeniería en Informática', false)">No me interesa</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Ingeniería en Informática', true)">Me interesa</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Ingeniería en Informática', true, 5)">Me interesa</button>
             </div>
         </div>
     </div>
@@ -172,15 +178,17 @@
 <div class="modal fade" id="ModalIC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-flex justify-content-between align-items-center">
                 <h5 class="modal-title" id="exampleModalLabel">Información algunas conceptos de la informática</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div>
+                  <i class="bi bi-filetype-pdf" type="button" onclick="generarPDFCD(6)">Descargar PDF</i>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                  </button>
+                </div>
             </div>
             <div class="modal-body">
               <strong>Que vas a aprender si estudias la carrera de Ingeniería en Computación</strong>
-              <i class="bi bi-filetype-pdf" type="button" onclick="generarPDF(6)">Descargar PDF</i>
               <p>Esta carrera esta enfocada mas a la practica para obtener habilidades para diseñar, desarrollar y optimizar sistemas computacionales. Por lo tanto vas a adquirir conocimientos preparándote en:</p>
               <p>
                 <strong>Redes de Computadora.</strong>
@@ -230,7 +238,7 @@
 
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="sendResultsQQ('Ingeniería en Computación', false)">No me interesa</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Ingeniería en Computación', true)">Me interesa</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Ingeniería en Computación', true, 6)">Me interesa</button>
             </div>
         </div>
     </div>
@@ -239,16 +247,18 @@
 <!-- Tecnicatura Web con Modal -->
 <div class="modal fade" id="ModalTW" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
-        <div class="modal-content">
+        <div class="modal-content d-flex justify-content-between align-items-center">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Información algunas conceptos de la informática</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div>
+                  <i class="bi bi-filetype-pdf" type="button" onclick="generarPDFCD(1)">Descargar PDF</i>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                  </button>
+                </div>
             </div>
             <div class="modal-body">
               <strong>Que vas a aprender si estudias la carrera de Tecnicatura Universitaria en Web</strong>
-              <i class="bi bi-filetype-pdf" type="button" onclick="generarPDF(1)">Descargar PDF</i>
               <p>Esta carrera esta enfocada mas a la practica para obtener habilidades específicas para el diseño, desarrollo y mantenimiento de sitios web. Por lo tanto vas a adquirir conocimientos preparándote en:</p>
               <p>
                 <strong>Programación para paginas Web.</strong>
@@ -297,25 +307,29 @@
               <h5>Para obtener más información sobre la carrera, inscripción y cuando comienza la cursada haz clic en "Me interesa".</h5>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="sendResultsQQ('Tecnicatura Universitaria en Web', false)">No me interesa</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Tecnicatura Universitaria en Web', true)">Me interesa</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Tecnicatura Universitaria en Web', true, 1)">Me interesa</button>
             </div>
         </div>
     </div>
 </div>
 
+
+
 <!-- Tecnicatura Universitaria en Redes de Computadoras con Modal -->
 <div class="modal fade" id="ModalTR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
       <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header d-flex justify-content-between align-items-center">
               <h5 class="modal-title" id="exampleModalLabel">Información algunas conceptos de la informática</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <div>
+                <i class="bi bi-filetype-pdf" type="button" onclick="generarPDFCD(2)">Descargar PDF</i>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
-              </button>
+                </button>
+              </div>
           </div>
           <div class="modal-body">
             <strong>Que vas a aprender si estudias la carrera de Tecnicatura Universitaria en Redes de Computadoras</strong>
-            <i class="bi bi-filetype-pdf" type="button" onclick="generarPDF(2)">Descargar PDF</i>
             <p>Esta carrera esta enfocada mas a la practica para obtener habilidades específicas para diseñar, implementar y mantener redes informáticas. Por lo tanto vas a adquirir conocimientos preparándote en:</p>
             
             <p>
@@ -366,7 +380,7 @@
 
           <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="sendResultsQQ('Tecnicatura Universitaria en Redes de Computadoras', false)">No me interesa</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Tecnicatura Universitaria en Redes de Computadoras', true)">Me interesa</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendResultsQQ('Tecnicatura Universitaria en Redes de Computadoras', true, 2)">Me interesa</button>
           </div>
       </div>
   </div>
@@ -434,3 +448,296 @@
       color: blue;
   }
 </style>
+
+<!-- PDF TW -->
+<div id="tableTW">
+  <h3>Estimación: <strong>Tecnicatura Web</strong></h3>
+  <h5><strong>Duración:</strong> 3 años</h5>
+  <table class="table">
+
+      <tbody>
+          <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col"><strong>Programación</strong></th>
+                  <th scope="col"><strong>Horario de cursada</strong></th>
+                  <th scope="col"><strong>Salida laboral</strong></th>
+                  <th scope="col"><strong>Etapa Final</strong></th>
+              </tr>
+              </thead>
+          <tr>
+              <th scope="row">Lo que debes saber acerca de la carrera:</th>
+              <td>          
+                  Veras más orientado al alto Nivel como por ejemplo:
+                  <ul>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                      <li>Frameworks y Bibliotecas como React</li>
+                      <li>Bases de datos</li>
+                      <li>Git y GitHub</li>
+                  </ul>                
+              </td>
+              <td>
+                  Generalmente son en la tarde y la noche
+              </td>
+              <td>
+                  <li>Desarrollador de Software Web y de aplicaciones móviles</li>
+                  <li>Dar asesoramiento técnico</li>
+                  <li>Brindar seguridad en Web</li>
+              </td>
+              <td>
+                  Práctica Técnica Supervisada
+              </td>
+          </tr>
+      </tbody>
+      </table>
+</div>
+
+<!-- PDF TR -->
+<div id="tableTR">
+  <h3>Estimación: <strong>Tecnicatura Universitaria en Redes de Computadoras</strong></h3>
+  <h5><strong>Duración:</strong> 3 años</h5>
+  <table class="table">
+
+      <tbody>
+          <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col"><strong>Programación</strong></th>
+                  <th scope="col"><strong>Horario de cursada</strong></th>
+                  <th scope="col"><strong>Salida laboral</strong></th>
+                  <th scope="col"><strong>Etapa Final</strong></th>
+              </tr>
+              </thead>
+          <tr>
+              <th scope="row">Lo que debes saber acerca de la carrera:</th>
+              <td>          
+                  Veras mas lenguajes y herramientas que te permitan comprender, mantener y solucionar problemas en entornos de redes en tareas de redes como por ejemplo:
+                  <ul>
+                      <li>Python</li>
+                      <li>Java</li>
+                      <li>Sistemas Operativos de Redes</li>
+                      <li>Bash scripting</li>
+                      <li>Wireshark</li>
+                      <li>GNS3 (Graphical Network Simulator-3)</li>
+                      <li>Cisco packet tracer</li>
+                  </ul>               
+              </td>
+              <td>
+                  Generalmente son en la tarde y la noche
+              </td>
+              <td>
+                  <li>Asesoramiento técnico</li>
+                  <li>Mantenimiento de redes</li>
+                  <li>Desarrollar dispositivos de redes</li>
+                  <li>Diseño, instalación y configuración de redes de computadora</li>
+              </td>
+              <td>
+                  Práctica Técnica Supervisada
+              </td>
+          </tr>
+      </tbody>
+      </table>
+</div>
+
+<!-- PDF PC -->
+<div id="tablePC">
+  <h3>Estimación: <strong>Profesorado en Ciencias de la Computación</strong></h3>
+  <h5><strong>Duración:</strong> 4 años</h5>
+  <table class="table">
+
+      <tbody>
+          <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col"><strong>Programación</strong></th>
+                  <th scope="col"><strong>Horario de cursada</strong></th>
+                  <th scope="col"><strong>Salida laboral</strong></th>
+                  <th scope="col"><strong>Etapa Final</strong></th>
+              </tr>
+              </thead>
+          <tr>
+              <th scope="row">Lo que debes saber acerca de la carrera:</th>
+              <td>          
+                  Veras lenguajes y herramientas que te permitan comprender, mantener y solucionar problemas en el área de educativa como por ejemplo:
+                  <ul>
+                      <li>Java</li>
+                      <li>C, C++</li>
+                      <li>Prolog</li>
+                      <li>Bases de datos como MySql, postgresql</li>
+                      <li>Programación funcional como Haskell</li>
+                      <li>Assembly</li>
+                      <li>Software educativo como App Inventor</li>
+                  </ul>               
+              </td>
+              <td>
+                  Generalmente los horarios de la materia entan dividos entre mañana, tarde y noche
+              </td>
+              <td>
+                  <li>Poder ejercer la docencia en informática en todos los niveles.</li>
+                  <li>Realizar investigación con fines educativos.</li>
+                  <li>Asesoría y consultoría a empresas, instituciones educativas o gubernamentales.</li>
+                  <li>Desarrollo de Software Educativo.</li>
+              </td>
+              <td>
+                  <li>Actividades acreditables en docencia</li>
+                  <li>Actividades acreditables en extensión</li>
+                  <li>Actividades acreditables en investigación</li>
+              </td>
+          </tr>
+      </tbody>
+      </table>
+</div>
+
+<!-- PDF LC -->
+<div id="tableLC">
+  <h3>Estimación: <strong>Licenciatura en Ciencia de la Computación</strong></h3>
+  <h5><strong>Duración:</strong> 5 años</h5>
+  <table class="table">
+
+      <tbody>
+          <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col"><strong>Programación</strong></th>
+                  <th scope="col"><strong>Horario de cursada</strong></th>
+                  <th scope="col"><strong>Salida laboral</strong></th>
+                  <th scope="col"><strong>Etapa Final</strong></th>
+              </tr>
+              </thead>
+          <tr>
+              <th scope="row">Lo que debes saber acerca de la carrera:</th>
+              <td>          
+                  Veras lenguajes y herramientas que te permitan comprender, mantener y solucionar problemas en el área de investigación como por ejemplo:
+                  <ul>
+                      <li>Java</li>
+                      <li>C, C++</li>
+                      <li>Prolog</li>
+                      <li>Bases de datos como MySql, postgresql</li> 
+                      <li>Programación funcional como Haskell</li>
+                      <li>Assembly</li>
+                      <li>Arena Simulation para simulación</li>
+                      <li>Cisco packet tracer</li>
+                  </ul>               
+              </td>
+              <td>
+                  Generalmente los horarios de la materia entan dividos entre mañana, tarde y noche
+              </td>
+              <td>
+                  <li>Ámbito de investigación</li>
+                  <li>Áreas informáticas de organizaciones</li>
+                  <li>Formar parte de un equipo de desarrollo de Software</li>
+                  <li>Enseñanzas Universitaria y capacitación en ciencias de la computación</li>
+              </td>
+              <td>
+                  <li>Trabajo Final</li>
+                  <li>Práctica de Investigación Supervisada</li>
+              </td>
+          </tr>
+      </tbody>
+      </table>
+</div>
+
+<!-- PDF II -->
+<div id="tableII">
+  <h3>Estimación: <strong>Ingeniería en Informática</strong></h3>
+  <h5><strong>Duración:</strong> 5 años</h5>
+  <table class="table">
+
+      <tbody>
+          <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col"><strong>Programación</strong></th>
+                  <th scope="col"><strong>Horario de cursada</strong></th>
+                  <th scope="col"><strong>Salida laboral</strong></th>
+                  <th scope="col"><strong>Etapa Final</strong></th>
+              </tr>
+              </thead>
+          <tr>
+              <th scope="row">Lo que debes saber acerca de la carrera:</th>
+              <td>          
+                  Veras mas lenguajes y herramientas que te permitan comprender, mantener y solucionar problemas en entornos de industria de software como por ejemplo:
+                  <ul>
+                      <li>Python</li>
+                      <li>Java</li>
+                      <li>C, C++</li>
+                      <li>Prolog</li>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>Javascript</li>
+                      <li>Frameworks y Bibliotecas como React, CodeIgniter, etc</li>
+                      <li>Bases de datos como MySql, postgresql</li>
+                      <li>Programación funcional como Haskell</li>
+                  </ul>               
+              </td>
+              <td>
+                  Generalmente los horarios de la materia entan dividos entre mañana, tarde y noche
+              </td>
+              <td>
+                  <li>Desarrollar, gestionar o controlar Proyectos de Software teniendo en cuenta el costo y tiempo.</li>
+                  <li>Aplicar la ciencia de la tecnología en mejorar productos de software ya existentes</li>
+                  <li>Seguridad Informática en Software</li>
+                  <li>Participar en asuntos legales, económicos y financieros en el área de software</li>
+              </td>
+              <td>
+                  <li>Trabajo Final</li>
+                  <li>Práctica Profesional Supervisada</li>
+              </td>
+          </tr>
+      </tbody>
+      </table>
+</div>
+
+<!-- PDF IC -->
+<div id="tableIC">
+  <h3>Estimación: <strong>Ingeniería en Computación</strong></h3>
+  <h5><strong>Duración:</strong> 5 años</h5>
+  <table class="table">
+
+      <tbody>
+          <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col"><strong>Programación</strong></th>
+                  <th scope="col"><strong>Horario de cursada</strong></th>
+                  <th scope="col"><strong>Salida laboral</strong></th>
+                  <th scope="col"><strong>Etapa Final</strong></th>
+              </tr>
+              </thead>
+          <tr>
+              <th scope="row">Lo que debes saber acerca de la carrera:</th>
+              <td>          
+                  Veras mas lenguajes y herramientas que te permitan comprender, mantener y solucionar problemas, como por ejemplo:
+                  <ul>
+                      <li>Python</li>
+                      <li>Java</li>
+                      <li>C, C++</li>
+                      <li>Assembly</li>
+                      <li>Sistemas Operativos de Redes</li>
+                      <li>Bash scripting</li>
+                      <li>Wireshark</li>
+                      <li>GNS3 (Graphical Network Simulator-3)</li>
+                      <li>Cisco packet tracer</li>
+                      <li>Bases de datos como MySql, postgresql</li>
+                      <li>Programación funcional como Haskell</li>
+                  </ul>               
+              </td>
+              <td>
+                  Generalmente los horarios de la materia entan dividos entre mañana, tarde y noche
+              </td>
+              <td>
+                  <li>Desarrollar, gestionar o controla arquitectura de computadoras, componentes electrónicos, la gestión de redes y comunicaciones, señales digitales. Teniendo en cuenta el costo y tiempo.</li>
+                  <li>Aplicar la ciencia de la tecnología en mejorar productos de hardware y software ya existentes.</li>
+                  <li>Seguridad Informática en productos de hardware y software</li>
+                  <li>Participar en asuntos legales, económicos y financieros en el área.</li>
+              </td>
+              <td>
+                  <li>Trabajo Final</li>
+                  <li>Práctica Profesional Supervisada</li>
+              </td>
+          </tr>
+      </tbody>
+      </table>
+</div>
