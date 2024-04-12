@@ -17,20 +17,20 @@
 
 <body>
     <div class="wrapper">
-        <aside id="sidebar" class="expand">
+        <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
                     <!-- <i class="lni lni-grid-alt"></i> -->
                     <img src="../Imagenes/logo-UNSL-SMALL.png" alt="UNSL Informática Logo" width="45">
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">Test Vocacional</a>
+                    <a>Test Vocacional</a>
                 </div>  
             </div>
             <!-- <hr class="text-black " > -->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a onclick="redirectToResumen()" class="sidebar-link">
                         <i class="fa fa-house"></i>
                         <span onclick="redirectToResumen()">Resumen</span>
                     </a>
@@ -71,14 +71,25 @@
                             <a style="padding: .625rem 1rem;">Ver los Gráficos de:</a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" onclick="redirectToGraph(1,'graficaBarras')">Interes por Carreras</a>
+                            <a class="sidebar-link" onclick="redirectToGraph(3,'graficaBarras')">Interes por Carreras en SL</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" onclick="redirectToGraph(4,'graficaBarras')">Interes por Carreras en Prov</a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" onclick="redirectToGraph(2,'graficaBarrasEscuelas')">Top de Escuelas</a>
                         </li>
                     </ul>
                 </li>
+                <br>
+                <br>
+                <button class="expandAside" type="button">
+                    <i class="fa-solid fa-right-long"></i>
+                </button>
+                
             </ul>
+
+            
         </aside>
         <div class="main p-3">
             <header class="card-header header d-flex justify-content-end">
@@ -233,6 +244,28 @@
 
         hamBurger.addEventListener("click", function () {
         document.querySelector("#sidebar").classList.toggle("expand");
+        });
+
+        document.querySelector('.expandAside').addEventListener('click', function() {
+            // Cambiar la clase expand del elemento #sidebar
+            document.querySelector('#sidebar').classList.toggle('expand');
+
+            // Obtener el botón expandAside
+            const expandButton = document.querySelector('.expandAside');
+
+            // Obtener el ícono dentro del botón
+            const icon = expandButton.querySelector('i');
+
+            // Cambiar la clase del ícono dependiendo del estado de expansión de la barra lateral
+            if (document.querySelector('#sidebar').classList.contains('expand')) {
+                // Si la barra lateral está expandida, cambiar el ícono a fa-left-long
+                icon.classList.remove('fa-right-long');
+                icon.classList.add('fa-left-long');
+            } else {
+                // Si la barra lateral no está expandida, cambiar el ícono a fa-right-long
+                icon.classList.remove('fa-left-long');
+                icon.classList.add('fa-right-long');
+            }
         });
 
         function redirectToResumen(){

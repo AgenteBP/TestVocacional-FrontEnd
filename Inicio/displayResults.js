@@ -13,6 +13,36 @@ var setting = {
     }
 var slider = wRunner(setting);
 
+var setting2 = {
+    roots: document.querySelector('.my-js-slider2'),
+    type: 'range',
+    step: 1,
+    rangeValue: {
+        minValue: 1930,
+        maxValue: 2024,
+    },
+    limits : { 
+        minLimit: 1930,      
+        maxLimit: 2024   
+    }
+    }
+var slider2 = wRunner(setting2);
+
+var setting3 = {
+    roots: document.querySelector('.my-js-slider3'),
+    type: 'range',
+    step: 1,
+    rangeValue: {
+        minValue: 16,
+        maxValue: 100,
+    },
+    limits : { 
+        minLimit: 16,      
+        maxLimit: 100   
+    }
+    }
+var slider3 = wRunner(setting3);
+
 // Variables de paginación
 let paginaActual = 0;
 const elementosPorPagina = 10; // Ajusta la cantidad de elementos por página según tu necesidad
@@ -36,6 +66,15 @@ let valor = null;
 // Tabla seleccionada
 let numberTable = parseInt(localStorage.getItem('numberTable'));
 let tableId = localStorage.getItem('tableId');
+
+
+if(numberTable === 4){
+    // Mostrar el selector de escuelas
+    document.getElementById("filtroForSchool").style.display = "block";
+}
+else{
+    document.getElementById("filtroForSchool").style.display = "none";
+}
 
 // Extraer los parámetros de la cadena de consulta
 // let urlParams = new URLSearchParams(window.location.search);
@@ -248,6 +287,38 @@ function filtrarTabla(event) {
 
     // Después de aplicar el filtrado, puedes volver a cargar los datos y la paginación
     cargarDatosYPaginacion(opcionVisualizador, urlFiltrado, typeOfSearch);
+}
+
+function filterGraphA(event){
+    event.preventDefault();
+
+    // Obtener los valores del formulario
+    var rangoEdad = slider3.getValue();
+    var rangoAño = slider2.getValue();
+    var exampleSchool = document.getElementById('exampleSchool').value;
+    var interesCheckboxG = document.getElementById('interesCheckboxG').checked;
+
+    console.log("rangoEdad mínimo: ", rangoEdad.minValue);
+    console.log("rangoAño mínimo: ", rangoAño.minValue);
+    console.log("rangoEdad máximo: ", rangoEdad.maxValue);
+    console.log("rangoAño máximo: ", rangoAño.maxValue);
+    console.log("exampleSchool: ", exampleSchool);
+    console.log("interesCheckboxG:", interesCheckboxG);
+    if(exampleSchool == ""){
+        console.log("esta vacio exampleScholl");
+        exampleSchool= null;
+    }
+
+    // urlViewSchoolInSanLuis = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
+
+    urlViewSchoolInSanLuis = `http://localhost:8081/resultados/schoolInSanLuisFP?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
+
+    
+
+    cargarDatosYPaginacion(4, urlViewSchoolInSanLuis);
+
+    // Cerrar el modal después de cargar los datos
+    $('#exampleModal').modal('hide');
 }
 
 function convertirFormatoFecha(fecha) {

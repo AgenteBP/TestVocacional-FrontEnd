@@ -6,7 +6,7 @@ const url1 = `http://localhost:8081/resultados/count`;
 const url2 = `http://localhost:8081/resultados/countWithInterest`;
 const url3 = `http://localhost:8081/resultados/mostChosenCareer`;
 const url4 = `http://localhost:8081/resultados/mostFrequentSchool`;
-const urlGraphPie = `http://localhost:8081/resultados/viewGraph`;
+const urlGraphPie = `http://localhost:8081/resultados/viewGraph?modo=1`;
 
 const cuentaTotalElement1 = document.getElementById('cuentaTotal');
 const cuentaTotalElement2 = document.getElementById('cuentaTotalI');
@@ -14,6 +14,35 @@ const cuentaTotalElement3 = document.getElementById('cuentaCarrera');
 const cuentaTotalElement4 = document.getElementById('cuentaEscuela');
 
 console.log("el token tiene "+token);
+
+function acortarNombreEscuela(nombreEscuela) {
+    // Lista de palabras que se deben reemplazar
+    const reemplazos = [
+        { original: 'ESCUELA DE JORNADA EXTENDIDA', abreviado: 'ESC' },
+        { original: 'ESCUELA PÚBLICA AUTOGESTIONADA', abreviado: 'ESC P.A ' },
+        { original: 'ESCUELA TÉCNICA', abreviado: 'ESC TÉC ' },
+        { original: 'ESCUELA ', abreviado: 'ESC ' },
+        { original: 'CENTRO EDUCATIVO', abreviado: 'C.E ' },
+        { original: 'INSTITUTO', abreviado: 'INS ' },
+        { original: 'CENTRO EDUCATIVO NIVEL SUPERIOR', abreviado: 'C.E.N.S ' },
+        { original: 'ESCUELA DE EDUCACIÓN ESPECIAL', abreviado: 'ESC E.E ' },
+        { original: 'ESCUELA NACIONAL NORMAL', abreviado: 'ESC N.N ' },
+        { original: 'COLEGIO', abreviado: 'COL ' },
+        { original: 'ESCUELA DE COMERCIO', abreviado: 'ESC COM ' },
+        { original: 'ESCUELA SECUNDARIA', abreviado: 'ESC SEC ' },
+        { original: 'ESCUELA DE JORNADA COMPLETA', abreviado: 'ESC J.C ' },
+        { original: 'ESCUELA PÚBLICA DIGITAL', abreviado: 'ESC P.D ' },
+        { original: 'ESCUELA GENERATIVA', abreviado: 'ESC GE ' },
+
+    ];
+
+    // Aplicar los reemplazos
+    reemplazos.forEach(reemplazo => {
+        nombreEscuela = nombreEscuela.replace(reemplazo.original, reemplazo.abreviado);
+    });
+
+    return nombreEscuela;
+}
 
 // Crear una función para hacer Fetch a una URL con el token de autorización
 const fetchData = async (url) => {
@@ -60,7 +89,7 @@ Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4),
     anychart.onDocumentReady(function () {
 
         // Obtener los datos de las carreras y cantidades desde el array data
-        let school = schools.map(item => item[0]);
+        let school = schools.map(item => acortarNombreEscuela(item[0]));
         let cantidades = schools.map(item => item[1]);
 
         // Crear un arreglo de objetos que contengan las carreras y las cantidades

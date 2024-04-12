@@ -41,18 +41,25 @@ function modalFunctionQQ(modalId, urlOption) {
   }
 
 function backToResgistro(){
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
+  // const queryString = window.location.search;
+  // const urlParams = new URLSearchParams(queryString);
 
-  const email = urlParams.get('email');
-  const idUsuario = urlParams.get('id');
-  const edad = urlParams.get('edad');
-  const esResidenteArg = urlParams.get('esResidenteArg');
-  const paisOrigen = urlParams.get('paisOrigen');
-  const provinciaArg = urlParams.get('provinciaArg');
+  // const email = urlParams.get('email');
+  // const idUsuario = urlParams.get('id');
+  // const edad = urlParams.get('edad');
+  // const esResidenteArg = urlParams.get('esResidenteArg');
+  // const paisOrigen = urlParams.get('paisOrigen');
+  // const provinciaArg = urlParams.get('provinciaArg');
+  const email = localStorage.getItem('email');
+  const idUsuario = localStorage.getItem('id');
+  const edad = localStorage.getItem('edad');
+  const esResidenteArg = localStorage.getItem('esResidenteArg');
+  const paisOrigen = localStorage.getItem('paisOrigen');
+  const provinciaArg = localStorage.getItem('provinciaArg');
   
   // Construir la nueva URL con los datos
-  const nuevaURL = `../registroA.html?email=${email}&id=${idUsuario}&edad=${edad}&esResidenteArg=${esResidenteArg}&paisOrigen=${paisOrigen}&provinciaArg=${provinciaArg}`;
+  // const nuevaURL = `../registroA.html?email=${email}&id=${idUsuario}&edad=${edad}&esResidenteArg=${esResidenteArg}&paisOrigen=${paisOrigen}&provinciaArg=${provinciaArg}`;
+  const nuevaURL = `../registroA.html`;
 
   // Redirigir a registroA.html con los datos
   window.location.href = nuevaURL;
@@ -74,24 +81,24 @@ function obtenerFechaActual() {
 }
 
 
-function sendResultsQQ(results, interes){
+function sendResultsQQ(results, interes, typeofPDF){
     
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
+  // const queryString = window.location.search;
+  // const urlParams = new URLSearchParams(queryString);
 
-  const email = urlParams.get('email');
-  const idUsuario = urlParams.get('id');
-  const edad = urlParams.get('edad');
-  const esResidenteArg = urlParams.get('esResidenteArg');
-  const paisOrigen = urlParams.get('paisOrigen');
-  const provinciaArg = urlParams.get('provinciaArg');
+  // const email = urlParams.get('email');
+  // const idUsuario = urlParams.get('id');
+  // const edad = urlParams.get('edad');
+  // const esResidenteArg = urlParams.get('esResidenteArg');
+  // const paisOrigen = urlParams.get('paisOrigen');
+  // const provinciaArg = urlParams.get('provinciaArg');
 
-//   const email = localStorage.getItem('email');
-//   const idUsuario = localStorage.getItem('id');
-//   const edad = localStorage.getItem('edad');
-//   const esResidenteArg = localStorage.getItem('esResidenteArg');
-//   const paisOrigen = localStorage.getItem('paisOrigen');
-//   const provinciaArg = localStorage.getItem('provinciaArg');
+  const email = localStorage.getItem('email');
+  const idUsuario = localStorage.getItem('id');
+  const edad = localStorage.getItem('edad');
+  const esResidenteArg = localStorage.getItem('esResidenteArg');
+  const paisOrigen = localStorage.getItem('paisOrigen');
+  const provinciaArg = localStorage.getItem('provinciaArg');
 
   console.log('Email:', email);
   console.log('ID:', idUsuario);
@@ -138,14 +145,14 @@ function sendResultsQQ(results, interes){
       console.log('ID del usuario:', data.id);
       // debugger;
       // let urlModalsResults = "../modalsResults.html";
-      let urlModalsResults = "modalsInfo.html";
+      // let urlModalsResults = "modalsInfo.html";
       if(interes == true){ 
-        // let urlModalsResults = "modalsInfo.html";
+        let urlModalsResults = "modalsInfo.html";
         fetch(urlModalsResults)
         .then(response => response.text())
         .then(html => {
             // Enviamos el correo
-            sendEmail(typeofPDF,email);
+            sendEmailCD(typeofPDF,email);
             // Crear un elemento temporal para cargar el HTML del archivo
             const tempEl = document.createElement('div');
             tempEl.innerHTML = html;
@@ -212,26 +219,26 @@ function sendResultsQQ(results, interes){
 function reloadPage() {
   // Recarga la página a registroA.html
 
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
+  // const queryString = window.location.search;
+  // const urlParams = new URLSearchParams(queryString);
 
-  const email = urlParams.get('email');
-  const idUsuario = urlParams.get('id');
-  const edad = urlParams.get('edad');
-  const esResidenteArg = urlParams.get('esResidenteArg');
-  const paisOrigen = urlParams.get('paisOrigen');
-  const provinciaArg = urlParams.get('provinciaArg');
+  // const email = urlParams.get('email');
+  // const idUsuario = urlParams.get('id');
+  // const edad = urlParams.get('edad');
+  // const esResidenteArg = urlParams.get('esResidenteArg');
+  // const paisOrigen = urlParams.get('paisOrigen');
+  // const provinciaArg = urlParams.get('provinciaArg');
 
-//   const email = localStorage.getItem('email');
-//   const idUsuario = localStorage.getItem('id');
-//   const edad = localStorage.getItem('edad');
-//   const esResidenteArg = localStorage.getItem('esResidenteArg');
-//   const paisOrigen = localStorage.getItem('paisOrigen');
-//   const provinciaArg = localStorage.getItem('provinciaArg');
+  const email = localStorage.getItem('email');
+  const idUsuario = localStorage.getItem('id');
+  const edad = localStorage.getItem('edad');
+  const esResidenteArg = localStorage.getItem('esResidenteArg');
+  const paisOrigen = localStorage.getItem('paisOrigen');
+  const provinciaArg = localStorage.getItem('provinciaArg');
   
   // Construir la nueva URL con los datos
-  const nuevaURL = `../registroA.html?email=${email}&id=${idUsuario}&edad=${edad}&esResidenteArg=${esResidenteArg}&paisOrigen=${paisOrigen}&provinciaArg=${provinciaArg}`;
-//   const nuevaURL = `../registroA.html`;
+  // const nuevaURL = `../registroA.html?email=${email}&id=${idUsuario}&edad=${edad}&esResidenteArg=${esResidenteArg}&paisOrigen=${paisOrigen}&provinciaArg=${provinciaArg}`;
+  const nuevaURL = `../registroA.html`;
 
   // Redirigir a registroA.html con los datos
   window.location.href = nuevaURL;

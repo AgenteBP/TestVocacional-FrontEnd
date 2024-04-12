@@ -14,10 +14,10 @@
 </head>
 <body>
     <div class="wrapper">
-        <aside id="sidebar" class="expand">
+        <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
-                    <i class="lni lni-grid-alt"></i>
+                    <img src="../Imagenes/logo-UNSL-SMALL.png" alt="UNSL Informática Logo" width="45">
                 </button>
                 <div class="sidebar-logo">
                     <a href="#">Test Vocacional</a>
@@ -26,7 +26,7 @@
             <!-- <hr class="text-black " > -->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a onclick="redirectToResumen()" class="sidebar-link">
                         <i class="fa fa-house"></i>
                         <span onclick="redirectToResumen()">Resumen</span>
                     </a>
@@ -67,13 +67,21 @@
                             <a style="padding: .625rem 1rem;">Ver los Gráficos de:</a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" onclick="redirectToGraph(1,'graficaBarras')">Interes por Carreras</a>
+                            <a class="sidebar-link" onclick="redirectToGraph(3,'graficaBarras')">Interes por Carreras en SL</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" onclick="redirectToGraph(4,'graficaBarras')">Interes por Carreras en Prov</a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" onclick="redirectToGraph(2,'graficaBarrasEscuelas')">Top de Escuelas</a>
                         </li>
                     </ul>
                 </li>
+                <br>
+                <br>
+                <button class="expandAside" type="button">
+                    <i class="fa-solid fa-right-long"></i>
+                </button>
             </ul>
         </aside>
         <div class="main p-3">
@@ -86,12 +94,12 @@
                     <div class="row gx-2 align-items-center">
                         <div class="col-auto">
                             <!-- Filtro en general con modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="handleModeChange()">
                                 <i class="fa-solid fa-filter"></i>
                             </button>
                             
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- Modal onshown="handleModeChange()"-->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -102,7 +110,7 @@
                                                 <i class="fa-solid fa-eraser"></i>
                                                 <span>Resetear</span>
                                             </a>
-                                            <form class="d-flex flex-column" onsubmit="filterGraphA(event)">
+                                            <form class="d-flex flex-column" onsubmit="filterGraphA(event, typeOfGraph)">
                                                 <div class="mb-3">
                                                     <label for="rangoEdad">Rango de Edad:</label>
                                                     <div class="my-js-slider"></div>
@@ -112,13 +120,23 @@
                                                     <label for="rangoEdad">Rango de Año:</label>
                                                     <div class="my-js-slider2"></div>
                                                 </div>
-                                    
-                                                <div class="mb-3 d-flex flex-column">
-                                                    <label aria-label="Filtrar por" id="filtroOpcion1">Escuelas a filtrar</label>
-                                                    <select class="selectpicker form-control"  data-live-search="true"  data-size="10" id="exampleSchool" name="exampleSchool" title='Seleccione una Escuela...'>
-                                                    </select>
-                                                    <!-- <input class="form-control me-2" type="search" placeholder="Buscar por escuela" aria-label="Search" id="filtroValorG1"> -->
+                                                
+                                                <div id="selectEscuela">
+                                                    <div class="mb-3 d-flex flex-column" >
+                                                        <label aria-label="Filtrar por" id="filtroOpcion1">Escuelas a filtrar</label>
+                                                        <select class="selectpicker form-control"  data-live-search="true"  data-size="10" id="exampleSchool" name="exampleSchool" title='Seleccione una Escuela...'>
+                                                        </select>
+                                                        <!-- <input class="form-control me-2" type="search" placeholder="Buscar por escuela" aria-label="Search" id="filtroValorG1"> -->
+                                                    </div>
                                                 </div>
+                                                
+                                                <div id="selectProvincia">
+                                                    <div class="mb-3 d-flex flex-column">
+                                                        <label aria-label="Filtrar por" id="filtroOpcion2">Provincias a filtrar</label>
+                                                        <select class="form-select form-select-sm" id="exampleProvince"></select>
+                                                    </div>
+                                                </div>
+                                                
                                     
                                                 <div class="mb-3 form-check">
                                                     <input class="form-check-input" type="checkbox" value="Interés" id="interesCheckboxG" checked>
@@ -132,7 +150,7 @@
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-success" onclick="filterGraphA(event)">Buscar</button>
+                                        <button type="button" class="btn btn-success" onclick="filterGraphA(event, typeOfGraph)">Buscar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -307,6 +325,7 @@
     <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-pie.min.js"></script>
     <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-cartesian.min.js"></script>
 
+    <script src="../school.js"></script>
     <script src="js/displayResultsForGraph.js"></script>
 
     <script>
@@ -314,6 +333,28 @@
 
         hamBurger.addEventListener("click", function () {
         document.querySelector("#sidebar").classList.toggle("expand");
+        });
+        
+        document.querySelector('.expandAside').addEventListener('click', function() {
+            // Cambiar la clase expand del elemento #sidebar
+            document.querySelector('#sidebar').classList.toggle('expand');
+
+            // Obtener el botón expandAside
+            const expandButton = document.querySelector('.expandAside');
+
+            // Obtener el ícono dentro del botón
+            const icon = expandButton.querySelector('i');
+
+            // Cambiar la clase del ícono dependiendo del estado de expansión de la barra lateral
+            if (document.querySelector('#sidebar').classList.contains('expand')) {
+                // Si la barra lateral está expandida, cambiar el ícono a fa-left-long
+                icon.classList.remove('fa-right-long');
+                icon.classList.add('fa-left-long');
+            } else {
+                // Si la barra lateral no está expandida, cambiar el ícono a fa-right-long
+                icon.classList.remove('fa-left-long');
+                icon.classList.add('fa-right-long');
+            }
         });
 
         function redirectToResumen(){
@@ -334,9 +375,28 @@
         function redirectToGraph(numberGraph, graphId) {
             localStorage.setItem("numberGraph",numberGraph);
             localStorage.setItem("graphId",graphId);
+            if(numberGraph === 3){
+                localStorage.setItem("typeOfGraph",1);
+            }
+            else if(numberGraph === 4){
+                localStorage.setItem("typeOfGraph",2);
+            }
             
             // Redirigir a la nueva página
             window.location.href = "graph.html";
+        }
+
+        // Array de provincias
+        var provincias = [   "Todas las provincias", "Buenos Aires",    "Catamarca",    "Chaco",    "Chubut",    "Ciudad Autónoma de Buenos Aires",    "Córdoba",    "Corrientes",    "Entre Ríos",    "Formosa",    "Jujuy",    "La Pampa",    "La Rioja",    "Mendoza",    "Misiones",    "Neuquén",    "Río Negro",    "Salta",    "San Juan",    "San Luis",    "Santa Cruz",    "Santa Fe",    "Santiago del Estero",    "Tierra del Fuego, Antártida e Islas del Atlántico Sur",    "Tucumán"];
+
+        // Obtener el elemento select
+        var selectProvincia = document.getElementById("exampleProvince");
+
+        // Agregar opciones al select
+        for (var i = 0; i < provincias.length; i++) {
+            var option = document.createElement("option");
+            option.text = provincias[i];
+            selectProvincia.add(option);
         }
 
         var selectSchool = document.getElementById("exampleSchool");
@@ -347,267 +407,31 @@
         var selectGraphSchool5 = document.getElementById("barGraphSchool5");
 
         
-        var schoolsInSanLuis = [
-            "Todas las escuelas",
-            "Esc N° 51 F. Segundo Mendoza",
-            "Esc N° 9 A.P.A.D.I.S",
-            "Ctro. Ed. N° 28 Rene Favaloro",
-            "Ctro Ed N° 23 Dr C.J.Rodriguez",
-            "Esc N°77 Maestros Puntanos",
-            "Col N°4 Fray Luis Beltran",
-            "Esc N°7 Constanzo C. Vigil",
-            "Esc N°98 Gob.Jose Santos Ortiz",
-            "Esc N°314 La Rioja",
-            "Inst De Formacion Doc Cont",
-            "Esc N°9 Esteban Adaro",
-            "Col N°10 Martin M Guémes",
-            "Esc. Nº 7 M. Belgrano",
-            "Esc N° 184 Belgrano",
-            "Col N° 12 R.Carrillo",
-            "Esc. Nº 1 Dra Carolina Tobar Garcia",
-            "Colegio 36 Bernardo A. Houssay",
-            "Esc. Nº 342 C Del Peregrino I Prim",
-            "Col Nº 35 C Del Peregrino II Sec",
-            "Esc. N° 2 Puertas Del Sol",
-            "Esc. Tec Nº 5 Alvarez Condarco",
-            "Esc N°49 Gdor. Lindor Quiroga",
-            "Esc. N° 2 Nicolas A. De San Luis",
-            "Esc N° 70 Pcia.De San Luis",
-            "Unsl Edificio Bloque I",
-            "Esc Nº 175 Gral.San Martin",
-            "Esc N Mixta J.P.Pringles",
-            "Centro Ed Nº 1 J.Pascual Pringles",
-            "Esc N° 427 Pcia.De Cordoba",
-            "Colegio San Luis Rey De Francia",
-            "Esc N° 8 Sargento Baigorria",
-            "Univ.Catolica De Cuyo",
-            "Esc N° 5 B.Mitre",
-            "Esc Nº 3 Manuel Belgrano",
-            "Ctro. Ed. Nº 2 P.D. Bazan",
-            "Esc N° 313 Rosario M. Simon",
-            "Esc N° 2 Bernardino Rivadavia",
-            "Esc. N° 172 Misiones",
-            "Esc N° 27 S.Camarero",
-            "Ctro.Educ.N° 3 Eva Peron",
-            "Esc N° 6 Sta.Maria Eufrasia",
-            "Esc Nº 16 Maria Delia Gatica",
-            "Esc Nº 17 Polo Godoy Rojo",
-            "Esc Tec N° 9 D.F.Sarmiento",
-            "Esc N°24 Pancha Hernandez",
-            "Esc. Nº 4 Juan Tulio Zabala",
-            "Colegio Nº 38 Marie Curie",
-            "Escuela Nº 5 Modelo San Luis",
-            "C.D. Nº 21 Puerta De Cuyo",
-            "Colegio N°13 R.Moyano",
-            "Esc. Tec N° 37 G.Ave Lallemant",
-            "Escuela N°264 Juan Martin De P",
-            "Esc Nº 139 B.Mitre",
-            "Esc Nº 23 H.Rodriguez Saa",
-            "Epa Nº 1 Rosenda Quiroga",
-            "Colegio 40 Heroes De Malvinas",
-            "Esc.434 Nuevos Desafios",
-            "Esc. Nelson Mandela",
-            "Epa Nº 14 Martin L King Secundario",
-            "Epa Nº 13 Esther Guevara Primaria",
-            "Centro E.N°6 'Sadoc S.Martin'",
-            "Escuela N° 267 Gdor.E.Mendoza",
-            "Esc N° 22 Bernardo O'Higgins",
-            "Esc. Nº 323 Juan W Gez",
-            "Escuela N° 141 Los Andes",
-            "Escuela N° 17 L. Jofre Y Menese",
-            "Escuela N° 10 Juan E. Vaca",
-            "Escuela N° 311 Luis Jofre",
-            "Municipio Desaguadero",
-            "Hogar N° 436 Juan Jose Paso",
-            "Centro Educ.N° 16 Tucuman",
-            "Escuela N° 337 Indep.Argentina",
-            "Escuela N° 13 Ant. Argentina",
-            "Hogar Esc.N° 22 Gdor.L.Landaburu",
-            "Escuela N° 142 Gdor.S.Besso",
-            "Esc N°441 Cap De F.P.E.Giachino",
-            "Escuela N°113 J.A.Ortiz Estrada",
-            "Ctro.Ed N°22 Urbano J Nuñez",
-            "Esc N°357 Maximo Camargo",
-            "Esc Tec N°28 J.M.De Pueyrredon",
-            "Colegio N°3 Manuel Belgrano",
-            "Esc. N°114 Dr.R.Gutierrez",
-            "Esc.Hogar N°11 Gran.J.R.Aguirre",
-            "Ex Esc.N°217 Maria R. De Astudillo",
-            "Esc N°204 Maest.N.Villegas",
-            "Esc N°201 Daniel Villegas",
-            "Esc. N°202 Gdor.G.Mendoza",
-            "Esc. N°146 Gran.T.Cuello",
-            "Ctro.Educ.N°5 Sen.A.Bertin",
-            "Esc N°179 Ejerc.Argentino",
-            "Esc N°381 Soldado Puntano",
-            "Ex.Esc.N°120 R.B.Pastor/Actual Epd Nº2 Estancia Grande-Primario",
-            "Ex.Esc. Nº145 Patricio Guanca/Actual Epd Nº2 Estancia Grande-Secundario",
-            "Esc N°328 H.P.Del ARA.G.Belgrano",
-            "Int. Ntra Señora Del Carmen",
-            "Epa N°10 M.E.V.Lucero-Primaria",
-            "Esc.Dig Bilingue M Gandhi",
-            "Epa N°10 M.E.V.Lucero-Secundar",
-            "Esc N°176 Maestra N.E.Perez De Fer",
-            "Epa Nº 7 E. Galeano",
-            "Esc Tec N°20 Antonio Berni",
-            "Esc N°106 Prof.T. Ferrari",
-            "Esc Tec N°15 Ing. A. Mercau",
-            "Esc. N°187 Jose Hernandez",
-            "Esc Nº 18 Nicolasa Berrondo De",
-            "Esc N°40 Ricardo Rojas",
-            "Esc. N°147 Prov. De Mendoza",
-            "Esc. N°240 Prov. De Corrientes",
-            "Universidad Catolica De Cuyo",
-            "Esc. N°33 Vicente Dupuy",
-            "Esc N°29 R.De Esc.De S.Martin",
-            "Col. Nº 2 Juan Esteban Pedernera",
-            "Esc N° 444 M.Eva D.De Peron",
-            "Ifdc",
-            "Centro Educ.N°9 Dr.J.Llerena",
-            "Esc. N°31 Mariano Moreno",
-            "Esc Nº 32 Justo Daract",
-            "Colegio N°11 B. Juarez",
-            "Esc Nº 30 Gral. Pedernera",
-            "Escuela N°388 Sgto. E.Romero",
-            "Esc. N°43 Dr. Tomas Jofre",
-            "Esc. N°152 Alas Argentinas",
-            "Esc. N° 371 Juan B. Alberdi",
-            "C. Ed Nº 20 Juan W.Gez",
-            "Epa Nº 6 Pf.Sor. L.R.Barroso",
-            "Esc. N°69 Mtra. O.E.Sarden",
-            "Centro Educ. N°10 R.Podetti",
-            "Esc. N° 431 Nely Chenau De Vecino",
-            "Esc N° 151 Pcia.De T.Del Fuego",
-            "Esc N°324 F.Muñoz De Fourcade",
-            "Esc N°200 Cap Fausto Gavazzi",
-            "Esc Nº 37 J.B.Alberdi",
-            "Esc N°429 Gregorio Aguero",
-            "Esc Tec N° 16 Jesus Obrero",
-            "Ctro.Educ.N°11 S.Cortinez",
-            "Esc N°272 Capital Federal",
-            "Esc. Nº 82 Gral Las Heras",
-            "Esc Tec N° 21 Maria Auxiliadora",
-            "Esc.Hogar N° 6 Dr.V.Luco",
-            "Esc N° 38 Gral.P.Lucero",
-            "Esc N° 210 Gral.Pedernera",
-            "Esc.Pcial.N° 270 A Del C Bazan",
-            "Esc N° 271 Cautivas Puntanas",
-            "Esc. Tec N° 17 V.Brigada Aerea",
-            "Esc N° 411 C.A.De San Juan",
-            "Esc. N°251 Santiago Del Estero",
-            "Esc.417 F.Navarro",
-            "Esc. N°73 Los Tres Granaderos",
-            "Esc. N° 76 L.Quiroga De Lucero",
-            "Esc N°74 Ben. Rodriguez Jurado",
-            "Col.Nº 27 Dr. Eleodoro Lobos",
-            "Cen Educ. N°14 D.O. De Masramon",
-            "Esc. N°225 Mtro. Pio R.Flores",
-            "C. Edu N°13 Rosa Burgos Aguirre",
-            "Esc. N°250 Tomas Espora",
-            "Escuela 277 Gral Belgrano",
-            "Esc. N°278 Gral F Lucero",
-            "C Educ. N°18 C. Rosales(EX ESC.103)",
-            "Esc.N°285 Gdro.D.Ortiz",
-            "Esc. N°104 D.F.Sarmiento",
-            "Esc N°215 Mntro.A.M.Garro",
-            "Esc N°178 J.I.Pedernera",
-            "Esc N°213 Maestros Sanluiseños",
-            "Esc N°362 Gdro.M.Perez",
-            "Esc N°249 C.Garcia Torres",
-            "Esc.Nº 442 A.Rodriguez Saa",
-            "Esc N°156 Gdro.Jose G.Bustos",
-            "C.Edu.N°17 H. Irigoyen (Ex Esc. N° 64)",
-            "Esc 398 Justo Daract",
-            "Esc N°395 Granadero V.Concha",
-            "Esc N°158 Jose M.Estrada",
-            "Esc. Hogar N° 7 J.C.Lafinur",
-            "Esc N° 220 H.De Ayohuma",
-            "Esc N° 219 A.Del C.G.Velez",
-            "Esc N° 295 M.E.S.De Amodey",
-            "Epa N° 9 Dr. H.De La Motta",
-            "Esc N° 435 Pueblo Comechingon",
-            "Esc N° 181 San Jose De Calazan",
-            "Esc N° 288 Antonio E.Aguero",
-            "Inst.Monseñor Orzali",
-            "Centro Ed.N°27 Gdor.S.Besso",
-            "Centro Ed.N°26 M.P.De Becerra",
-            "Esc N° 221 I.Romero De Pacheco",
-            "Esc N° 159 Pcia.De Jujuy",
-            "Esc N° 237 M.T.Chirino",
-            "Esc N° 223 G.J.M.Pringles",
-            "Esc N° 48 F.Berrondo",
-            "Ctro.Educ.N° 19 F.D.Sarmiento",
-            "Esc N° 296 Prof.C.Carletti",
-            "Esc N° 298 Mtro.E.Daract",
-            "Esc. N° 171 Pintor M.Muñoz",
-            "Esc N° 290 Dir.Teofilo Gatica",
-            "Esc N° 259 Vicedir.J.T.Lucero",
-            "Esc. Tec N° 30 Fragata P Sarmiento",
-            "Inst. San Jose",
-            "Esc N°50 Eulalio Astudillo",
-            "Esc.95 Victor Mercante",
-            "Esc N° 199 Pcia.De Buenos Aires",
-            "Esc N° 196 Mtra.M.De Ramirez",
-            "Esc N° 236 Vicedir.J.Belzunce",
-            "Esc N° 61 S.R.Domingo Matheu",
-            "Esc N° 198 P.Federal Argentina",
-            "Esc N° 292 Dip.R.Paez Montero",
-            "Esc N° 84 Dalmiro S.Adaro",
-            "Esc N° 224 Mtro.V.Guiñazu",
-            "Esc N° 308 Nicolas Avellaneda",
-            "Esc. 303 Sebastian Muñoz",
-            "Ctro.Ed.N° 25 J.J.De Urquiza",
-            "Esc. N° 85 Alvarez Condarco",
-            "Esc Nº 310 Gob R Rodriguez Saa",
-            "Hogar Esc.N° 20 Pol.Puntana",
-            "Ex Esc.N° 336 Mtro.Diog.Taboada",
-            "Esc N° 127 San Lorenzo",
-            "Hogar Esc.N° 4 Mtro.J.M.Tissera",
-            "Ctro.Educ.N° 7 Geol.R.Guiñazu",
-            "Esc. N° 302 Mtro.Celestino Jofre",
-            "Esc N° 306 Gob.Zoilo Concha",
-            "Esc N° 191 Pcia.De La Pampa",
-            "Esc.Epem N° 4 Cortes Aparicio",
-            "Hogar Esc.N° 9 P.A.De Sarmiento",
-            "Esc N° 422 Prof.E.F.De Gomez",
-            "Esc N° 440 Sarmiento",
-            "Esc N°149 Lainez",
-            "Esc N°188 Santa Cruz",
-            "Esc N° 438 B.Rivadavia",
-            "Col.22 J.M.Estrada",
-            "Esc N° 243 Rio Negro",
-            "Esc.Hogar 16 Gderos.Puntanos",
-            "Hogar Esc.N° 10 Neuquen",
-            "Esc N° 45 J.De Dios Escobar",
-            "Hogar Esc.N° 13 F.A.Argentina",
-            "Esc. Hogar Nº 18 M M P De Grillo"
-        ];
-
         // Agregar opciones al select
-        for (var i = 0; i < schoolsInSanLuis.length; i++) {
+        for (var i = 0; i < schoolsInSanLuisForGraph.length; i++) {
             var option = document.createElement("option");
-            option.text = schoolsInSanLuis[i];
+            option.text = schoolsInSanLuisForGraph[i];
             selectSchool.add(option);
 
             if (i !== 0) {
                 var optionCopy = document.createElement("option");
-                optionCopy.text = schoolsInSanLuis[i];
+                optionCopy.text = schoolsInSanLuisForGraph[i];
                 selectGraphSchool1.add(optionCopy);
 
                 var optionCopy2 = document.createElement("option");
-                optionCopy2.text = schoolsInSanLuis[i];
+                optionCopy2.text = schoolsInSanLuisForGraph[i];
                 selectGraphSchool2.add(optionCopy2);
 
                 var optionCopy3 = document.createElement("option");
-                optionCopy3.text = schoolsInSanLuis[i];
+                optionCopy3.text = schoolsInSanLuisForGraph[i];
                 selectGraphSchool3.add(optionCopy3);
 
                 var optionCopy4 = document.createElement("option");
-                optionCopy4.text = schoolsInSanLuis[i];
+                optionCopy4.text = schoolsInSanLuisForGraph[i];
                 selectGraphSchool4.add(optionCopy4);
 
                 var optionCopy5 = document.createElement("option");
-                optionCopy5.text = schoolsInSanLuis[i];
+                optionCopy5.text = schoolsInSanLuisForGraph[i];
                 selectGraphSchool5.add(optionCopy5);
             }
         }

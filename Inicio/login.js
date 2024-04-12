@@ -3,6 +3,13 @@ let password = null;
 let data = null;
 let authToken = null;
 
+function modalSesionIncorrect(){
+    // Muestra el modal
+    $('#sesionNoAutorizadoModal').modal('show');
+
+
+}
+
 function submitLogin(event) {
     var form = document.querySelector('.needs-validation');
 
@@ -32,7 +39,9 @@ function submitLogin(event) {
                 console.log('Cabeceras de la respuesta:', response.headers);
             
                 if (!response.ok) {
+                    modalSesionIncorrect();
                     throw new Error('Error en la respuesta del servidor: ' + response.status);
+
                 }
             
                 // Verifica si la respuesta tiene un tipo de contenido adecuado
