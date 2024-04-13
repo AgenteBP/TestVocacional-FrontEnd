@@ -150,8 +150,8 @@ function selectOption(numberTable, tableId){
 function logOut() {
     localStorage.removeItem('token'); // Cambia 'token' por la clave que identifica tu sesión
     
-    // Redirige a launch.html
-    window.location.href = 'launch.html';
+    // Redirige a index.html
+    window.location.href = 'index.html';
 }
 
 // Función para cargar datos y paginación
@@ -173,9 +173,9 @@ function cargarDatosYPaginacion(opcion, url) {
         .then(response => {
             // Verificar si la respuesta es un Unauthorized (código 403)
             if (response.status === 403) {
-                // El token ha expirado, muestra un modal y redirige a launch.html
+                // El token ha expirado, muestra un modal y redirige a index.html
                 mostrarModalSesionExpirada();
-                // window.location.href = 'launch.html';
+                // window.location.href = 'index.html';
                 return Promise.reject('Token expirado');
             }
 
@@ -216,11 +216,11 @@ function mostrarModalSesionExpirada() {
 
         // Verifica si el nombre de usuario está definido
         if (userNameFromURL) {
-            // Redirige a launch.html con el nombre de usuario en el parámetro
-            window.location.href = `launch.html?username=${userNameFromURL}`;
+            // Redirige a index.html con el nombre de usuario en el parámetro
+            window.location.href = `index.html?username=${userNameFromURL}`;
         } else {
-            // Redirige a launch.html sin ningún parámetro
-            window.location.href = 'launch.html';
+            // Redirige a index.html sin ningún parámetro
+            window.location.href = 'index.html';
         }
     });
 }
