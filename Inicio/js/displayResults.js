@@ -47,10 +47,10 @@ var slider3 = wRunner(setting3);
 let paginaActual = 0;
 const elementosPorPagina = 10; // Ajusta la cantidad de elementos por página según tu necesidad
 var valores = slider.getValue();
-let urlViewAll = `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
-let urlViewEsResident = `http://localhost:8081/resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
-let urlViewEsNoResident = `http://localhost:8081/resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
-let urlViewSchoolInSanLuis = `http://localhost:8081/resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
+let urlViewAll = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
+let urlViewEsResident = urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
+let urlViewEsNoResident = urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
+let urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
 let urlViewGraph = null;
 let graficas; // Arreglo para almacenar las instancias de gráfico
 
@@ -121,13 +121,13 @@ function selectOption(numberTable, tableId){
             cargarDatosYPaginacion(numberTable,urlViewSchoolInSanLuis);
             break;
         case 5:
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=true`;
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
             break;
         case 6:
             console.log("entreee aquiiiiiiiiiiiiii");
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=false`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=false`;
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
             break;
@@ -138,7 +138,7 @@ function logOut() {
     localStorage.removeItem('token'); // Cambia 'token' por la clave que identifica tu sesión
     
     // Redirige a index.html
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 }
 
 // Función para cargar datos y paginación
@@ -210,10 +210,10 @@ function mostrarModalSesionExpirada() {
         // Verifica si el nombre de usuario está definido
         if (userNameFromURL) {
             // Redirige a index.html con el nombre de usuario en el parámetro
-            window.location.href = `index.html?username=${userNameFromURL}`;
+            window.location.href = `../index.html?username=${userNameFromURL}`;
         } else {
             // Redirige a index.html sin ningún parámetro
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         }
     });
 }
@@ -240,45 +240,45 @@ function filtrarTabla(event) {
     switch (opcionVisualizador) {
         case 1:
             // if(opcion == 0){
-            //     urlFiltrado = `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}`;
+            //     urlFiltrado = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}`;
             //     typeOfSearch = 0;
             // }
             // else{
-            //     urlFiltrado = `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}`;
+            //     urlFiltrado = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}`;
             //     typeOfSearch = 1;
             // }
             //Operador ternario
             urlFiltrado = (opcion == 0) ?
-            `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
         case 2:
             urlFiltrado = (opcion == 0) ?
-            `http://localhost:8081/resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
         case 3:
             urlFiltrado = (opcion == 0) ?
-            `http://localhost:8081/resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
         case 4:
             urlFiltrado = (opcion == 0) ?
-            `http://localhost:8081/resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
         // case 5:// caso de no interes
         //     urlFiltrado = (opcion == 0) ?
-        //     `http://localhost:8081/resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}` :
-        //     `http://localhost:8081/resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}`;
+        //     urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}` :
+        //     urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}`;
 
         //     typeOfSearch = (opcion == 0) ? 0 : 1;
         //     break;
@@ -309,9 +309,9 @@ function filterGraphA(event){
         exampleSchool= null;
     }
 
-    // urlViewSchoolInSanLuis = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
+    // urlViewSchoolInSanLuis = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
 
-    urlViewSchoolInSanLuis = `http://localhost:8081/resultados/schoolInSanLuisFP?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
+    urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuisFP?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
 
     
 
@@ -591,33 +591,33 @@ function updateUrl(urlID,paginaActual, url){
         case 1:
             // if(typeOfSearch == 0){
             //     console.log("entreaaaaaaaaaaaaaaa aquiiii sin search");
-            //     url = `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}`;
+            //     url = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}`;
             // }
             // else{
             //     console.log("entreaaaaaaaaaaaaaaa aquiiii con search");
-            //     url = `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}`;
+            //     url = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}`;
             // }
             
             url = (typeOfSearch === 0) ?
-            `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&interes=${interesSeleccionado}`;
             break;
         case 2:
             url = (typeOfSearch === 0) ?
-            `http://localhost:8081/resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             break;
         case 3:
             url = (typeOfSearch === 0) ?
-            `http://localhost:8081/resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             break;
         case 4:
             url = (typeOfSearch === 0) ?
-            `http://localhost:8081/resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            `http://localhost:8081/resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             break;
     }

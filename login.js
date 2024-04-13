@@ -26,8 +26,7 @@ function submitLogin(event) {
             userName: userName,
             password: password
         };
-
-        fetch("http://localhost:8081/auth/login", {
+        fetch(urlForBack+"auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,7 +64,7 @@ function submitLogin(event) {
                 localStorage.setItem('authToken', data.token);
                 
                 // Si la autenticación es exitosa, redirige a la página mostrarResultado.html
-                window.location.href = 'mostrarResultado3.html';
+                window.location.href = 'Inicio/mostrarResultado3.html';
             })
             .catch(error => {
                 console.error('Error al realizar la solicitud:', error);

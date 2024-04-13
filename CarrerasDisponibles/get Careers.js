@@ -5,7 +5,7 @@ function modalFunctionQQ(modalId, urlOption) {
         rutaArchivo = 'modalsInfo.html'; // Obtiene la ruta 
     }else{
         if(urlOption == 2){
-            rutaArchivo = '../modals.html'; // Obtiene la ruta 
+            rutaArchivo = '../Preguntas/modals.html'; // Obtiene la ruta 
         }
     }
 
@@ -107,7 +107,7 @@ function sendResultsQQ(results, interes, typeofPDF){
   console.log('País de Origen:', paisOrigen);
   console.log('Provincia en Argentina:', provinciaArg);
 
-  const url = 'http://localhost:8081/resultados';  // Reemplaza con la URL de tu endpoint en el backend
+  const url = urlForBack+'resultados';  // Reemplaza con la URL de tu endpoint en el backend
   const data = {
       carreraObtenida: results,
       idUsuario: idUsuario,
@@ -251,7 +251,7 @@ function reloadPage() {
 
 //     // Abre una nueva ventana de correo electrónico con el destinatario
 //     // window.open('mailto:' + email);
-//     fetch('http://localhost:8081/sendEmail/enviar', {
+//     fetch(urlForBack+'sendEmail/enviar', {
 //         method: 'POST',
 //         headers: {
 //             'Content-Type': 'application/json'
