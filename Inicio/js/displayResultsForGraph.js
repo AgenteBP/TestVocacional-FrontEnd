@@ -2,13 +2,13 @@ var setting = {
     roots: document.querySelector('.my-js-slider'),
     type: 'range',
     step: 1,
-    rangeValue: {
-        minValue: 16,
-        maxValue: 100,
-    },
     limits : { 
         minLimit: 16,      
         maxLimit: 100   
+    },
+    rangeValue: {
+        minValue: 16,
+        maxValue: 100,
     }
     }
 var slider = wRunner(setting);
@@ -18,11 +18,11 @@ var setting2 = {
     type: 'range',
     step: 1,
     rangeValue: {
-        minValue: 1930,
+        minValue: 2023,
         maxValue: 2024,
     },
     limits : { 
-        minLimit: 1930,      
+        minLimit: 2023,      
         maxLimit: 2024   
     }
     }
@@ -48,11 +48,11 @@ var setting4 = {
     type: 'range',
     step: 1,
     rangeValue: {
-        minValue: 1930,
+        minValue: 2023,
         maxValue: 2024,
     },
     limits : { 
-        minLimit: 1930,      
+        minLimit: 2023,      
         maxLimit: 2024   
     }
     }
