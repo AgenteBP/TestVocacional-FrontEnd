@@ -2,11 +2,11 @@ const token = localStorage.getItem('authToken');
 const userName = localStorage.getItem('userName');
 
 // Definir las URLs a las que quieres hacer Fetch
-const url1 = `http://localhost:8081/resultados/count`;
-const url2 = `http://localhost:8081/resultados/countWithInterest`;
-const url3 = `http://localhost:8081/resultados/mostChosenCareer`;
-const url4 = `http://localhost:8081/resultados/mostFrequentSchool`;
-const urlGraphPie = `http://localhost:8081/resultados/viewGraph?modo=1`;
+const url1 = urlForBack+`resultados/count`;
+const url2 = urlForBack+`resultados/countWithInterest`;
+const url3 = urlForBack+`resultados/mostChosenCareer`;
+const url4 = urlForBack+`resultados/mostFrequentSchool`;
+const urlGraphPie = urlForBack+`resultados/viewGraph?modo=1`;
 
 const cuentaTotalElement1 = document.getElementById('cuentaTotal');
 const cuentaTotalElement2 = document.getElementById('cuentaTotalI');
@@ -157,7 +157,7 @@ function logOut() {
     localStorage.removeItem('token'); // Cambia 'token' por la clave que identifica tu sesión
     
     // Redirige a index.html
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 }
 
 function mostrarModalSesionExpirada() {
@@ -173,10 +173,10 @@ function mostrarModalSesionExpirada() {
         // Verifica si el nombre de usuario está definido
         if (userNameFromURL) {
             // Redirige a index.html con el nombre de usuario en el parámetro
-            window.location.href = `index.html?username=${userNameFromURL}`;
+            window.location.href = `../index.html?username=${userNameFromURL}`;
         } else {
             // Redirige a index.html sin ningún parámetro
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         }
     });
 }

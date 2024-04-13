@@ -124,23 +124,23 @@ function selectOption(numberTable, tableId){
     typeOfSearch = 0;
     switch (numberTable) {
         case 1:
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true&modo=1`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=true&modo=1`;
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
             break;
         case 2:
             
-            urlViewGraph = `http://localhost:8081/resultados/mostFrequentSchool`;
+            urlViewGraph = urlForBack+`resultados/mostFrequentSchool`;
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
             break;
         case 3:
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true&modo=2`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=true&modo=2`;
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
         break;
         case 4:
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=true&modo=3`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=true&modo=3`;
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewGraph);
         break;
@@ -151,7 +151,7 @@ function logOut() {
     localStorage.removeItem('token'); // Cambia 'token' por la clave que identifica tu sesión
     
     // Redirige a index.html
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 }
 
 // Función para cargar datos y paginación
@@ -217,10 +217,10 @@ function mostrarModalSesionExpirada() {
         // Verifica si el nombre de usuario está definido
         if (userNameFromURL) {
             // Redirige a index.html con el nombre de usuario en el parámetro
-            window.location.href = `index.html?username=${userNameFromURL}`;
+            window.location.href = `../index.html?username=${userNameFromURL}`;
         } else {
             // Redirige a index.html sin ningún parámetro
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         }
     });
 }
@@ -318,13 +318,13 @@ function filterGraphA(event, modo){
     }
     switch(modo){
         case 1:
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
             break;
         case 2:
-            urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&provincia=${exampleProvincia}&modo=3`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&provincia=${exampleProvincia}&modo=3`;
             break;
     }
-    // urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
+    // urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
     
 
     cargarDatosYPaginacion(1, urlViewGraph);
@@ -348,7 +348,7 @@ function filterGraphM(event){
     console.log("rangoAño máximo: ", rangoAño.maxValue);
     console.log("interesCheckboxG:", interesCheckboxG);
 
-    urlViewGraph = `http://localhost:8081/resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}`;
+    urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}`;
 
     cargarDatosYPaginacion(1, urlViewGraph);
 }
@@ -521,7 +521,7 @@ function filterBar(event){
     barGraphSchool5 = barGraphSchool5.trim() === "" ? null : barGraphSchool5;
 
     var escuelas = [barGraphSchool1, barGraphSchool2, barGraphSchool3, barGraphSchool4, barGraphSchool5];
-    urlViewGraph = `http://localhost:8081/resultados/mostFrequentSchoolCom?escuelas=${escuelas}`;
+    urlViewGraph = urlForBack+`resultados/mostFrequentSchoolCom?escuelas=${escuelas}`;
 
     cargarDatosYPaginacion(2, urlViewGraph);
     // Cerrar el modal después de cargar los datos

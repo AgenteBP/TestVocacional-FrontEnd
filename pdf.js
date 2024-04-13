@@ -172,7 +172,7 @@ function sendEmail(typeofPDF, destinatario) {
             formData.append('typeofPDF', typeofPDF);
 
             // Enviar la solicitud POST al backend
-            fetch('http://localhost:8081/sendEmail/enviar', {
+            fetch(urlForBack+'sendEmail/enviar', {
                 method: 'POST',
                 body: formData
             })
@@ -310,7 +310,7 @@ function sendEmailCD(typeofPDF, destinatario) {
             formData.append('typeofPDF', typeofPDF);
 
             // Enviar la solicitud POST al backend
-            fetch('http://localhost:8081/sendEmail/enviar', {
+            fetch(urlForBack+'sendEmail/enviar', {
                 method: 'POST',
                 body: formData
             })

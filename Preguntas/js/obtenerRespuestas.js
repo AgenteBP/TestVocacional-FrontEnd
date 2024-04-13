@@ -794,7 +794,7 @@ function agregarFooter(){
 
 function modalFunction(modalId) {
     // Ruta al archivo modals.html
-    const rutaArchivo = 'modals.html'; // Reemplaza con la ruta correcta
+    const rutaArchivo = '../Preguntas/modals.html'; // Reemplaza con la ruta correcta
 
     // Fetch para obtener el contenido del archivo modals.html
     fetch(rutaArchivo)
@@ -850,7 +850,7 @@ function reloadPage() {
     
     // Construir la nueva URL con los datos
     // const nuevaURL = `registroA.html?email=${email}&id=${idUsuario}&edad=${edad}&esResidenteArg=${esResidenteArg}&paisOrigen=${paisOrigen}&provinciaArg=${provinciaArg}`;
-    const nuevaURL = `registroA.html`;
+    const nuevaURL = `../../registroA.html`;
 
     // Redirigir a registroA.html con los datos
     window.location.href = nuevaURL;
@@ -858,7 +858,7 @@ function reloadPage() {
 
 function modalResultTest(idResult){
     // Ruta al archivo modals.html
-    const rutaArchivo = 'modalsResults.html'; // Reemplaza con la ruta correcta
+    const rutaArchivo = '../Preguntas/modalsResults.html'; // Reemplaza con la ruta correcta
 
     // Fetch para obtener el contenido del archivo modals.html
     fetch(rutaArchivo)
@@ -988,8 +988,8 @@ function sendResults(results, interes, typeofPDF){
     console.log('Provincia en Argentina:', provinciaArg);
 
     // debugger;
-
-    const url = 'http://localhost:8081/resultados';  // Reemplaza con la URL de tu endpoint en el backend
+    // http://localhost:8081 para probar en local
+    const url = urlForBack+'resultados';  // Reemplaza con la URL de tu endpoint en el backend
     const data = {
         carreraObtenida: results,
         idUsuario: idUsuario,
@@ -1028,7 +1028,7 @@ function sendResults(results, interes, typeofPDF){
         // debugger;
         // Acciones de que en caso aceptara la carrera
         if(interes == true){ 
-            let urlModalsResults = "modalsResults.html";
+            let urlModalsResults = "../Preguntas/modalsResults.html";
             fetch(urlModalsResults)
             .then(response => response.text())
             .then(html => {
@@ -1065,7 +1065,7 @@ function sendResults(results, interes, typeofPDF){
         }
         else{
             // Acciones de que en caso no aceptara la carrera 
-            let urlModalsResults = "modalsResults.html";
+            let urlModalsResults = "../Preguntas/modalsResults.html";
             fetch(urlModalsResults)
             .then(response => response.text())
             .then(html => {
@@ -1164,7 +1164,7 @@ function previousQuestion(questionId){
             
             // Construir la nueva URL con los datos
             // const nuevaURL = `registroA.html?email=${email}&id=${idUsuario}&edad=${edad}&esResidenteArg=${esResidenteArg}&paisOrigen=${paisOrigen}&provinciaArg=${provinciaArg}`;
-            const nuevaURL = `registroA.html`;
+            const nuevaURL = `../../registroA.html`;
 
             // Redirigir a registroA.html con los datos
             window.location.href = nuevaURL;
