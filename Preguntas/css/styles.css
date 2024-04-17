@@ -50,14 +50,15 @@ body {
     bottom: 0;
     width: 100%;
     /* height: 60px; Ajusta el tamaño del footer */
-    background-color: black;
-    color: white;
+    font-size: 0.9rem;
+    color: black;
 }
 
 .header{
     /* background-color: #006400; */
     background: linear-gradient(90deg, #ff66c4, #ffde59); 
     color: black;
+    padding: 0.5rem;
 }
 
 .btn1 {

@@ -15,8 +15,8 @@
 <body>
     <div class="wrapper">
         <aside id="sidebar">
-            <div class="d-flex">
-                <button class="toggle-btn" type="button">
+            <div class="d-flex" style="text-align: center; padding: 1rem 1rem;">
+                <button class="toggle-btn" type="button" style="padding: 0;">
                     <img src="../Imagenes/logo-UNSL-SMALL.png" alt="UNSL Informática Logo" width="45">
                 </button>
                 <div class="sidebar-logo">
@@ -82,13 +82,13 @@
                 <button class="expandAside" type="button">
                     <i class="fa-solid fa-right-long"></i>
                 </button>
+                <button class="btn btn-outline-primary ml-auto" onclick="logOut()" id="logoutButton">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span class="logout-text">Cerrar Sesión</span>
+                </button>
             </ul>
         </aside>
         <div class="main p-3">
-            <header class="card-header header d-flex justify-content-end">
-                <button class="btn btn-outline-primary bi bi-box-arrow-right ml-auto" onclick="logOut()">Cerrar Sesión</button>
-            </header>
-            <hr class="text-black d-none d-sm-block">
             <main>
                 <div id="pieGraph">
                     <div class="row gx-2 align-items-center">
@@ -140,7 +140,7 @@
                                     
                                                 <div class="mb-3 form-check">
                                                     <input class="form-check-input" type="checkbox" value="Interés" id="interesCheckboxG" checked>
-                                                    <label class="form-check-label" for="interesCheckbox">Interés</label>
+                                                    <label class="form-check-label" for="interesCheckbox">Indicar Intereses</label>
                                                 </div>
                                     
                                                 <!-- <div class="mb-3">
@@ -186,7 +186,7 @@
                                 &nbsp;&nbsp;
                                 <div class="btn-group">
                                     <input class="form-check-input" type="checkbox" value="Interés" id="interesCheckboxG2" checked>
-                                    <label class="form-check-label" for="interesCheckbox">Interés</label>
+                                    <label class="form-check-label" for="interesCheckbox">Indicar Intereses</label>
                                 </div>
                                 &nbsp;&nbsp;
                                 <div class="btn-group">

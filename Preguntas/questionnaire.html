@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuestionario</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <link
@@ -15,26 +17,28 @@
 </head>
 <body>
     <header class="card-header header">
-      <h1>Test Vocacional: Área Informática</h1>
+      <h5>Test Vocacional: Área Informática</h5>
     </header>
 
     <!-- <div id="wrapper" class="d-flex flex-column"> flex-grow-1 animate__animated animate__fadeInRight--> 
 
       <div class="container mt-4 " id="divPrincipal" style="margin-top: 20px;">
-        <h2>Seleccione una opción</h2>
         <!-- <br> -->
         <div id="question1" class="question">
-            <h3>¿Qué modalidad de flexibilidad tienes en base a tus tiempos para poder asistir a cursar? </h3>
-            <h4>(Considerando tus responsabilidades laborales y actividades diarias)</h4>
+            <h2>
+              ¿Qué tan flexible puedes ser con tus horarios para asistir a las clases, considerando tus compromisos laborales y actividades diarias? 
+            </h2>
+            <h6>Seleccione una opción </h6>
             <br>
             <div class="input-group">
               <div class="input-group-text">
                   <input class="mt-0 visually-hidden" type="radio" name="question1" value="opcion1" aria-label="Radio button for following text input" id="radioOption1">
               </div>
               &nbsp;
-              <label for="radioOption1" class="form-control tarde custom-radio-label" onclick="selectRadio('radioOption1')">No flexible</label>
-              &nbsp; 
-              <i class="bi bi-info-square icono" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal1" id="botonModal1" onclick="modalFunction('myModal1')"></i>
+              <label for="radioOption1" class="form-control tarde custom-radio-label d-flex justify-content-between" onclick="selectRadio('radioOption1')" style="cursor: pointer;">No flexible
+                <a class="icon-link icon-link-hover" style="font-weight: lighter;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal1" id="botonModal1" onclick="modalFunction('myModal1')">Leer más
+                </a>
+              </label>    
           </div>
 
             <div class="separador"></div>
@@ -44,10 +48,13 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question1" value="opcion2" aria-label="Radio button for following text input" id="radioOption2">
               </div>
               &nbsp;
-              <label for="radioOption2" class="form-control tarde custom-radio-label" onclick="selectRadio('radioOption2')">Flexible</label>
-              &nbsp; 
-              <i class="bi bi-info-square icono" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal2" id="botonModal2" onclick="modalFunction('myModal2')"></i>
-          </div>
+              <label for="radioOption2" class="form-control tarde custom-radio-label  d-flex justify-content-between" onclick="selectRadio('radioOption2')" style="cursor: pointer;">Flexible
+                <a class="icon-link icon-link-hover" style="font-weight: lighter;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal2" id="botonModal2" onclick="modalFunction('myModal2')">Leer más
+                </a>
+              </label>
+              <!-- &nbsp; 
+              <i class="bi bi-info-square icono" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal2" id="botonModal2" onclick="modalFunction('myModal2')"></i> -->
+            </div>
             <br>
             <div class="d-flex justify-content-around ">
               <button class="btn btn-primary " style="margin-right: 1%;" value="botonV1" id="botonV1" onclick="previousQuestion(1)">Volver</button>
@@ -55,16 +62,20 @@
             </div>
         </div>
         <div id="question2" class="question" style="display: none;">
-            <h3>Pregunta 2: ¿Qué tipo de formación te gustaría tener?</h3>
+            <h2>Pregunta 2: ¿Qué tipo de formación te gustaría tener?</h2>
+            <h6>Seleccione una opción </h6>
             <br>
             <div class="input-group">
               <div class="input-group-text">
                   <input class="mt-0 visually-hidden" type="radio" name="question2" value="opcion1" aria-label="Radio button for following text input" id="radioOption3">
               </div>
               &nbsp;
-              <label for="radioOption3" class="form-control custom-radio-label" onclick="selectRadio('radioOption3')">Formación Teórica</label>
-              &nbsp;
-              <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal3" id="botonModal3" onclick="modalFunction('myModal3')"></i>
+              <label for="radioOption3" class="form-control custom-radio-label d-flex justify-content-between" onclick="selectRadio('radioOption3')" style="cursor: pointer;">Formación Teórica
+                <a class="icon-link icon-link-hover" style="font-weight: lighter;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal3" id="botonModal3" onclick="modalFunction('myModal3')">Leer más
+                </a>
+              </label>
+              <!-- &nbsp;
+              <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal3" id="botonModal3" onclick="modalFunction('myModal3')"></i> -->
           </div>
           
           <div class="separador"></div>
@@ -74,9 +85,12 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question2" value="opcion2" aria-label="Radio button for following text input" id="radioOption4">
               </div>
               &nbsp;
-              <label for="radioOption4" class="form-control custom-radio-label" onclick="selectRadio('radioOption4')">Formación Práctica</label>
-              &nbsp;
-              <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal4" id="botonModal4" onclick="modalFunction('myModal4')"></i>
+              <label for="radioOption4" class="form-control custom-radio-label d-flex justify-content-between" onclick="selectRadio('radioOption4')" style="cursor: pointer;">Formación Práctica
+                <a class="icon-link icon-link-hover" style="font-weight: lighter;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal4" id="botonModal4" onclick="modalFunction('myModal4')">Leer más
+                </a>
+              </label>
+              <!-- &nbsp;
+              <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal4" id="botonModal4" onclick="modalFunction('myModal4')"></i> -->
           </div>
 
           <br>
@@ -88,35 +102,41 @@
 
         <!-- Preguntas de Formacion Teorico -->
         <div id="question3" class="question" style="display: none;">
-            <h3>Pregunta 3: Te gustaría estudiar una carrera que tenga un enfoque en que:</h3>
+            <h2>Pregunta 3: ¿Te gustaría estudiar una carrera que te permita:</h2>
+            <h6>Seleccione una opción </h6>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Puedas transmitir enseñanzas de la informática en todos los niveles.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal5" id="botonModal5" onclick="modalFunction('myModal5')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal5" id="botonModal5" onclick="modalFunction('myModal5')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Puedas transmitir enseñanzas de la informática en todos los niveles
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal5" id="botonModal5" onclick="modalFunction('myModal5')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal5" id="botonModal5" onclick="modalFunction('myModal5')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Realizar investigación con fines educativos.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal6" id="botonModal6" onclick="modalFunction('myModal6')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal6" id="botonModal6" onclick="modalFunction('myModal6')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Realizar investigación con fines educativos
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal6" id="botonModal6" onclick="modalFunction('myModal6')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal6" id="botonModal6" onclick="modalFunction('myModal6')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Desarrollo de Software Educativo.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal7" id="botonModal7" onclick="modalFunction('myModal7')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal7" id="botonModal7" onclick="modalFunction('myModal7')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Desarrollo de Software Educativo
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal7" id="botonModal7" onclick="modalFunction('myModal7')">Leer más
+                  </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal7" id="botonModal7" onclick="modalFunction('myModal7')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Asesoría y consultoría a empresas, instituciones educativas o gubernamentales.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal8" id="botonModal8" onclick="modalFunction('myModal8')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal8" id="botonModal8" onclick="modalFunction('myModal8')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Asesoría y consultoría a empresas, instituciones educativas o gubernamentales
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal8" id="botonModal8" onclick="modalFunction('myModal8')">Leer más
+                  </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal8" id="botonModal8" onclick="modalFunction('myModal8')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Duración de 4 años.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal9" id="botonModal9" onclick="modalFunction('myModal9')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal9" id="botonModal9" onclick="modalFunction('myModal9')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Duración de 4 años?
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal9" id="botonModal9" onclick="modalFunction('myModal9')">Leer más
+                  </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal9" id="botonModal9" onclick="modalFunction('myModal9')"></i> -->
                 </h5>
               </div>
 
@@ -125,7 +145,7 @@
                     <input class="mt-0 visually-hidden" type="radio" name="question3" value="opcion1" aria-label="Radio button for following text input" id="radioOption5">
                 </div>
                 &nbsp;
-                <label for="radioOption5" class="form-control custom-radio-label" onclick="selectRadio('radioOption5')">Si</label>
+                <label for="radioOption5" class="form-control custom-radio-label" onclick="selectRadio('radioOption5')" style="cursor: pointer;">Si</label>
             </div>
             
             <div class="separador"></div>
@@ -135,10 +155,10 @@
                     <input class="mt-0 visually-hidden" type="radio" name="question3" value="opcion2" aria-label="Radio button for following text input" id="radioOption6">
                 </div>
                 &nbsp;
-                <label for="radioOption6" class="form-control custom-radio-label" onclick="selectRadio('radioOption6')">No</label>
+                <label for="radioOption6" class="form-control custom-radio-label" onclick="selectRadio('radioOption6')" style="cursor: pointer;">No</label>
             </div>
 
-            <div class="separador"></div>
+            <br>
             <div class="d-flex justify-content-around">            
               <button class="btn btn-primary" value="botonV3" id="botonV3" onclick="previousQuestion(3)">Volver</button> 
               <button class="btn btn-primary mr-2"  value="botonS3" id="botonS3" onclick="nextQuestion(3, getSelectedOption('question3'))">Siguiente</button>
@@ -146,40 +166,48 @@
         
         </div>
         <div id="question4" class="question " style="display: none;">
-            <h3>Pregunta 4: Te gustaría estudiar una carrera que tenga un enfoque más teórico preparándote para:</h3>
+            <h2>Pregunta 4: ¿Te gustaría estudiar una carrera con un enfoque más teórico que te prepare para:</h2>
+            <h6>Seleccione una opción </h6>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Un ámbito de investigación(como Inteligencia Artificial).
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal10" id="botonModal10" onclick="modalFunction('myModal10')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal10" id="botonModal10" onclick="modalFunction('myModal10')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Un ámbito de investigación(como Inteligencia Artificial)
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal10" id="botonModal10" onclick="modalFunction('myModal10')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal10" id="botonModal10" onclick="modalFunction('myModal10')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-En Áreas informáticas de organizaciones.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal11" id="botonModal11" onclick="modalFunction('myModal11')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal11" id="botonModal11" onclick="modalFunction('myModal11')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-En Áreas informáticas de organizaciones
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal11" id="botonModal11" onclick="modalFunction('myModal11')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal11" id="botonModal11" onclick="modalFunction('myModal11')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Formar parte de un equipo de desarrollo de Software.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal12" id="botonModal12" onclick="modalFunction('myModal12')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal12" id="botonModal12" onclick="modalFunction('myModal12')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Formar parte de un equipo de desarrollo de Software
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal12" id="botonModal12" onclick="modalFunction('myModal12')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal12" id="botonModal12" onclick="modalFunction('myModal12')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-También puedas dar enseñanzas Universitaria y capacitación en ciencias de la computación.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal13" id="botonModal13" onclick="modalFunction('myModal13')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal13" id="botonModal13" onclick="modalFunction('myModal13')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-También puedas dar enseñanzas Universitaria y capacitación en ciencias de la computación
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal13" id="botonModal13" onclick="modalFunction('myModal13')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal13" id="botonModal13" onclick="modalFunction('myModal13')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Con posibilidad de obtener un título intermedio 3 años de Analista Programador Universitario que habilita actuar profesionalmente tanto en industrias como en organismos nacionales y privados de todo el país.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal14" id="botonModal14" onclick="modalFunction('myModal14')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal14" id="botonModal14" onclick="modalFunction('myModal14')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Con posibilidad de obtener un título intermedio 3 años de Analista Programador Universitario que habilita actuar profesionalmente tanto en industrias como en organismos nacionales y privados de todo el país
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal14" id="botonModal14" onclick="modalFunction('myModal14')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal14" id="botonModal14" onclick="modalFunction('myModal14')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Duración de 5 años.
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal14" id="botonModal14" onclick="modalFunction('myModalDuracionLC')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Duración de 5 años?
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModalLC1" id="botonModalLC1" onclick="modalFunction('myModalDuracionLC')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal14" id="botonModal14" onclick="modalFunction('myModalDuracionLC')"></i> -->
                 </h5>
               </div>
             <br>
@@ -188,7 +216,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question4" value="opcion1" aria-label="Radio button for following text input" id="radioOption7">
               </div>
               &nbsp;
-              <label for="radioOption7" class="form-control custom-radio-label" onclick="selectRadio('radioOption7')">Si</label>
+              <label for="radioOption7" class="form-control custom-radio-label" onclick="selectRadio('radioOption7')" style="cursor: pointer;">Si</label>
             </div>
             
             <div class="separador"></div>
@@ -198,10 +226,10 @@
                     <input class="mt-0 visually-hidden" type="radio" name="question4" value="opcion2" aria-label="Radio button for following text input" id="radioOption8">
                 </div>
                 &nbsp;
-                <label for="radioOption8" class="form-control custom-radio-label" onclick="selectRadio('radioOption8')">No</label>
+                <label for="radioOption8" class="form-control custom-radio-label" onclick="selectRadio('radioOption8')" style="cursor: pointer;">No</label>
             </div>
 
-            <!-- <div class="separador"></div> -->
+            <br>
 
             <div class="d-flex justify-content-around">
               <button class="btn btn-primary" value="botonV4" id="botonV4" onclick="previousQuestion(4)">Volver</button>
@@ -211,14 +239,15 @@
 
         <!-- Preguntas de Formacion Practico -->
         <div id="question5" class="question" style="display: none;">
-            <h3>Pregunta 5: ¿Quieres estudiar una carrera a corto plazo (3 años) o a largo plazo (5 años)?</h3>
+            <h2>Pregunta 5: ¿Quieres estudiar una carrera a corto plazo (3 años) o a largo plazo (5 años)?</h2>
+            <h6>Seleccione una opción </h6>
             <br>
             <div class="input-group">
               <div class="input-group-text">
                   <input class="mt-0 visually-hidden" type="radio" name="question5" value="opcion1" aria-label="Radio button for following text input" id="radioOption9">
               </div>
               &nbsp;
-              <label for="radioOption9" class="form-control custom-radio-label" onclick="selectRadio('radioOption9')">3 años</label>
+              <label for="radioOption9" class="form-control custom-radio-label" onclick="selectRadio('radioOption9')" style="cursor: pointer;">3 años</label>
             </div>
             
             <div class="separador"></div>
@@ -228,7 +257,7 @@
                     <input class="mt-0 visually-hidden" type="radio" name="question5" value="opcion2" aria-label="Radio button for following text input" id="radioOption10">
                 </div>
                 &nbsp;
-                <label for="radioOption10" class="form-control custom-radio-label" onclick="selectRadio('radioOption10')">5 años</label>
+                <label for="radioOption10" class="form-control custom-radio-label" onclick="selectRadio('radioOption10')" style="cursor: pointer;">5 años</label>
           </div>
             <br/>
             <div class="d-flex justify-content-around">
@@ -240,53 +269,62 @@
         <!-- Lado Tecnicatura -->
         <div id="question6" class="question" style="display: none;">
           <!-- Comienzo item de pregunta -->
-          <h3>Pregunta 6: Te gustaría aprender programación orientado mas al Software:</h3>
+          <h2>Pregunta 6: ¿Te interesaría aprender programación orientada al software, incluyendo temas como:</h2>
+          <h6>Seleccione una opción </h6>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Programación para paginas Web.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')" ></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Programación para paginas Web
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')" ></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Aplicaciones para dispositivos móviles.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Aplicaciones para dispositivos móviles
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Diseño Responsivo.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Diseño Responsivo
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Protocolos y APIs.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Protocolos y APIs
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Frameworks y Bibliotecas.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Frameworks y Bibliotecas
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Programación de alto nivel.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Programación de alto nivel
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Usos de herramientas informática para el desarrollo web.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Usos de herramientas informática para el desarrollo web
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Software de bases de datos.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Software de bases de datos?
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')"></i> -->
             </h5>
           </div>
           <!-- Fin de items de pregunta -->
@@ -296,7 +334,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question6" value="opcion1" aria-label="Radio button for following text input" id="radioOption11">
             </div>
             &nbsp;
-            <label for="radioOption11" class="form-control custom-radio-label" onclick="selectRadio('radioOption11')">Si</label>
+            <label for="radioOption11" class="form-control custom-radio-label" onclick="selectRadio('radioOption11')" style="cursor: pointer;">Si</label>
           </div>
           
           <div class="separador"></div>
@@ -306,7 +344,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question6" value="opcion2" aria-label="Radio button for following text input" id="radioOption12">
               </div>
               &nbsp;
-              <label for="radioOption12" class="form-control custom-radio-label" onclick="selectRadio('radioOption12')">No</label>
+              <label for="radioOption12" class="form-control custom-radio-label" onclick="selectRadio('radioOption12')" style="cursor: pointer;">No</label>
           </div>
           
           <br/>
@@ -316,31 +354,35 @@
           </div>
         </div>
         <div id="question7" class="question" style="display: none;">
-            <h3>Pregunta 7: </h3>
-            <h3>Te gustaría trabajar como:</h3>
+            <h2>Pregunta 7: ¿Te gustaría trabajar en áreas como:</h2>
+            <h6>Seleccione una opción </h6>
             <!-- Comienzo item de pregunta -->
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web y de aplicaciones móviles.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web y de aplicaciones móviles
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de aplicaciones móviles.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de aplicaciones móviles
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en Web.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en Web?
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')"></i> -->
                 </h5>
               </div>
             <!-- Fin de items de pregunta -->
@@ -350,7 +392,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question7" value="opcion1" aria-label="Radio button for following text input" id="radioOption21">
               </div>
               &nbsp;
-              <label for="radioOption21" class="form-control custom-radio-label" onclick="selectRadio('radioOption21')">Si</label>
+              <label for="radioOption21" class="form-control custom-radio-label" onclick="selectRadio('radioOption21')" style="cursor: pointer;">Si</label>
             </div>
             
             <div class="separador"></div>
@@ -360,7 +402,7 @@
                     <input class="mt-0 visually-hidden" type="radio" name="question7" value="opcion2" aria-label="Radio button for following text input" id="radioOption22">
                 </div>
                 &nbsp;
-                <label for="radioOption22" class="form-control custom-radio-label" onclick="selectRadio('radioOption22')">No</label>
+                <label for="radioOption22" class="form-control custom-radio-label" onclick="selectRadio('radioOption22')" style="cursor: pointer;">No</label>
             </div>
             
             <br/>
@@ -370,49 +412,57 @@
             </div>
         </div>
         <div id="question8" class="question" style="display: none;">
-            <h3>Pregunta 8: ¿Te gustaría aprender programación orientado al Hardware?:</h3>
+            <h2>Pregunta 8: ¿Te interesaría aprender programación orientada al Hardware, incluyendo temas como:</h2>
+            <h6>Seleccione una opción </h6>
             <!-- Comienzo item de pregunta -->
               <div class="container mt-3">
                 <h5 class="d-flex justify-content-between align-items-center">-Dispositivos de redes.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')"></i>
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')"></i> -->
                     
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Redes de computadora.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Redes de computadora
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Programación de bajo nivel.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Programación de bajo nivel
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Programación para redes.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Programación para redes
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Armado y Diagnóstico de PC.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Armado y Diagnóstico de PC
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Sistemas Digitales.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Sistemas Digitales
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Sistema de Comunicación.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Sistema de Comunicación?
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')"></i> -->
                 </h5>
               </div>
             <!-- Fin de items de pregunta --> 
@@ -422,7 +472,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question8" value="opcion1" aria-label="Radio button for following text input" id="radioOption31">
               </div>
               &nbsp;
-              <label for="radioOption31" class="form-control custom-radio-label" onclick="selectRadio('radioOption31')">Si</label>
+              <label for="radioOption31" class="form-control custom-radio-label" onclick="selectRadio('radioOption31')" style="cursor: pointer;">Si</label>
             </div>
             
             <div class="separador"></div>
@@ -432,7 +482,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question8" value="opcion2" aria-label="Radio button for following text input" id="radioOption32">
               </div>
               &nbsp;
-              <label for="radioOption32" class="form-control custom-radio-label" onclick="selectRadio('radioOption32')">No</label>
+              <label for="radioOption32" class="form-control custom-radio-label" onclick="selectRadio('radioOption32')" style="cursor: pointer;">No</label>
             </div>
             <br/>
             <div class="d-flex justify-content-around">
@@ -441,30 +491,35 @@
             </div>
         </div>
         <div id="question9" class="question" style="display: none;">
-            <h3>Pregunta 9: Te gustaría trabajar como:</h3>
+            <h2>Pregunta 9: ¿Te gustaría trabajar en áreas como:</h2>
+            <h6>Seleccione una opción </h6>
             <!-- Comienzo item de pregunta -->
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Asesoramiento técnico.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Asesoramiento técnico
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Mantenimiento de redes.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Mantenimiento de redes
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Desarrollar dispositivos de redes.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Desarrollar dispositivos de redes
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Diseño, instalación y configuración de redes de computadora.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Diseño, instalación y configuración de redes de computadora?
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i> -->
               </h5>
             </div>
             <!-- Fin de items de pregunta --> 
@@ -474,7 +529,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question9" value="opcion1" aria-label="Radio button for following text input" id="radioOption41">
               </div>
               &nbsp;
-              <label for="radioOption41" class="form-control custom-radio-label" onclick="selectRadio('radioOption41')">Si</label>
+              <label for="radioOption41" class="form-control custom-radio-label" onclick="selectRadio('radioOption41')" style="cursor: pointer;">Si</label>
             </div>
 
             <div class="separador"></div>
@@ -484,7 +539,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question9" value="opcion2" aria-label="Radio button for following text input" id="radioOption42">
               </div>
               &nbsp;
-              <label for="radioOption42" class="form-control custom-radio-label" onclick="selectRadio('radioOption42')">No</label>
+              <label for="radioOption42" class="form-control custom-radio-label" onclick="selectRadio('radioOption42')" style="cursor: pointer;">No</label>
             </div>
 
             <br/>
@@ -496,54 +551,63 @@
 
         <!-- Lado Ingeneria -->
         <div id="question10" class="question" style="display: none;">
-          <h3>Pregunta 10: Te gustaría aprender programación orientado mas al Software, podras ver temas como: </h3>
+          <h2>Pregunta 10: ¿Te gustaría aprender programación orientada al software, podras ver temas como: </h2>
+          <h6>Seleccione una opción </h6>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Programación de alto nivel.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal38" id="botonModal38" onclick="modalFunction('myModal38')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal38" id="botonModal38" onclick="modalFunction('myModal38')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Programación de alto nivel
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal38" id="botonModal38" onclick="modalFunction('myModal38')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal38" id="botonModal38" onclick="modalFunction('myModal38')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar juegos.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal39" id="botonModal39" onclick="modalFunction('myModal39')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal39" id="botonModal39" onclick="modalFunction('myModal39')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar juegos
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal39" id="botonModal39" onclick="modalFunction('myModal39')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal39" id="botonModal39" onclick="modalFunction('myModal39')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Programacion para Paginas web y/o Aplicaciones para móvil.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal40" id="botonModal40" onclick="modalFunction('myModal40')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal40" id="botonModal40" onclick="modalFunction('myModal40')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Programacion para Paginas web y/o Aplicaciones para móvil
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal40" id="botonModal40" onclick="modalFunction('myModal40')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal40" id="botonModal40" onclick="modalFunction('myModal40')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Frameworks y Bibliotecas.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal41" id="botonModal41" onclick="modalFunction('myModal41')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal41" id="botonModal41" onclick="modalFunction('myModal41')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Frameworks y Bibliotecas
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal41" id="botonModal41" onclick="modalFunction('myModal41')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal41" id="botonModal41" onclick="modalFunction('myModal41')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Conceptos de Inteligencia Artificial.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal42" id="botonModal42" onclick="modalFunction('myModal42')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal42" id="botonModal42" onclick="modalFunction('myModal42')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Conceptos de Inteligencia Artificial
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal42" id="botonModal42" onclick="modalFunction('myModal42')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal42" id="botonModal42" onclick="modalFunction('myModal42')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Software de base de datos.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal43" id="botonModal43" onclick="modalFunction('myModal43')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal43" id="botonModal43" onclick="modalFunction('myModal43')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Software de base de datos
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal43" id="botonModal43" onclick="modalFunction('myModal43')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal43" id="botonModal43" onclick="modalFunction('myModal43')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Seguridad informática.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal44" id="botonModal44" onclick="modalFunction('myModal44')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal44" id="botonModal44" onclick="modalFunction('myModal44')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Seguridad informática
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal44" id="botonModal44" onclick="modalFunction('myModal44')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal44" id="botonModal44" onclick="modalFunction('myModal44')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Diseñar algoritmos que resuelva un problema en particular.
-                <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal45" id="botonModal45" onclick="modalFunction('myModal45')"></button> -->
-                &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal45" id="botonModal45" onclick="modalFunction('myModal45')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Diseñar algoritmos que resuelva un problema en particular?
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal45" id="botonModal45" onclick="modalFunction('myModal45')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal45" id="botonModal45" onclick="modalFunction('myModal45')"></i> -->
             </h5>
           </div>
           <!-- Fin de items de pregunta --> 
@@ -553,7 +617,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question10" value="opcion1" aria-label="Radio button for following text input" id="radioOption51">
               </div>
               &nbsp;
-              <label for="radioOption51" class="form-control custom-radio-label" onclick="selectRadio('radioOption51')">Si</label>
+              <label for="radioOption51" class="form-control custom-radio-label" onclick="selectRadio('radioOption51')" style="cursor: pointer;">Si</label>
           </div>
 
           <div class="separador"></div>
@@ -563,7 +627,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question10" value="opcion2" aria-label="Radio button for following text input" id="radioOption52">
             </div>
             &nbsp;
-            <label for="radioOption52" class="form-control custom-radio-label" onclick="selectRadio('radioOption52')">No</label>
+            <label for="radioOption52" class="form-control custom-radio-label" onclick="selectRadio('radioOption52')" style="cursor: pointer;">No</label>
           </div>
           <br/>
           <div class="d-flex justify-content-around">
@@ -573,30 +637,35 @@
         </div>
 
         <div id="question11" class="question" style="display: none;">
-            <h3>Pregunta 11: Te gustaría estudiar una carrera que tenga un enfoque de industria de software preparándote para:</h3>
+            <h2>Pregunta 11: ¿Te gustaría estudiar una carrera que se centre en la industria del software y te prepare para:</h2>
+            <h6>Seleccione una opción </h6>
             <!-- Comienzo item de pregunta -->
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controlar Proyectos de Software teniendo en cuenta el costo y tiempo.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal46" id="botonModal46" onclick="modalFunction('myModal46')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal46" id="botonModal46" onclick="modalFunction('myModal46')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controlar Proyectos de Software teniendo en cuenta el costo y tiempo
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal46" id="botonModal46" onclick="modalFunction('myModal46')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal46" id="botonModal46" onclick="modalFunction('myModal46')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Aplicar la ciencia de la tecnología en mejorar productos de software ya existentes.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal47" id="botonModal47" onclick="modalFunction('myModal47')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal47" id="botonModal47" onclick="modalFunction('myModal47')"></i>
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal47" id="botonModal47" onclick="modalFunction('myModal47')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal47" id="botonModal47" onclick="modalFunction('myModal47')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en Software.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal48" id="botonModal48" onclick="modalFunction('myModal48')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal48" id="botonModal48" onclick="modalFunction('myModal48')"></i>
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal48" id="botonModal48" onclick="modalFunction('myModal48')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal48" id="botonModal48" onclick="modalFunction('myModal48')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área de software.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal49" id="botonModal49" onclick="modalFunction('myModal49')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal49" id="botonModal49" onclick="modalFunction('myModal49')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área de software?
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal49" id="botonModal49" onclick="modalFunction('myModal49')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal49" id="botonModal49" onclick="modalFunction('myModal49')"></i> -->
               </h5>
             </div>
             <!-- Fin de items de pregunta --> 
@@ -607,7 +676,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question11" value="opcion1" aria-label="Radio button for following text input" id="radioOption53">
             </div>
             &nbsp;
-            <label for="radioOption53" class="form-control custom-radio-label" onclick="selectRadio('radioOption53')">Si</label>
+            <label for="radioOption53" class="form-control custom-radio-label" onclick="selectRadio('radioOption53')" style="cursor: pointer;">Si</label>
           </div>
           
           <div class="separador"></div>
@@ -617,7 +686,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question11" value="opcion2" aria-label="Radio button for following text input" id="radioOption54">
             </div>
             &nbsp;
-            <label for="radioOption54" class="form-control custom-radio-label" onclick="selectRadio('radioOption54')">No</label>
+            <label for="radioOption54" class="form-control custom-radio-label" onclick="selectRadio('radioOption54')" style="cursor: pointer;">No</label>
          </div>
 
           <br/>
@@ -628,48 +697,56 @@
         </div>
 
         <div id="question12" class="question" style="display: none;">
-            <h3>Pregunta 12: Te interesaría aprender programación con un enfoque que abarque tanto aspectos de hardware como de software en tu formación: </h3>
+            <h2>Pregunta 12: ¿Te interesaría aprender programación con un enfoque que incluya aspectos tanto de hardware como de software en tu formación, como: </h2>
+            <h6>Seleccione una opción </h6>
             <!-- Comienzo item de pregunta -->
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Redes de Computadora.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal50" id="botonModal50" onclick="modalFunction('myModal50')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal50" id="botonModal50" onclick="modalFunction('myModal50')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Redes de Computadora
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal50" id="botonModal50" onclick="modalFunction('myModal50')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal50" id="botonModal50" onclick="modalFunction('myModal50')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Sistema de Comunicación.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal51" id="botonModal51" onclick="modalFunction('myModal51')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal51" id="botonModal51" onclick="modalFunction('myModal51')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Sistema de Comunicación
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal51" id="botonModal51" onclick="modalFunction('myModal51')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal51" id="botonModal51" onclick="modalFunction('myModal51')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Arquitectura de PC.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal52" id="botonModal52" onclick="modalFunction('myModal52')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal52" id="botonModal52" onclick="modalFunction('myModal52')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Arquitectura de PC
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal52" id="botonModal52" onclick="modalFunction('myModal52')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal52" id="botonModal52" onclick="modalFunction('myModal52')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Señales digitales.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal53" id="botonModal53" onclick="modalFunction('myModal53')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal53" id="botonModal53" onclick="modalFunction('myModal53')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Señales digitales
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal53" id="botonModal53" onclick="modalFunction('myModal53')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal53" id="botonModal53" onclick="modalFunction('myModal53')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Software Base.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal54" id="botonModal54" onclick="modalFunction('myModal54')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal54" id="botonModal54" onclick="modalFunction('myModal54')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Software Base
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal54" id="botonModal54" onclick="modalFunction('myModal54')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal54" id="botonModal54" onclick="modalFunction('myModal54')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Programación de bajo nivel.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal55" id="botonModal55" onclick="modalFunction('myModal55')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal55" id="botonModal55" onclick="modalFunction('myModal55')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Programación de bajo nivel
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal55" id="botonModal55" onclick="modalFunction('myModal55')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal55" id="botonModal55" onclick="modalFunction('myModal55')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática.
-              <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal56" id="botonModal56" onclick="modalFunction('myModal56')"></button> -->
-              &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal56" id="botonModal56" onclick="modalFunction('myModal56')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática?
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal56" id="botonModal56" onclick="modalFunction('myModal56')">Leer más
+                </a>
+              <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal56" id="botonModal56" onclick="modalFunction('myModal56')"></i> -->
               </h5>
             </div>
             <!-- Fin de items de pregunta -->
@@ -680,7 +757,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question12" value="opcion1" aria-label="Radio button for following text input" id="radioOption61">
             </div>
             &nbsp;
-            <label for="radioOption61" class="form-control custom-radio-label" onclick="selectRadio('radioOption61')">Si</label>
+            <label for="radioOption61" class="form-control custom-radio-label" onclick="selectRadio('radioOption61')" style="cursor: pointer;">Si</label>
           </div>
           
           <div class="separador"></div>
@@ -690,7 +767,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question12" value="opcion2" aria-label="Radio button for following text input" id="radioOption62">
               </div>
               &nbsp;
-              <label for="radioOption62" class="form-control custom-radio-label" onclick="selectRadio('radioOption62')">No</label>
+              <label for="radioOption62" class="form-control custom-radio-label" onclick="selectRadio('radioOption62')" style="cursor: pointer;">No</label>
           </div>
 
           <br/>
@@ -701,30 +778,35 @@
         </div>
 
         <div id="question13" class="question" style="display: none;">
-          <h3>Pregunta 13: Te gustaría estudiar una carrera que tenga un enfoque de desarrollo que integran hardware y software preparándote para:</h3>
+          <h2>Pregunta 13: ¿Te gustaría estudiar una carrera que tenga un enfoque en el desarrollo que integre hardware y software, preparándote para:</h2>
+          <h6>Seleccione una opción </h6>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controla arquitectura de computadoras, componentes electrónicos, la gestión de redes y comunicaciones, señales digitales. Teniendo en cuenta el costo y tiempo.
-            <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal57" id="botonModal57" onclick="modalFunction('myModal57')"></button> -->
-            &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal57" id="botonModal57" onclick="modalFunction('myModal57')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controla arquitectura de computadoras, componentes electrónicos, la gestión de redes y comunicaciones, señales digitales. Teniendo en cuenta el costo y tiempo
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal57" id="botonModal57" onclick="modalFunction('myModal57')">Leer más
+              </a>
+            <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal57" id="botonModal57" onclick="modalFunction('myModal57')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Aplicar la ciencia de la tecnología en mejorar productos de hardware y software ya existentes.
-            <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal58" id="botonModal58" onclick="modalFunction('myModal58')"></button> -->
-            &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal58" id="botonModal58" onclick="modalFunction('myModal58')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Aplicar la ciencia de la tecnología en mejorar productos de hardware y software ya existentes
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal58" id="botonModal58" onclick="modalFunction('myModal58')">Leer más
+              </a>
+            <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal58" id="botonModal58" onclick="modalFunction('myModal58')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en productos de hardware y software.
-            <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal59" id="botonModal59" onclick="modalFunction('myModal59')"></button> -->
-            &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal59" id="botonModal59" onclick="modalFunction('myModal59')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en productos de hardware y software
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal59" id="botonModal59" onclick="modalFunction('myModal59')">Leer más
+              </a>
+            <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal59" id="botonModal59" onclick="modalFunction('myModal59')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área.
-            <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal60" id="botonModal60" onclick="modalFunction('myModal60')"></button> -->
-            &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal60" id="botonModal60" onclick="modalFunction('myModal60')"></i>
+            <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área?
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal60" id="botonModal60" onclick="modalFunction('myModal60')">Leer más
+              </a>
+            <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal60" id="botonModal60" onclick="modalFunction('myModal60')"></i> -->
             </h5>
           </div>
           <!-- Fin de items de pregunta -->
@@ -734,7 +816,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question13" value="opcion1" aria-label="Radio button for following text input" id="radioOption63">
             </div>
             &nbsp;
-            <label for="radioOption63" class="form-control custom-radio-label" onclick="selectRadio('radioOption63')">Si</label>
+            <label for="radioOption63" class="form-control custom-radio-label" onclick="selectRadio('radioOption63')" style="cursor: pointer;">Si</label>
           </div>
           
           <div class="separador"></div>
@@ -744,7 +826,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question13" value="opcion2" aria-label="Radio button for following text input" id="radioOption64">
             </div>
             &nbsp;
-            <label for="radioOption64" class="form-control custom-radio-label" onclick="selectRadio('radioOption64')">No</label>
+            <label for="radioOption64" class="form-control custom-radio-label" onclick="selectRadio('radioOption64')" style="cursor: pointer;">No</label>
           </div>
           <br/>
           <div class="d-flex justify-content-around">
@@ -756,53 +838,62 @@
       <!-- Lado de horarios de tarde y noche -->
         <div id="question14" class="question" style="display: none;">
           <!-- Comienzo item de pregunta -->
-            <h3>Pregunta 14: Te gustaría aprender programación orientado mas al Software:</h3>
+            <h2>Pregunta 14: ¿Te interesaría aprender programación orientada al software, incluyendo temas como:</h2>
+            <h6>Seleccione una opción </h6>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Programación para paginas Web.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Programación para paginas Web
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Aplicaciones para dispositivos móviles.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Aplicaciones para dispositivos móviles
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Diseño Responsivo.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Diseño Responsivo
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Protocolos y APIs.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Protocolos y APIs
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Frameworks y Bibliotecas.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Frameworks y Bibliotecas
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal19" id="botonModal19" onclick="modalFunction('myModal19')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Programación de alto nivel.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Programación de alto nivel
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal20" id="botonModal20" onclick="modalFunction('myModal20')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Usos de herramientas informática para el desarrollo web.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Usos de herramientas informática para el desarrollo web
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal21" id="botonModal21" onclick="modalFunction('myModal21')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Software de bases de datos.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Software de bases de datos?
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal22" id="botonModal22" onclick="modalFunction('myModal22')"></i> -->
               </h5>
             </div>
 
@@ -813,7 +904,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question14" value="opcion1" aria-label="Radio button for following text input" id="radioOption71">
               </div>
               &nbsp;
-              <label for="radioOption71" class="form-control custom-radio-label" onclick="selectRadio('radioOption71')">Si</label>
+              <label for="radioOption71" class="form-control custom-radio-label" onclick="selectRadio('radioOption71')" style="cursor: pointer;">Si</label>
             </div>
             
             <div class="separador"></div>
@@ -823,7 +914,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question14" value="opcion2" aria-label="Radio button for following text input" id="radioOption72">
               </div>
               &nbsp;
-              <label for="radioOption72" class="form-control custom-radio-label" onclick="selectRadio('radioOption72')">No</label>
+              <label for="radioOption72" class="form-control custom-radio-label" onclick="selectRadio('radioOption72')" style="cursor: pointer;">No</label>
             </div>
             <!-- Fin de items de pregunta -->
             <br/>
@@ -833,31 +924,35 @@
             </div>
         </div>
         <div id="question15" class="question" style="display: none;">
-            <h3>Pregunta 15: </h3>
-            <h3>Te gustaría trabajar como:</h3>
+            <h2>Pregunta 15: ¿Te gustaría trabajar en áreas como:</h2>
+            <h6>Seleccione una opción </h6>
               <!-- Comienzo item de pregunta -->
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web y de aplicaciones móviles.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web y de aplicaciones móviles
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal23" id="botonModal23" onclick="modalFunction('myModal23')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de aplicaciones móviles.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de aplicaciones móviles
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal24" id="botonModal24" onclick="modalFunction('myModal24')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal25" id="botonModal25" onclick="modalFunction('myModal25')"></i> -->
                 </h5>
               </div>
               <div class="container mt-3">
-                <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en Web.
-                    <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')"></button> -->
-                    &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')"></i>
+                <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en Web?
+                  <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')">Leer más
+                  </a>
+                    <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal26" id="botonModal26" onclick="modalFunction('myModal26')"></i> -->
                 </h5>
               </div>
             <!-- Fin de items de pregunta -->
@@ -868,7 +963,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question15" value="opcion1" aria-label="Radio button for following text input" id="radioOption73">
               </div>
               &nbsp;
-              <label for="radioOption73" class="form-control custom-radio-label" onclick="selectRadio('radioOption73')">Si</label>
+              <label for="radioOption73" class="form-control custom-radio-label" onclick="selectRadio('radioOption73')" style="cursor: pointer;">Si</label>
             </div>
             
             <div class="separador"></div>
@@ -878,7 +973,7 @@
                     <input class="mt-0 visually-hidden" type="radio" name="question15" value="opcion2" aria-label="Radio button for following text input" id="radioOption74">
                 </div>
                 &nbsp;
-                <label for="radioOption74" class="form-control custom-radio-label" onclick="selectRadio('radioOption74')">No</label>
+                <label for="radioOption74" class="form-control custom-radio-label" onclick="selectRadio('radioOption74')" style="cursor: pointer;">No</label>
             </div>
 
             <br/>
@@ -888,48 +983,56 @@
             </div>
         </div>
         <div id="question16" class="question" style="display: none;">
-            <h3>Pregunta 16: ¿Te gustaría aprender programación orientado al Hardware?:</h3>
+            <h2>Pregunta 16: ¿Te interesaría aprender programación orientada al Hardware, incluyendo temas como:</h2>
+            <h6>Seleccione una opción </h6>
             <!-- Comienzo item de pregunta -->
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Dispositivos de redes.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Dispositivos de redes
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal27" id="botonModal27" onclick="modalFunction('myModal27')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Redes de computadora.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Redes de computadora
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal28" id="botonModal28" onclick="modalFunction('myModal28')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Programación de bajo nivel.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Programación de bajo nivel
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal29" id="botonModal29" onclick="modalFunction('myModal29')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Programación para redes.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Programación para redes
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal30" id="botonModal30" onclick="modalFunction('myModal30')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Armado y Diagnóstico de PC.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Armado y Diagnóstico de PC
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal31" id="botonModal31" onclick="modalFunction('myModal31')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Sistemas Digitales.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Sistemas Digitales
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal32" id="botonModal32" onclick="modalFunction('myModal32')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Sistema de Comunicación.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Sistema de Comunicación?
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal33" id="botonModal33" onclick="modalFunction('myModal33')"></i> -->
               </h5>
             </div>
           <!-- Fin de items de pregunta --> 
@@ -940,7 +1043,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question16" value="opcion1" aria-label="Radio button for following text input" id="radioOption75">
             </div>
             &nbsp;
-            <label for="radioOption75" class="form-control custom-radio-label" onclick="selectRadio('radioOption75')">Si</label>
+            <label for="radioOption75" class="form-control custom-radio-label" onclick="selectRadio('radioOption75')" style="cursor: pointer;">Si</label>
           </div>
           
           <div class="separador"></div>
@@ -950,7 +1053,7 @@
                 <input class="mt-0 visually-hidden" type="radio" name="question16" value="opcion2" aria-label="Radio button for following text input" id="radioOption76">
             </div>
             &nbsp;
-            <label for="radioOption76" class="form-control custom-radio-label" onclick="selectRadio('radioOption76')">No</label>
+            <label for="radioOption76" class="form-control custom-radio-label" onclick="selectRadio('radioOption76')" style="cursor: pointer;">No</label>
           </div>
 
             <br/>
@@ -960,30 +1063,35 @@
             </div>
         </div>
         <div id="question17" class="question" style="display: none;">
-            <h3>Pregunta 17: Te gustaría trabajar como:</h3>
+            <h2>Pregunta 17: ¿Te gustaría trabajar en áreas como:</h2>
+            <h6>Seleccione una opción </h6>
             <!-- Comienzo item de pregunta -->
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Asesoramiento técnico.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Asesoramiento técnico
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Mantenimiento de redes.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Mantenimiento de redes
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Desarrollar dispositivos de redes.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Desarrollar dispositivos de redes
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
               </h5>
             </div>
             <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Diseño, instalación y configuración de redes de computadora.
-                  <!-- <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></button> -->
-                  &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i>
+              <h5 class="d-flex justify-content-between align-items-center">-Diseño, instalación y configuración de redes de computadora?
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+                </a>
+                  <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i> -->
               </h5>
             </div>
             <!-- Fin de items de pregunta --> 
@@ -994,7 +1102,7 @@
                   <input class="mt-0 visually-hidden" type="radio" name="question17" value="opcion1" aria-label="Radio button for following text input" id="radioOption77">
               </div>
               &nbsp;
-              <label for="radioOption77" class="form-control custom-radio-label" onclick="selectRadio('radioOption77')">Si</label>
+              <label for="radioOption77" class="form-control custom-radio-label" onclick="selectRadio('radioOption77')" style="cursor: pointer;">Si</label>
             </div>
             <div class="separador"></div>
             <div class="input-group">
@@ -1002,7 +1110,7 @@
                     <input class="mt-0 visually-hidden" type="radio" name="question17" value="opcion2" aria-label="Radio button for following text input" id="radioOption78">
                 </div>
                 &nbsp;
-                <label for="radioOption78" class="form-control custom-radio-label" onclick="selectRadio('radioOption78')">No</label>
+                <label for="radioOption78" class="form-control custom-radio-label" onclick="selectRadio('radioOption78')" style="cursor: pointer;">No</label>
             </div>
           
 
