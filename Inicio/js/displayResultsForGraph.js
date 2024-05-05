@@ -59,10 +59,10 @@ var setting4 = {
 var slider4 = wRunner(setting4);
 
 // Variables de paginación
-let paginaActual = 0;
 const elementosPorPagina = 10; // Ajusta la cantidad de elementos por página según tu necesidad
 let urlViewGraph = null;
 let graficas; // Arreglo para almacenar las instancias de gráfico
+let currentPage = 1;
 
 let opcionVisualizador = 1;
 let typeOfSearch = 0;
@@ -122,6 +122,7 @@ function showTable(elementId) {
 function selectOption(numberTable, tableId){
     opcionVisualizador = numberTable;
     typeOfSearch = 0;
+    currentPage = 1;
     switch (numberTable) {
         case 1:
             urlViewGraph = urlForBack+`resultados/viewGraph?interes=true&modo=1`;
@@ -415,6 +416,7 @@ function changePage(pageNumber, data) {
     dataForViewGraphBarOfSchool(data, pageNumber);
 }
 
+
 // Función para crear los botones de paginación
 function createPagination(data) {
     // Número total de escuelas
@@ -439,9 +441,9 @@ function createPagination(data) {
     previousLink.textContent = 'Anterior';
     previousLink.addEventListener('click', () => {
         if (paginationContainer) {
-            const currentPage = parseInt(paginationContainer.querySelector('.active').textContent);
             if (currentPage > 1) {
-                changePage(currentPage - 1, data);
+                currentPage--;
+                changePage(currentPage, data);
             }
         } else {
             console.error("El elemento paginacion no existe en el DOM.");
@@ -477,9 +479,9 @@ function createPagination(data) {
     nextLink.textContent = 'Siguiente';
     nextLink.addEventListener('click', () => {
         if (paginationContainer) {
-            const currentPage = parseInt(paginationContainer.querySelector('.active').textContent);
             if (currentPage < totalPages) {
-                changePage(currentPage + 1, data);
+                currentPage++;
+                changePage(currentPage, data);
             }
         } else {
             console.error("El elemento paginacion no existe en el DOM.");
