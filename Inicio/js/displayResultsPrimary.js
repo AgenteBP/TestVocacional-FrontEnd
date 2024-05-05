@@ -7,6 +7,9 @@ const url2 = urlForBack+`resultados/countWithInterest`;
 const url3 = urlForBack+`resultados/mostChosenCareer`;
 const url4 = urlForBack+`resultados/mostFrequentSchool`;
 const urlGraphPie = urlForBack+`resultados/viewGraph?modo=1`;
+const tabulatedTableOfCareers = urlForBack+`resultados/quantityByCareerTable`;
+
+let tabulatedTableCarreras = null;
 
 const cuentaTotalElement1 = document.getElementById('cuentaTotal');
 const cuentaTotalElement2 = document.getElementById('cuentaTotalI');
@@ -44,6 +47,65 @@ function acortarNombreEscuela(nombreEscuela) {
     return nombreEscuela;
 }
 
+function mostrarCarrerasMasElegidas(data, cuentaTotalElement) {
+    // Si no hay datos disponibles
+    if (data.length === 0) {
+        console.error("No se han recibido datos.");
+        return;
+    }
+
+    // Obtener la cantidad máxima de la primera entrada
+    const maxCantidad = data[0][1];
+
+    // Filtrar las carreras con la cantidad máxima
+    const carrerasMasElegidas = data.filter(carrera => carrera[1] === maxCantidad).map(carrera => carrera[0]);
+
+    // Mostrar las carreras más elegidas
+    if (carrerasMasElegidas.length === 1) {
+        const carreraMasElegida = carrerasMasElegidas[0];
+        cuentaTotalElement.textContent = carreraMasElegida;
+        console.log("La carrera más elegida es:", carreraMasElegida);
+    } else {
+        const carrerasEmpatadas = carrerasMasElegidas.join(", ");
+        cuentaTotalElement.textContent = "Empate entre: " + carrerasEmpatadas;
+        console.log("Hay un empate entre las siguientes carreras:", carrerasEmpatadas);
+    }
+}
+
+function mostrarEscuelaMasElegida(data, cuentaTotalElement) {
+    // Si no hay datos disponibles
+    if (data.length === 0) {
+        console.error("No se han recibido datos.");
+        return;
+    }
+
+    // Inicializar variables para la escuela más elegida y su cantidad
+    let escuelasMasElegidas = [];
+    let maxCantidad = -1;
+
+    // Iterar sobre los datos para encontrar la cantidad máxima
+    data.forEach((escuela) => {
+        const cantidad = escuela[1];
+        if (cantidad > maxCantidad) {
+            maxCantidad = cantidad;
+            // Limpiar el array de escuelas más elegidas y agregar la escuela actual
+            escuelasMasElegidas = [escuela[0]];
+        } else if (cantidad === maxCantidad) {
+            // Si hay un empate, agregar la escuela actual al array de escuelas más elegidas
+            escuelasMasElegidas.push(escuela[0]);
+        }
+    });
+
+    // Mostrar las escuelas más elegidas
+    if (escuelasMasElegidas.length === 1) {
+        const escuelaMasElegida = escuelasMasElegidas[0];
+        cuentaTotalElement.textContent = escuelaMasElegida  + " con " + maxCantidad + " veces";
+    } else {
+        const escuelasEmpatadas = escuelasMasElegidas.join(", ");
+        cuentaTotalElement.textContent = "Empate entre: " + escuelasEmpatadas + " con " + maxCantidad + " veces";
+    }
+}
+
 // Crear una función para hacer Fetch a una URL con el token de autorización
 const fetchData = async (url) => {
     const response = await fetch(url, {
@@ -64,7 +126,7 @@ const fetchData = async (url) => {
 };
 
 // Hacer Fetch a todas las URLs simultáneamente usando Promise.all()
-Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4), fetchData(urlGraphPie)])
+Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4), fetchData(urlGraphPie), fetchData(tabulatedTableOfCareers)])
 .then(responses => {
     // responses es un array con los resultados de todas las llamadas Fetch
     const data1 = responses[0];
@@ -72,18 +134,20 @@ Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4),
     const data3 = responses[2];
     const schools = responses[3];
     const graphPieCarreras = responses[4];
+    tabulatedTableCarreras = responses[5];
 
     // Aquí puedes hacer lo que necesites con los datos obtenidos
     console.log('Datos de la URL 1:', data1);
     console.log('Datos de la URL 2:', data2);
     console.log('Datos de la URL 3:', data3);
     console.log('Datos de la URL 4:', schools);
+    console.log('Datos de la URL 6:', tabulatedTableCarreras);
 
     // Por ejemplo, actualizar el contenido del DOM con los datos obtenidos
     cuentaTotalElement1.textContent = data1;
     cuentaTotalElement2.textContent = data2;
-    cuentaTotalElement3.textContent = data3[0];
-    cuentaTotalElement4.textContent = schools[0][0] + " con " + schools[0][1] + " veces";
+    mostrarCarrerasMasElegidas(data3, cuentaTotalElement3);
+    mostrarEscuelaMasElegida(schools, cuentaTotalElement4);
 
     //Para grafico de barra
     anychart.onDocumentReady(function () {
@@ -149,6 +213,30 @@ Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4),
     chart.container(canvas);
     chart.draw();
     });     
+
+    // Para tabla tabulada de cantidad de carreras
+    
+    // Obtener la referencia a la tabla y la paginación
+    const tabla = document.getElementById("tableForQuantityCarrer");
+    const tbody = tabla.querySelector("tbody");
+
+    // Llenar la tabla con los datos
+    tabulatedTableCarreras.forEach((resultado) => {
+        const fila = document.createElement("tr");
+        // Acceder a los campos dentro del objeto usuarios
+        const carreras = resultado[0];
+        const cantidadObtenida = resultado[1];
+
+        const columnas = [carreras, cantidadObtenida];
+        columnas.forEach((columna) => {
+            const celda = document.createElement("td");
+            celda.textContent = columna;
+            fila.appendChild(celda);
+        });
+        tbody.appendChild(fila);
+        
+    });
+    
 })
 .catch(error => console.error('Error al obtener datos:', error));
 
