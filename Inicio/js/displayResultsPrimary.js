@@ -8,8 +8,14 @@ const url3 = urlForBack+`resultados/mostChosenCareer`;
 const url4 = urlForBack+`resultados/mostFrequentSchool`;
 const urlGraphPie = urlForBack+`resultados/viewGraph?modo=1`;
 const tabulatedTableOfCareers = urlForBack+`resultados/quantityByCareerTable`;
+let tabulatedTableOfSchool = urlForBack+`resultados/quantityBySchoolTable`;
 
 let tabulatedTableCarreras = null;
+let tabulatedTableSchool = null;
+let currentPage = 0;
+// Definir una variable global para la cantidad de datos por página
+const cantidadPorPagina = 10;
+
 
 const cuentaTotalElement1 = document.getElementById('cuentaTotal');
 const cuentaTotalElement2 = document.getElementById('cuentaTotalI');
@@ -106,6 +112,139 @@ function mostrarEscuelaMasElegida(data, cuentaTotalElement) {
     }
 }
 
+// Funcion para filtros
+// Función para manejar el cambio de página
+function changePage(pageNumber) {
+    
+    tabulatedTableOfSchool = urlForBack+`resultados/quantityBySchoolTable?page=${pageNumber}&quantityPerPage=${10}`
+    if (token) {
+        // Realizar la solicitud GET a la API con información de paginación
+        fetch(tabulatedTableOfSchool, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+                // Otros encabezados según sea necesario
+            }
+        })
+        .then(response => {
+            // Verificar si la respuesta es un Unauthorized (código 403)
+            if (response.status === 403) {
+                // El token ha expirado, muestra un modal y redirige a index.html
+                mostrarModalSesionExpirada();
+                // window.location.href = 'index.html';
+                return Promise.reject('Token expirado');
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            dataForQuatitySchool(data);
+        })
+        .catch(error => console.error('Error al obtener datos:', error));
+    } else {
+        console.error('Token no disponible. El usuario no está autenticado.');
+    }
+}
+// Función para crear los botones de paginación
+function createPagination(totalPages) {
+
+    // Obtener el contenedor de la paginación
+    const paginationContainer = document.getElementById("paginacionSchool");
+
+    paginationContainer.innerHTML = ''; // Limpiar el contenido previo
+
+    // Crear botón de anterior
+    const previousButton = document.createElement('li');
+    previousButton.classList.add('page-item');
+    const previousLink = document.createElement('a');
+    previousLink.classList.add('page-link');
+    previousLink.href = "#";
+    previousLink.textContent = 'Anterior';
+    previousLink.addEventListener('click', () => {
+        if (paginationContainer) {
+            if (currentPage > 1) {
+                currentPage--;
+                changePage(currentPage);
+            }
+        } else {
+            console.error("El elemento paginacion no existe en el DOM.");
+        }
+        
+    });
+    previousButton.appendChild(previousLink);
+    paginationContainer.appendChild(previousButton);
+
+    // Crear botones de paginación para cada página
+    for (let i = 0; i < totalPages; i++) {
+        const li = document.createElement('li');
+        li.classList.add('page-item');
+
+        const a = document.createElement('a');
+        a.classList.add('page-link');
+        a.href = "#";
+        a.textContent = i+1;
+        a.addEventListener('click', () => {
+            currentPage = i;
+            changePage(i);
+        });
+
+        li.appendChild(a);
+        paginationContainer.appendChild(li);
+    }
+
+    // Crear botón de siguiente
+    const nextButton = document.createElement('li');
+    nextButton.classList.add('page-item');
+    const nextLink = document.createElement('a');
+    nextLink.classList.add('page-link');
+    nextLink.href = "#";
+    nextLink.textContent = 'Siguiente';
+    nextLink.addEventListener('click', () => {
+        if (paginationContainer) {
+            if (currentPage < totalPages) {
+                currentPage++;
+                changePage(currentPage);
+            }
+        } else {
+            console.error("El elemento paginacion no existe en el DOM.");
+        }
+        
+    });
+    nextButton.appendChild(nextLink);
+    paginationContainer.appendChild(nextButton);
+}
+
+function dataForQuatitySchool(data){
+    // Obtener la referencia a la tabla y la paginación
+    const tablaSchool = document.getElementById("tableForQuantitySchool");
+    const tbodySchool = tablaSchool.querySelector("tbody");
+
+    // Llenar la tabla con los datos
+    data.content.forEach((resultado) => {
+        const fila = document.createElement("tr");
+        // Acceder a los campos dentro del objeto usuarios
+        const carreras = resultado[0];
+        const cantidadObtenida = resultado[1];
+
+        const columnas = [carreras, cantidadObtenida];
+        columnas.forEach((columna) => {
+            const celda = document.createElement("td");
+            celda.textContent = columna;
+            fila.appendChild(celda);
+        });
+        tbodySchool.appendChild(fila);
+        
+    });
+
+    // Crear la paginación solo si hay datos disponibles
+    if (data.totalPages > 0) {
+
+        // Crear los botones de paginación
+        createPagination(data.totalPages);
+    }
+}
+
 // Crear una función para hacer Fetch a una URL con el token de autorización
 const fetchData = async (url) => {
     const response = await fetch(url, {
@@ -126,7 +265,7 @@ const fetchData = async (url) => {
 };
 
 // Hacer Fetch a todas las URLs simultáneamente usando Promise.all()
-Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4), fetchData(urlGraphPie), fetchData(tabulatedTableOfCareers)])
+Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4), fetchData(urlGraphPie), fetchData(tabulatedTableOfCareers), fetchData(tabulatedTableOfSchool)])
 .then(responses => {
     // responses es un array con los resultados de todas las llamadas Fetch
     const data1 = responses[0];
@@ -135,6 +274,7 @@ Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4),
     const schools = responses[3];
     const graphPieCarreras = responses[4];
     tabulatedTableCarreras = responses[5];
+    tabulatedTableSchool = responses[6];
 
     // Aquí puedes hacer lo que necesites con los datos obtenidos
     console.log('Datos de la URL 1:', data1);
@@ -236,6 +376,10 @@ Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4),
         tbody.appendChild(fila);
         
     });
+
+    // Para tabla tabulada de escuelas donde se ha realizado los tests
+    dataForQuatitySchool(tabulatedTableSchool);
+    
     
 })
 .catch(error => console.error('Error al obtener datos:', error));

@@ -54,6 +54,9 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" onclick="redirectToTables(4,'viewSchoolInSanLuis')">Las escuelas en San Luis</a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" onclick="redirectToTables(5,'viewQuantityCarrer')">Carreras</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="sidebar-item">
@@ -274,6 +277,27 @@
                         </ul>
                     </nav>
                 </div>
+
+                <!-- Tabla tabulada de cantidad de posibles alumnos por carreras  -->
+                <div id="viewQuantityCarrer" class="result-view" style="display: none;">
+                    <div class="card-header cardHeader">
+                        Cantidad de posibles alumnos por carreras
+                    </div>
+                    <div class="card-body">
+                            <table id="tableForQuantityCarrer" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Carreras</th>
+                                        <th scope="col">Cantidades Obtenidas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Los datos se llenarán aquí mediante JavaScript -->
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+                
             </main>
         </div>
         <footer class="text-center footer" id="footer1">
