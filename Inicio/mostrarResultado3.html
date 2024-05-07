@@ -57,6 +57,9 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" onclick="redirectToTables(4,'viewSchoolInSanLuis')">Las escuelas en San Luis</a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" onclick="redirectToTables(5,'viewQuantityCarrer')">Carreras</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="sidebar-item">
@@ -217,6 +220,36 @@
                                     </table>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tabla tabuladas de escuelas -->
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card  mb-4">
+                            <div class="card-header cardHeader">
+                                Escuelas donde se han realizado los test 
+                            </div>
+                            <div class="card-body">
+                                <div id="tableForQuantitySchool" class="result-view">
+                                    <table id="miTabla" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Escuelas</th>
+                                                <th scope="col">Resultados Obtenidas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Los datos se llenarán aquí mediante JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <nav aria-label="Page navigation example" class="text-center">
+                                <ul id="paginacionSchool" class="pagination justify-content-center">
+                                    <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>

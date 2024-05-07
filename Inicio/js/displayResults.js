@@ -51,6 +51,7 @@ let urlViewAll = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPer
 let urlViewEsResident = urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
 let urlViewEsNoResident = urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
 let urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
+let urlQuantityByCareerTable = urlForBack+`resultados/quantityByCareerTable`;
 let urlViewGraph = null;
 let graficas; // Arreglo para almacenar las instancias de gráfico
 
@@ -120,6 +121,10 @@ function selectOption(numberTable, tableId){
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlViewSchoolInSanLuis);
             break;
+        case 5:
+            showTable(tableId);
+            cargarDatosYPaginacion(numberTable,urlQuantityByCareerTable);
+            break;
     }
 }
 
@@ -170,6 +175,9 @@ function cargarDatosYPaginacion(opcion, url) {
                     break;
                 case 4:
                     dataForTableSchoolInSanLuis(data);
+                    break;
+                case 5:
+                    dataForTableCarrer(data);
                     break;
                 
             }
@@ -463,6 +471,38 @@ function dataForTableSchoolInSanLuis(data){
     });
     
     agregarBotonesPaginacionBootstrap(data, "paginacion4", 4);
+}
+
+function dataForTableCarrer(data){
+    // Obtener la referencia a la tabla y la paginación
+    const tabla = document.getElementById("tableForQuantityCarrer");
+    const tbody = tabla.querySelector("tbody");
+    const paginacion = document.getElementById("paginacion");
+    const filtro = document.getElementById("filtrado"); // Agregar esta línea
+    // const tabulatedTableCarreras = data;
+
+    // Limpiar la tabla y la paginación
+    tbody.innerHTML = '';
+    paginacion.innerHTML = '';
+    filtro.style.display = 'none';
+    
+    // Llenar la tabla con los datos
+    data.forEach((resultado) => {
+        const fila = document.createElement("tr");
+        // Acceder a los campos dentro del objeto usuarios
+        const carreras = resultado[0];
+        const cantidadObtenida = resultado[1];
+
+        const columnas = [carreras, cantidadObtenida];
+        columnas.forEach((columna) => {
+            const celda = document.createElement("td");
+            celda.textContent = columna;
+            fila.appendChild(celda);
+        });
+        tbody.appendChild(fila);
+        
+    });
+    
 }
 
 function updateUrl(urlID,paginaActual, url){
