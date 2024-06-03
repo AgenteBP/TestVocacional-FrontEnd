@@ -52,6 +52,7 @@ let urlViewEsResident = urlForBack+`resultados/esRes?page=${paginaActual}&quanti
 let urlViewEsNoResident = urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
 let urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
 let urlQuantityByCareerTable = urlForBack+`resultados/quantityByCareerTable`;
+let urlTour = urlForBack+`resultados/tour?page=${paginaActual}&quantityPerPage=${elementosPorPagina}`;
 let urlViewGraph = null;
 let graficas; // Arreglo para almacenar las instancias de gráfico
 
@@ -125,6 +126,10 @@ function selectOption(numberTable, tableId){
             showTable(tableId);
             cargarDatosYPaginacion(numberTable,urlQuantityByCareerTable);
             break;
+        case 6:
+            showTable(tableId);
+            cargarDatosYPaginacion(numberTable,urlTour);
+            break;
     }
 }
 
@@ -178,6 +183,9 @@ function cargarDatosYPaginacion(opcion, url) {
                     break;
                 case 5:
                     dataForTableCarrer(data);
+                    break;
+                case 6:
+                    dataForTableTour(data);
                     break;
                 
             }
@@ -459,6 +467,9 @@ function dataForTableSchoolInSanLuis(data){
         const schoolInSanLuis = resultado[3];
         const fecha = resultado[4];
         const carreraObtenida = resultado[5];
+        const idResultado = resultado[6];
+
+        // console.log("idResultado tiene "+ idResultado);
 
         const columnas = [email, edad, schoolInSanLuis, convertirFormatoFecha(fecha), carreraObtenida];
         columnas.forEach((columna) => {
@@ -466,11 +477,89 @@ function dataForTableSchoolInSanLuis(data){
             celda.textContent = columna;
             fila.appendChild(celda);
         });
+        // Agregar tooltip a la fila con el mensaje "Seleccionar"
+        fila.setAttribute('title', 'Seleccionar');
+        fila.setAttribute('data-bs-toggle', 'tooltip');
+        fila.setAttribute('data-bs-placement', 'top');
+
+        // Agregar evento de clic a la fila para mostrar el modal
+        fila.addEventListener('click', () => {
+            dataForModalSeg(email, fecha, schoolInSanLuis, carreraObtenida, idResultado);
+        });
+
         tbody.appendChild(fila);
         
     });
+
+    // Inicializar tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
     
     agregarBotonesPaginacionBootstrap(data, "paginacion4", 4);
+}
+
+function dataForModalSeg(email, fecha, escuela, carrera, idResultado) {
+    // Llenar los elementos del modal con los datos
+    document.getElementById('emailSeguimientoModal').textContent = email;
+    document.getElementById('fechaModal').textContent = fecha;
+    document.getElementById('escuelaObtenidaModal').textContent = escuela;
+    document.getElementById('carreraObtenidaModal').textContent = carrera;
+
+    const tabla = document.getElementById("tablaSchoolInSanLuisSeg");
+    const tbody = tabla.querySelector("tbody");
+    tbody.innerHTML = '';
+    console.log("idResultado tiene "+ idResultado);
+    url = urlForBack + `resultados/tracking?idResultado=${idResultado}`;
+    if (token) {
+        // Realizar la solicitud GET a la API con información de paginación
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+                // Otros encabezados según sea necesario
+            }
+        })
+        .then(response => {
+            // Verificar si la respuesta es un Unauthorized (código 403)
+            if (response.status === 403) {
+                // El token ha expirado, muestra un modal y redirige a index.html
+                mostrarModalSesionExpirada();
+                // window.location.href = 'index.html';
+                return Promise.reject('Token expirado');
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            // Llenar la tabla con los datos
+            data.forEach((resultado) => {
+                const fila = document.createElement("tr");
+                // Acceder a los campos dentro del objeto usuarios
+                const idPregunta = resultado[0];
+                const opcionSeleccionada = resultado[1];
+
+                const columnas = [idPregunta, opcionSeleccionada];
+                columnas.forEach((columna) => {
+                    const celda = document.createElement("td");
+                    celda.textContent = columna;
+                    fila.appendChild(celda);
+                });
+
+                tbody.appendChild(fila);
+                
+            });
+            // Mostrar el modal
+            const modal = new bootstrap.Modal(document.getElementById('modalTableSchoolSeg'));
+            modal.show();
+        })
+        .catch(error => console.error('Error al obtener datos:', error));
+    } else {
+        console.error('Token no disponible. El usuario no está autenticado.');
+    }
+    
 }
 
 function dataForTableCarrer(data){
@@ -503,6 +592,46 @@ function dataForTableCarrer(data){
         
     });
     
+}
+
+function dataForTableTour(data){
+    // Obtener la referencia a la tabla y la paginación
+    const tabla = document.getElementById("tableTour");
+    const tbody = tabla.querySelector("tbody");
+    const paginacion = document.getElementById("paginacion");
+    const filtro = document.getElementById("filtrado"); // Agregar esta línea
+    // const tabulatedTableCarreras = data;
+
+    // Limpiar la tabla y la paginación
+    tbody.innerHTML = '';
+    paginacion.innerHTML = '';
+    filtro.style.display = 'none';
+    
+    // Llenar la tabla con los datos
+    data.content.forEach((resultado) => {
+        const fila = document.createElement("tr");
+        // Acceder a los campos dentro del objeto usuarios
+        const email = resultado[0];
+        const edad = resultado[1];
+        const fecha = resultado[2];
+        const paisOrigen = resultado[3];
+        const provincia = resultado[4];
+        const escuela = resultado[5];
+        const carreraObtenida = resultado[6];
+        const idPregunta = resultado[7];
+        const opcionSeleccionada = resultado[8];
+
+        const columnas = [email, edad, fecha, paisOrigen, provincia, escuela, carreraObtenida, idPregunta, opcionSeleccionada];
+        columnas.forEach((columna) => {
+            const celda = document.createElement("td");
+            celda.textContent = columna;
+            fila.appendChild(celda);
+        });
+        tbody.appendChild(fila);
+        
+    });
+
+    agregarBotonesPaginacionBootstrap(data, "paginacion5", 6);
 }
 
 function updateUrl(urlID,paginaActual, url){
@@ -542,9 +671,15 @@ function updateUrl(urlID,paginaActual, url){
             urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
 
             break;
+        case 6:
+            url = 
+            urlForBack+`resultados/tour?page=${paginaActual}&quantityPerPage=${elementosPorPagina}`;
+
+            break;
     }
     return url;
 }
+
 function agregarBotonesPaginacionBootstrap(data, idpaginacion, numberTable) {
 
     const paginacion = document.getElementById(idpaginacion);

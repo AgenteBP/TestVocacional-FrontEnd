@@ -109,11 +109,14 @@ function sendResultsQQ(results, interes, typeofPDF){
 
   const url = urlForBack+'resultados';  // Reemplaza con la URL de tu endpoint en el backend
   const data = {
+    resultados: {
       carreraObtenida: results,
       idUsuario: idUsuario,
       fecha: obtenerFechaActual(),
-      interes: interes
-  };
+      interes: interes,
+      saveTest: false
+    }
+  }
 
   fetch(url, {
   method: 'POST',

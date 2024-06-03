@@ -57,6 +57,9 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" onclick="redirectToTables(5,'viewQuantityCarrer')">Carreras</a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" onclick="redirectToTables(6,'viewTour')">Seguimiento de cada Test hecho</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="sidebar-item">
@@ -255,7 +258,8 @@
                         </ul>
                     </nav>
                 </div>
-        
+                
+                <!-- Escuelas con seguimiento de test -->
                 <div id="viewSchoolInSanLuis" class="result-view" style="display: none;">
                     <table id="tablaSchoolInSanLuis" class="table table-hover">
                         <thead>
@@ -297,7 +301,78 @@
                             </table>
                     </div>
                 </div>
+
+                <!-- Tabla de alumnos que han hecho el test vocacional con seguimiento  -->
+                <div id="viewTour" class="result-view" style="display: none;">
+                    <div class="card-header cardHeader">
+                        Cantidad de posibles alumnos por carreras
+                    </div>
+                    <div class="card-body">
+                            <table id="tableTour" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Edad</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Pais Origen</th>
+                                        <th scope="col">Provincia</th>
+                                        <th scope="col">Escuela</th>
+                                        <th scope="col">Carrera Obtenida</th>
+                                        <th scope="col">Id de Pregunta</th>
+                                        <th scope="col">Opcion Seleccionada</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Los datos se llenarán aquí mediante JavaScript -->
+                                </tbody>
+                            </table>
+                            <nav aria-label="Page navigation example" class="text-center">
+                                <ul id="paginacion5" class="pagination justify-content-center">
+                                    <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
+                                </ul>
+                            </nav>
+                    </div>
+                </div>
+
+                <!-- Modal del Seguimiento -->
+                <div class="modal fade" id="modalTableSchoolSeg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex justify-content-between align-items-center">
+                                <h4 class="modal-title" id="exampleModalLabel">
+                                    Seguimiento del usuario<span id="emailSeguimientoModal"></span>.
+                                </h4>
+                                <h5><a href="#" onclick="watchImg()">Ver Árbol de Decisión</a></h5>
+                            </div>
+                        <div class="modal-body">
+                            <div class="container mt-3">
+                            <!-- Aquí inserta tu contenido dentro de un div -->
+                                <div id="tableSeg">
+                                    <h3>Carrera Obtenida: <span id="carreraObtenidaModal"></span></h3>
+                                    <h5>Escuela: <span id="escuelaObtenidaModal"></span></h5>
+                                    <h5>Fecha:<span id="fechaModal"></span></h5>
+                                    <table id="tablaSchoolInSanLuisSeg" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID Pregunta</th>
+                                                <th scope="col">Opción Seleccionada</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Los datos se llenarán aquí mediante JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                 
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
         <footer class="text-center footer" id="footer1">
@@ -326,6 +401,23 @@
         </div>
     </div>
 
+    <!-- Modal para la imagen -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Árbol de Decisión</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="decisionTreeImage" src="../Imagenes/Arbol de decision Test Vocacional_page-0001.jpg" alt="Árbol de Decisión" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -345,6 +437,9 @@
 
     <!-- Select with search -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- Incluir Panzoom desde el CDN -->
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
 
     <script src="../school.js"></script>
     <script src="../url.js"></script>
@@ -412,6 +507,28 @@
         }
         
         $('#exampleSchool').selectpicker();
+
+        function watchImg(){
+            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            imageModal.show();
+
+            // Inicializar Panzoom en la imagen cuando el modal se muestra
+            imageModal._element.addEventListener('shown.bs.modal', () => {
+                const image = document.getElementById('decisionTreeImage');
+                const panzoomInstance = Panzoom(image, {
+                    maxScale: 5,  // Nivel máximo de zoom
+                    contain: 'outside', // Permite mayor libertad de movimiento
+                    startScale: 1, // Nivel de zoom inicial
+                    startX: 0, // Posición inicial en X
+                    startY: 0, // Posición inicial en Y
+                    pinchSpeed: 2, // Velocidad del zoom con pinch (acercar con dos dedos)
+                    zoomSpeed: 0.065 // Velocidad del zoom con la rueda del ratón
+                });
+
+                // Habilitar el manejo de la rueda del ratón para el zoom
+                image.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+            });
+        }
    
     </script>
 </body>
