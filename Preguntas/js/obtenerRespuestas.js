@@ -1,3 +1,13 @@
+const email = localStorage.getItem('email');
+const idUsuario = localStorage.getItem('id');
+const edad = localStorage.getItem('edad');
+const esResidenteArg = localStorage.getItem('esResidenteArg');
+const paisOrigen = localStorage.getItem('paisOrigen');
+const provinciaArg = localStorage.getItem('provinciaArg');
+// Variable para guardar las preguntas y opciones seleccionadas
+let questionsAndOption = [];
+// Variable para saber que pregunta vengo cuando se elige reiniciar
+let questionReload;
 // function showQuestion(questionId) {
 //     document.querySelectorAll('.question').forEach(question => {
 //         question.style.display = 'none';
@@ -30,35 +40,48 @@ function showQuestionFromRight(questionId) {
     // Agrega la clase de animación a la pregunta que se está mostrando
 }
 
+function tour(idPregunta, opcionSeleccionada){
+    // Agrega un objeto con la pregunta y la opción seleccionada al arreglo
+    questionsAndOption.push({ idPregunta: idPregunta, opcionSeleccionada: opcionSeleccionada });
+
+}
+
 function nextQuestion(questionId, selectedOption) {
     switch (questionId) {
         case 1:
             // Primera pregunta
             if (selectedOption === 'opcion1') {
+                tour(1, "No flexible");
                 showQuestion('question14');
             } else if (selectedOption === 'opcion2') {
+                tour(1, "Flexible");
                 showQuestion('question2');
             }
             break;
         case 2:
             // Segunda pregunta
             if (selectedOption === 'opcion1') {
+                tour(2, "Formación Teórica");
                 showQuestion('question3');
             } else if (selectedOption === 'opcion2') {
+                tour(2, "Formación Práctica");
                 showQuestion('question5');
             }
             break;
         case 3:
             // Tercera pregunta
             if (selectedOption === 'opcion1') {
+                tour(3, "Si");
                 modalResultTest("modalResultPC");
             } else if (selectedOption === 'opcion2') {
+                tour(3, "No");
                 showQuestion('question4');
             }
             break;
         case 4:
             // Cuarta pregunta
             if (selectedOption === 'opcion1') {
+                tour(4, "Si");
                 modalResultTest("modalResultLC");
             } else if (selectedOption === 'opcion2') {
                 modalResultTest("modalResultNoLC");
@@ -67,40 +90,50 @@ function nextQuestion(questionId, selectedOption) {
         case 5:
             // Quinta pregunta
             if (selectedOption === 'opcion1') {
+                tour(5, "3 años");
                 showQuestion('question6');
             } else if (selectedOption === 'opcion2') {
+                tour(5, "5 años");
                 showQuestion('question10');
             }
             break;
         case 6:
             // Sexta pregunta
             if (selectedOption === 'opcion1') {
+                tour(6, "Si");
                 showQuestion('question7');
             } else if (selectedOption === 'opcion2') {
+                tour(6, "No");
                 showQuestion('question8');
             }
             break;
         case 7:
             // Septima pregunta
             if (selectedOption === 'opcion1') {
+                tour(7, "Si");
                 modalResultTest("modalResultTW");
             } else if (selectedOption === 'opcion2') {
+                tour(7, "No");
                 showQuestion('question8');
             } 
         break;
         case 8:
             // Octava pregunta
             if (selectedOption === 'opcion1') {
+                tour(8, "Si");
                 showQuestion('question9');
             } else if (selectedOption === 'opcion2') {
+                questionReload = 8;
                 modalResultTest("modalResultNoTWyR");
             }           
         break;
         case 9:
             // Novena pregunta
             if (selectedOption === 'opcion1') {
+                tour(9, "Si");
                 modalResultTest("modalResultTR");
             } else if (selectedOption === 'opcion2') {
+                questionReload = 9;
                 modalResultTest("modalResultNoTWyR");
             } 
             break;
@@ -108,8 +141,10 @@ function nextQuestion(questionId, selectedOption) {
         case 10:
             // Decima pregunta
             if (selectedOption === 'opcion1') {
+                tour(10, "Si");
                 showQuestion('question11');
             } else if (selectedOption === 'opcion2') {
+                tour(10, "No");
                 showQuestion('question12');
             }
         break;
@@ -117,10 +152,10 @@ function nextQuestion(questionId, selectedOption) {
         case 11:
             // Onceava pregunta
             if (selectedOption === 'opcion1') {
+                tour(11, "Si");
                 modalResultTest("modalResultII");
-                const btnSiguiente = document.getElementById('botonS');
-                btnSiguiente.disabled = true; 
             } else if (selectedOption === 'opcion2') {
+                tour(11, "No");
                 showQuestion('question12');
             } 
         break;
@@ -128,8 +163,10 @@ function nextQuestion(questionId, selectedOption) {
         case 12:
             // Doceava pregunta
             if (selectedOption === 'opcion1') {
+                tour(12, "Si");
                 showQuestion('question13');
             } else if (selectedOption === 'opcion2') {
+                questionReload = 12;
                 modalResultTest("modalResultNoIC");
             }
 
@@ -138,8 +175,10 @@ function nextQuestion(questionId, selectedOption) {
         case 13:
             // Treceava pregunta
             if (selectedOption === 'opcion1') {
+                tour(13, "Si");
                 modalResultTest("modalResultIC");
             } else if (selectedOption === 'opcion2') {
+                questionReload = 13;
                 modalResultTest("modalResultNoIC");
             } 
         break;
@@ -148,33 +187,41 @@ function nextQuestion(questionId, selectedOption) {
         case 14:
             // Catorceava pregunta
             if (selectedOption === 'opcion1') {
+                tour(14, "Si");
                 showQuestion('question15');
             } else if (selectedOption === 'opcion2') {
+                tour(14, "No");
                 showQuestion('question16');
             }
             
         break;
         case 15:
             // Quinceava pregunta
-            if (selectedOption === 'opcion1') {                
+            if (selectedOption === 'opcion1') {      
+                tour(15, "Si");          
                 modalResultTest("modalResultTW");
             } else if (selectedOption === 'opcion2') {
+                tour(15, "No");
                 showQuestion('question16');
             } 
         break;
         case 16:
             // Deciseisava pregunta
             if (selectedOption === 'opcion1') {
+                tour(16, "Si");
                 showQuestion('question17');
             } else if (selectedOption === 'opcion2') {
+                questionReload = 16;
                 modalResultTest("modalResultNoTWyR2");
             }           
         break;
         case 17:
             // Decisieteava pregunta
             if (selectedOption === 'opcion1') {
+                tour(17, "Si");
                 modalResultTest("modalResultTR");
             } else if (selectedOption === 'opcion2') {
+                questionReload = 17;
                 modalResultTest("modalResultNoTWyR2");
             } 
         break;
@@ -244,6 +291,30 @@ function reloadPage() {
 
     // Redirigir a registroA.html con los datos
     window.location.href = nuevaURL;
+}
+
+function reloadTest(idPregunta, opcionSeleccionada, idModal){
+
+    if(idPregunta != null && opcionSeleccionada !=null){
+        tour(idPregunta, opcionSeleccionada);
+    }
+    showQuestion('question1');
+
+    // Desactivo el modal 
+    $(idModal).modal('hide');
+
+    // Obtener todas las preguntas
+    const allQuestions = document.querySelectorAll('.question');
+
+    // Iterar sobre todas las preguntas
+    allQuestions.forEach(question => {
+        // Obtener todos los botones de opción de radio en la pregunta actual
+        const radioButtons = question.querySelectorAll('input[type="radio"]');
+        // Desmarcar todos los botones de opción de radio
+        radioButtons.forEach(radioButton => {
+            radioButton.checked = false;
+        });
+    });
 }
 
 function modalResultTest(idResult){
@@ -362,14 +433,6 @@ function sendResults(results, interes, typeofPDF){
     // const esResidenteArg = urlParams.get('esResidenteArg');
     // const paisOrigen = urlParams.get('paisOrigen');
     // const provinciaArg = urlParams.get('provinciaArg');
-
-    const email = localStorage.getItem('email');
-    const idUsuario = localStorage.getItem('id');
-    const edad = localStorage.getItem('edad');
-    const esResidenteArg = localStorage.getItem('esResidenteArg');
-    const paisOrigen = localStorage.getItem('paisOrigen');
-    const provinciaArg = localStorage.getItem('provinciaArg');
-
     console.log('Email:', email);
     console.log('ID:', idUsuario);
     console.log('Edad:', edad);
@@ -381,10 +444,14 @@ function sendResults(results, interes, typeofPDF){
     // http://localhost:8081 para probar en local
     const url = urlForBack+'resultados';  // Reemplaza con la URL de tu endpoint en el backend
     const data = {
-        carreraObtenida: results,
-        idUsuario: idUsuario,
-        fecha: obtenerFechaActual(),
-        interes: interes
+        resultados: {
+            carreraObtenida: results,
+            idUsuario: idUsuario,
+            fecha: obtenerFechaActual(),
+            interes: interes,
+            saveTest: true
+        },
+        recorrido: questionsAndOption // El arreglo de recorridos
     };
 
     fetch(url, {
@@ -538,6 +605,7 @@ function previousQuestion(questionId){
 
         case 2:
         // Segunda pregunta
+            tour(1, "Volver");
             showQuestionFromRight('question1');
             // resultsContainer.innerHTML = 
             // `
@@ -546,6 +614,7 @@ function previousQuestion(questionId){
 
         case 3:
         // Tercera pregunta
+            tour(2, "Volver");
             showQuestionFromRight('question2');
             // resultsContainer.innerHTML = 
             // `
@@ -555,6 +624,7 @@ function previousQuestion(questionId){
 
         case 4:
         // Cuarta pregunta
+            tour(3, "Volver");
             showQuestionFromRight('question3');
             // resultsContainer.innerHTML = 
             // `
@@ -564,6 +634,7 @@ function previousQuestion(questionId){
 
         case 5:
         // Quinta pregunta
+            tour(2, "Volver");
             showQuestionFromRight('question2');
             // resultsContainer.innerHTML = 
             // `
@@ -573,6 +644,7 @@ function previousQuestion(questionId){
 
         case 6:
         // Sexta pregunta
+            tour(5, "Volver");
             showQuestionFromRight('question5');
             // resultsContainer.innerHTML = 
             // `
@@ -582,6 +654,7 @@ function previousQuestion(questionId){
 
         case 7:
         // Septima pregunta
+            tour(6, "Volver");
             showQuestionFromRight('question6');
             // resultsContainer.innerHTML = 
             // `
@@ -591,6 +664,7 @@ function previousQuestion(questionId){
 
         case 8:
         // Octava pregunta
+            tour(7, "Volver");
             showQuestionFromRight('question7');
             // resultsContainer.innerHTML = 
             // `
@@ -600,6 +674,7 @@ function previousQuestion(questionId){
 
         case 9:
         // Novena pregunta
+            tour(6, "Volver");
             showQuestionFromRight('question6');
             // resultsContainer.innerHTML = 
             // `
@@ -609,6 +684,7 @@ function previousQuestion(questionId){
 
         case 10:
         // Decima pregunta
+            tour(5, "Volver");
             showQuestionFromRight('question5');
             // resultsContainer.innerHTML = 
             // `
@@ -618,6 +694,7 @@ function previousQuestion(questionId){
 
         case 11:
         // Onceava pregunta
+            tour(10, "Volver");
             showQuestionFromRight('question10');
             // resultsContainer.innerHTML = 
             // `
@@ -627,6 +704,7 @@ function previousQuestion(questionId){
 
         case 12:
         // Doceava pregunta
+            tour(11, "Volver");
             showQuestionFromRight('question11');
             // resultsContainer.innerHTML = 
             // `
@@ -636,6 +714,7 @@ function previousQuestion(questionId){
 
         case 13:
         // Treceava pregunta
+            tour(12, "Volver");
             showQuestionFromRight('question12');
             // resultsContainer.innerHTML = 
             // `
@@ -646,6 +725,7 @@ function previousQuestion(questionId){
         // Preguntas para el caso de horario tarde y noche
         case 14:
         // Catorceava pregunta
+            tour(1, "Volver");
             showQuestionFromRight('question1');
             // resultsContainer.innerHTML = 
             // `
@@ -655,6 +735,7 @@ function previousQuestion(questionId){
 
         case 15:
         // Quinceava pregunta
+            tour(14, "Volver");
             showQuestionFromRight('question14');
             // resultsContainer.innerHTML = 
             // `
@@ -666,6 +747,7 @@ function previousQuestion(questionId){
 
         case 16:
         // Diesiesava pregunta
+            tour(14, "Volver");
             showQuestionFromRight('question14');
             // resultsContainer.innerHTML = 
             // `
@@ -675,6 +757,7 @@ function previousQuestion(questionId){
 
         case 17:
         // Disieteava pregunta
+            tour(16, "Volver");
             showQuestionFromRight('question16');
             // resultsContainer.innerHTML = 
             // `

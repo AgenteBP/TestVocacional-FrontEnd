@@ -133,13 +133,13 @@ a.sidebar-link:hover {
     /* background-color: #0e2238; */
     background: linear-gradient(90deg, #ff66c4, #ffde59); 
     padding: 0;
-    min-width: 15rem;
+    min-width: 20rem;
     display: none;
 }
 
 #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown{
     display: block;
-    max-height: 15em;
+    max-height: 20em;
     width: 100%;
     opacity: 1;
 }
