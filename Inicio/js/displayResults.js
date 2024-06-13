@@ -1,56 +1,46 @@
-var setting = {
-    roots: document.querySelector('.my-js-slider'),
-    type: 'range',
-    step: 1,
-    rangeValue: {
-        minValue: 16,
-        maxValue: 100,
-    },
-    limits : { 
-        minLimit: 16,      
-        maxLimit: 100   
-    }
-    }
-var slider = wRunner(setting);
+// var setting = {
+//     roots: document.querySelector('.my-js-slider'),
+//     type: 'range',
+//     step: 1,
+//     rangeValue: {
+//         minValue: 16,
+//         maxValue: 100,
+//     },
+//     limits : { 
+//         minLimit: 16,      
+//         maxLimit: 100   
+//     }
+//     }
+// var slider = wRunner(setting);
 
-var setting2 = {
-    roots: document.querySelector('.my-js-slider2'),
-    type: 'range',
+let $slider = $(".my-js-slider").ionRangeSlider({
+    type: 'double',   // Use 'double' for a range slider
+    min: 16,
+    max: 100,
+    from: 16,         // Default start value
     step: 1,
-    rangeValue: {
-        minValue: 1930,
-        maxValue: 2024,
-    },
-    limits : { 
-        minLimit: 1930,      
-        maxLimit: 2024   
-    }
-    }
-var slider2 = wRunner(setting2);
+    grid: true,
+    skin: "round"
+});
 
-var setting3 = {
-    roots: document.querySelector('.my-js-slider3'),
-    type: 'range',
+let $sliderAno = $(".my-js-slider2").ionRangeSlider({
+    type: 'double',   // Use 'double' for a range slider
+    min: 2023,
+    max: 2024,
+    from: 2023,         // Default start value
     step: 1,
-    rangeValue: {
-        minValue: 16,
-        maxValue: 100,
-    },
-    limits : { 
-        minLimit: 16,      
-        maxLimit: 100   
-    }
-    }
-var slider3 = wRunner(setting3);
+    grid: true,
+    skin: "round"
+});
 
 // Variables de paginación
 let paginaActual = 0;
 const elementosPorPagina = 10; // Ajusta la cantidad de elementos por página según tu necesidad
-var valores = slider.getValue();
-let urlViewAll = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
-let urlViewEsResident = urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
-let urlViewEsNoResident = urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
-let urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=true`;
+var valores = $slider.data("ionRangeSlider").result;
+let urlViewAll = urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=true`;
+let urlViewEsResident = urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=true`;
+let urlViewEsNoResident = urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=true`;
+let urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=true`;
 let urlQuantityByCareerTable = urlForBack+`resultados/quantityByCareerTable`;
 let urlTour = urlForBack+`resultados/tour?page=${paginaActual}&quantityPerPage=${elementosPorPagina}`;
 let urlViewGraph = null;
@@ -225,7 +215,8 @@ function filtrarTabla(event) {
     // Obtener el valor del checkbox de interés
     const interesCheckbox = document.getElementById('interesCheckbox');
     const interesSeleccionado = interesCheckbox.checked;
-    var valores = slider.getValue();
+    // var valores = $slider.getValue();
+    var valores = $slider.data("ionRangeSlider").result;
     let urlFiltrado = null;
     
 
@@ -233,8 +224,8 @@ function filtrarTabla(event) {
     // Puedes usar 'opcion' y 'valor' en tu lógica de filtrado
     console.log("Opción de filtrado: ", opcion);
     console.log("Valor de búsqueda: ", valor);
-    console.log("Valor mínimo:", valores.minValue);
-    console.log("Valor máximo:", valores.maxValue);
+    console.log("Valor mínimo:", valores.from);
+    console.log("Valor máximo:", valores.to);
 
     switch (opcionVisualizador) {
         case 1:
@@ -248,29 +239,29 @@ function filtrarTabla(event) {
             // }
             //Operador ternario
             urlFiltrado = (opcion == 0) ?
-            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
         case 2:
             urlFiltrado = (opcion == 0) ?
-            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
         case 3:
             urlFiltrado = (opcion == 0) ?
-            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
         case 4:
             urlFiltrado = (opcion == 0) ?
-            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.from}&edadHasta=${valores.to}&interes=${interesSeleccionado}`;
 
             typeOfSearch = (opcion == 0) ? 0 : 1;
             break;
@@ -292,15 +283,16 @@ function filterGraphA(event){
     event.preventDefault();
 
     // Obtener los valores del formulario
-    var rangoEdad = slider3.getValue();
-    var rangoAño = slider2.getValue();
+    // var rangoEdad = slider3.getValue();
+    let rangoEdad = $slider.data("ionRangeSlider").result;
+    var rangoAño = $sliderAno.data("ionRangeSlider").result;
     var exampleSchool = document.getElementById('exampleSchool').value;
     var interesCheckboxG = document.getElementById('interesCheckboxG').checked;
 
-    console.log("rangoEdad mínimo: ", rangoEdad.minValue);
-    console.log("rangoAño mínimo: ", rangoAño.minValue);
-    console.log("rangoEdad máximo: ", rangoEdad.maxValue);
-    console.log("rangoAño máximo: ", rangoAño.maxValue);
+    console.log("rangoEdad mínimo: ", rangoEdad.from);
+    console.log("rangoAño mínimo: ", rangoAño.from);
+    console.log("rangoEdad máximo: ", rangoEdad.to);
+    console.log("rangoAño máximo: ", rangoAño.to);
     console.log("exampleSchool: ", exampleSchool);
     console.log("interesCheckboxG:", interesCheckboxG);
     if(exampleSchool == ""){
@@ -310,7 +302,7 @@ function filterGraphA(event){
 
     // urlViewSchoolInSanLuis = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
 
-    urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuisFP?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
+    urlViewSchoolInSanLuis = urlForBack+`resultados/schoolInSanLuisFP?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&interes=${interesCheckboxG}&edadMinima=${rangoEdad.from}&edadMaxima=${rangoEdad.to}&anoMinimo=${rangoAño.from}&anoMaximo=${rangoAño.to}&escuela=${exampleSchool}`;
 
     
 

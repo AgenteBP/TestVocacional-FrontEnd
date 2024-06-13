@@ -156,8 +156,9 @@
         const radioSi = document.getElementById('residenteSi');
         const radioNo = document.getElementById('residenteNo');
         const paisOrigen = document.getElementById('paisOrigen');
+        const paisOrigenInput = document.getElementById('paisOrigenInput'); // Referencia al campo de entrada
         const provinciaArg = document.getElementById('provinciaArg');
-        const schoolArg = document.getElementById('schoolArg');  // Agregado
+        const schoolArg = document.getElementById('schoolArg');  
 
         let flagDatos = localStorage.getItem('flagDatos');
         
@@ -167,13 +168,16 @@
 
         radioSi.addEventListener('change', function () {
             paisOrigen.style.display = 'none';
+            paisOrigenInput.value = "";
             provinciaArg.style.display = 'block';
+            updateSchoolVisibility();
         });
 
         radioNo.addEventListener('change', function () {
             paisOrigen.style.display = 'block';
             provinciaArg.style.display = 'none';
             schoolArg.style.display = 'none';
+            resetSchoolSelect();
         });
 
         // Array de provincias
@@ -495,6 +499,7 @@
                 toggleOtherSchoolInput(); // Llamar a la función para manejar la visibilidad del input "Otro"
             } else {
                 schoolArg.style.display = 'none';
+                resetSchoolSelect();
             }
         }
 
@@ -516,7 +521,12 @@
             toggleOtherSchoolInput();
         });
 
-
+        // Función para resetear el select de escuelas
+        function resetSchoolSelect() {
+            selectSchool.selectedIndex = -1; // Deseleccionar cualquier opción seleccionada
+            selectSchool.dispatchEvent(new Event('change')); // Despachar un evento de cambio para asegurarse de que cualquier lógica asociada al cambio se ejecute
+            $('#exampleSchool').selectpicker('refresh'); // Refrescar el selectpicker para reflejar el cambio
+        }
     
     </script>
 </body>
