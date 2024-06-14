@@ -1,62 +1,82 @@
-var setting = {
-    roots: document.querySelector('.my-js-slider'),
-    type: 'range',
-    step: 1,
-    limits : { 
-        minLimit: 16,      
-        maxLimit: 100   
-    },
-    rangeValue: {
-        minValue: 16,
-        maxValue: 100,
-    }
-    }
-var slider = wRunner(setting);
+// var setting = {
+//     roots: document.querySelector('.my-js-slider'),
+//     type: 'range',
+//     step: 1,
+//     limits : { 
+//         minLimit: 16,      
+//         maxLimit: 100   
+//     },
+//     rangeValue: {
+//         minValue: 16,
+//         maxValue: 100,
+//     }
+//     }
+// var slider = wRunner(setting);
 
-var setting2 = {
-    roots: document.querySelector('.my-js-slider2'),
-    type: 'range',
-    step: 1,
-    rangeValue: {
-        minValue: 2023,
-        maxValue: 2024,
-    },
-    limits : { 
-        minLimit: 2023,      
-        maxLimit: 2024   
-    }
-    }
-var slider2 = wRunner(setting2);
+// var setting2 = {
+//     roots: document.querySelector('.my-js-slider2'),
+//     type: 'range',
+//     step: 1,
+//     rangeValue: {
+//         minValue: 2023,
+//         maxValue: 2024,
+//     },
+//     limits : { 
+//         minLimit: 2023,      
+//         maxLimit: 2024   
+//     }
+//     }
+// var slider2 = wRunner(setting2);
 
-var setting3 = {
-    roots: document.querySelector('.my-js-slider3'),
-    type: 'range',
-    step: 1,
-    rangeValue: {
-        minValue: 16,
-        maxValue: 100,
-    },
-    limits : { 
-        minLimit: 16,      
-        maxLimit: 100   
-    }
-    }
-var slider3 = wRunner(setting3);
+// var setting3 = {
+//     roots: document.querySelector('.my-js-slider3'),
+//     type: 'range',
+//     step: 1,
+//     rangeValue: {
+//         minValue: 16,
+//         maxValue: 100,
+//     },
+//     limits : { 
+//         minLimit: 16,      
+//         maxLimit: 100   
+//     }
+//     }
+// var slider3 = wRunner(setting3);
 
-var setting4 = {
-    roots: document.querySelector('.my-js-slider4'),
-    type: 'range',
+// var setting4 = {
+//     roots: document.querySelector('.my-js-slider4'),
+//     type: 'range',
+//     step: 1,
+//     rangeValue: {
+//         minValue: 2023,
+//         maxValue: 2024,
+//     },
+//     limits : { 
+//         minLimit: 2023,      
+//         maxLimit: 2024   
+//     }
+//     }
+// var slider4 = wRunner(setting4);
+
+let $sliderEdad = $(".my-js-slider").ionRangeSlider({
+    type: 'double',   // Use 'double' for a range slider
+    min: 16,
+    max: 100,
+    from: 16,         // Default start value
     step: 1,
-    rangeValue: {
-        minValue: 2023,
-        maxValue: 2024,
-    },
-    limits : { 
-        minLimit: 2023,      
-        maxLimit: 2024   
-    }
-    }
-var slider4 = wRunner(setting4);
+    grid: true,
+    skin: "round"
+});
+
+let $sliderAno = $(".my-js-slider2").ionRangeSlider({
+    type: 'double',   // Use 'double' for a range slider
+    min: 2023,
+    max: 2024,
+    from: 2023,         // Default start value
+    step: 1,
+    grid: true,
+    skin: "round"
+});
 
 // Variables de paginación
 const elementosPorPagina = 10; // Ajusta la cantidad de elementos por página según tu necesidad
@@ -300,16 +320,16 @@ function filterGraphA(event, modo){
     event.preventDefault();
 
     // Obtener los valores del formulario
-    var rangoEdad = slider.getValue();
-    var rangoAño = slider2.getValue();
+    var rangoEdad = $sliderEdad.data("ionRangeSlider").result;
+    var rangoAño = $sliderAno.data("ionRangeSlider").result;
     var exampleSchool = modo == 1 ? document.getElementById('exampleSchool').value : "";
     var exampleProvincia = modo == 2 ? document.getElementById('exampleProvince').value : "";
     var interesCheckboxG = document.getElementById('interesCheckboxG').checked;
 
-    console.log("rangoEdad mínimo: ", rangoEdad.minValue);
-    console.log("rangoAño mínimo: ", rangoAño.minValue);
-    console.log("rangoEdad máximo: ", rangoEdad.maxValue);
-    console.log("rangoAño máximo: ", rangoAño.maxValue);
+    console.log("rangoEdad mínimo: ", rangoEdad.from);
+    console.log("rangoAño mínimo: ", rangoAño.from);
+    console.log("rangoEdad máximo: ", rangoEdad.to);
+    console.log("rangoAño máximo: ", rangoAño.to);
     console.log("exampleSchool: ", exampleSchool);
     console.log("exampleProvincia: ", exampleProvincia);
     console.log("interesCheckboxG:", interesCheckboxG);
@@ -319,10 +339,10 @@ function filterGraphA(event, modo){
     }
     switch(modo){
         case 1:
-            urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}&modo=2`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.from}&edadMaxima=${rangoEdad.to}&anoMinimo=${rangoAño.from}&anoMaximo=${rangoAño.to}&escuela=${exampleSchool}&modo=2`;
             break;
         case 2:
-            urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&provincia=${exampleProvincia}&modo=3`;
+            urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.from}&edadMaxima=${rangoEdad.to}&anoMinimo=${rangoAño.from}&anoMaximo=${rangoAño.to}&provincia=${exampleProvincia}&modo=3`;
             break;
     }
     // urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}&escuela=${exampleSchool}`;
@@ -338,18 +358,18 @@ function filterGraphM(event){
     event.preventDefault();
 
     // Obtener los valores del formulario
-    var rangoEdad = slider3.getValue();
-    var rangoAño = slider4.getValue();
+    var rangoEdad = $sliderEdad.data("ionRangeSlider").result;
+    var rangoAño = $sliderAno.data("ionRangeSlider").result;
  
     var interesCheckboxG = document.getElementById('interesCheckboxG2').checked;
 
-    console.log("rangoEdad mínimo: ", rangoEdad.minValue);
-    console.log("rangoAño mínimo: ", rangoAño.minValue);
-    console.log("rangoEdad máximo: ", rangoEdad.maxValue);
-    console.log("rangoAño máximo: ", rangoAño.maxValue);
+    console.log("rangoEdad mínimo: ", rangoEdad.from);
+    console.log("rangoAño mínimo: ", rangoAño.from);
+    console.log("rangoEdad máximo: ", rangoEdad.to);
+    console.log("rangoAño máximo: ", rangoAño.to);
     console.log("interesCheckboxG:", interesCheckboxG);
 
-    urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.minValue}&edadMaxima=${rangoEdad.maxValue}&anoMinimo=${rangoAño.minValue}&anoMaximo=${rangoAño.maxValue}`;
+    urlViewGraph = urlForBack+`resultados/viewGraph?interes=${interesCheckboxG}&edadMinima=${rangoEdad.from}&edadMaxima=${rangoEdad.to}&anoMinimo=${rangoAño.from}&anoMaximo=${rangoAño.to}`;
 
     cargarDatosYPaginacion(1, urlViewGraph);
 }

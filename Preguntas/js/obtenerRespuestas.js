@@ -575,7 +575,7 @@ function previousQuestion(questionId){
     switch (questionId) {
         case 1:
         // primera pregunta
-
+            // tour(1, "Volver");
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
         
@@ -605,7 +605,7 @@ function previousQuestion(questionId){
 
         case 2:
         // Segunda pregunta
-            tour(1, "Volver");
+            tour(2, "Volver");
             showQuestionFromRight('question1');
             // resultsContainer.innerHTML = 
             // `
@@ -614,7 +614,7 @@ function previousQuestion(questionId){
 
         case 3:
         // Tercera pregunta
-            tour(2, "Volver");
+            tour(3, "Volver");
             showQuestionFromRight('question2');
             // resultsContainer.innerHTML = 
             // `
@@ -624,7 +624,7 @@ function previousQuestion(questionId){
 
         case 4:
         // Cuarta pregunta
-            tour(3, "Volver");
+            tour(4, "Volver");
             showQuestionFromRight('question3');
             // resultsContainer.innerHTML = 
             // `
@@ -634,7 +634,7 @@ function previousQuestion(questionId){
 
         case 5:
         // Quinta pregunta
-            tour(2, "Volver");
+            tour(5, "Volver");
             showQuestionFromRight('question2');
             // resultsContainer.innerHTML = 
             // `
@@ -644,7 +644,7 @@ function previousQuestion(questionId){
 
         case 6:
         // Sexta pregunta
-            tour(5, "Volver");
+            tour(6, "Volver");
             showQuestionFromRight('question5');
             // resultsContainer.innerHTML = 
             // `
@@ -654,7 +654,7 @@ function previousQuestion(questionId){
 
         case 7:
         // Septima pregunta
-            tour(6, "Volver");
+            tour(7, "Volver");
             showQuestionFromRight('question6');
             // resultsContainer.innerHTML = 
             // `
@@ -664,7 +664,7 @@ function previousQuestion(questionId){
 
         case 8:
         // Octava pregunta
-            tour(7, "Volver");
+            tour(8, "Volver");
             showQuestionFromRight('question7');
             // resultsContainer.innerHTML = 
             // `
@@ -674,7 +674,7 @@ function previousQuestion(questionId){
 
         case 9:
         // Novena pregunta
-            tour(6, "Volver");
+            tour(9, "Volver");
             showQuestionFromRight('question6');
             // resultsContainer.innerHTML = 
             // `
@@ -684,7 +684,7 @@ function previousQuestion(questionId){
 
         case 10:
         // Decima pregunta
-            tour(5, "Volver");
+            tour(10, "Volver");
             showQuestionFromRight('question5');
             // resultsContainer.innerHTML = 
             // `
@@ -694,7 +694,7 @@ function previousQuestion(questionId){
 
         case 11:
         // Onceava pregunta
-            tour(10, "Volver");
+            tour(11, "Volver");
             showQuestionFromRight('question10');
             // resultsContainer.innerHTML = 
             // `
@@ -704,7 +704,7 @@ function previousQuestion(questionId){
 
         case 12:
         // Doceava pregunta
-            tour(11, "Volver");
+            tour(12, "Volver");
             showQuestionFromRight('question11');
             // resultsContainer.innerHTML = 
             // `
@@ -714,7 +714,7 @@ function previousQuestion(questionId){
 
         case 13:
         // Treceava pregunta
-            tour(12, "Volver");
+            tour(13, "Volver");
             showQuestionFromRight('question12');
             // resultsContainer.innerHTML = 
             // `
@@ -725,7 +725,7 @@ function previousQuestion(questionId){
         // Preguntas para el caso de horario tarde y noche
         case 14:
         // Catorceava pregunta
-            tour(1, "Volver");
+            tour(14, "Volver");
             showQuestionFromRight('question1');
             // resultsContainer.innerHTML = 
             // `
@@ -735,7 +735,7 @@ function previousQuestion(questionId){
 
         case 15:
         // Quinceava pregunta
-            tour(14, "Volver");
+            tour(15, "Volver");
             showQuestionFromRight('question14');
             // resultsContainer.innerHTML = 
             // `
@@ -747,7 +747,7 @@ function previousQuestion(questionId){
 
         case 16:
         // Diesiesava pregunta
-            tour(14, "Volver");
+            tour(16, "Volver");
             showQuestionFromRight('question14');
             // resultsContainer.innerHTML = 
             // `
@@ -757,7 +757,7 @@ function previousQuestion(questionId){
 
         case 17:
         // Disieteava pregunta
-            tour(16, "Volver");
+            tour(17, "Volver");
             showQuestionFromRight('question16');
             // resultsContainer.innerHTML = 
             // `
