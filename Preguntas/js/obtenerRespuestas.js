@@ -4,6 +4,7 @@ const edad = localStorage.getItem('edad');
 const esResidenteArg = localStorage.getItem('esResidenteArg');
 const paisOrigen = localStorage.getItem('paisOrigen');
 const provinciaArg = localStorage.getItem('provinciaArg');
+
 // Variable para guardar las preguntas y opciones seleccionadas
 let questionsAndOption = [];
 // Variable para saber que pregunta vengo cuando se elige reiniciar

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!--Slide: Plugin CSS file with desired skin-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="card-header header">
+      <h5>Test Vocacional: Área Informática</h5>
+    </header>
+
+      <div class="container mt-4 " id="divPrincipal" style="margin-top: 20px;">
+        <!-- Fase de formación
+             Formación Teórica
+        -->
+        <div id="question1" class="question">
+            <h2>
+              Pregunta 1: ¿Te gustaría cursar materias en donde te preparare puedas transmitir enseñanzas de la informática en todos los niveles?
+            </h2>
+            <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+            <br>
+
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+            <!-- <input type="text" class="sliderDuracion" name="sliderDuracion" value="" /> -->
+
+            <br>
+            <div class="d-flex justify-content-around ">
+              <button class="btn btn-primary " style="margin-right: 1%;" value="botonV1" id="botonV1" onclick="previousQuestion(1)">Volver</button>
+              <button class="btn btn-primary" value="botonS" id="botonS" onclick="nextQuestion(1)">Siguiente</button>
+            </div>
+        </div>
+        <div id="question2" class="question" style="display: none;">
+          <h2>Pregunta 2: ¿Te gustaría cursar materias donde puedas realizar investigación con fines educativos, también desarrollar y usar de Software Educativo?</h2>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          <br>
+          
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV2" id="botonV2" onclick="previousQuestion(2)">Volver</button>
+            <button class="btn btn-primary " value="botonS" id="botonS" onclick="nextQuestion(2)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question3" class="question" style="display: none;">
+            <h2>Pregunta 3: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos ya sea como inteligencia artificial, compiladores, arquitectura de pc? </h2>
+            <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+            <br>
+
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+            <br>
+
+            <div class="d-flex justify-content-around">            
+              <button class="btn btn-primary" value="botonV3" id="botonV3" onclick="previousQuestion(3)">Volver</button> 
+              <button class="btn btn-primary mr-2"  value="botonS3" id="botonS3" onclick="nextQuestion(3)">Siguiente</button>
+           </div>
+        
+        </div>
+        <div id="question4" class="question " style="display: none;">
+            <h2>Pregunta 4: ¿Te gustaría cursar materias con enfoque conceptual? preparándote para que te adapte con facilidad como, por ejemplo: </h2>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Inteligencia artificial
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Modelos y Simulación
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Sistemas Distribuidos y Paralelismo
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Diseño y Construcción de Compiladores
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Arquitectura de PC
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')">Leer más
+                </a>
+              </h5>
+            </div>
+            &nbsp;
+            <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+            <br>
+            
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+            <br>
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-primary" value="botonV4" id="botonV4" onclick="previousQuestion(4)">Volver</button>
+              <button class="btn btn-primary" value="botonS4" id="botonS4" onclick="nextQuestion(4)">Siguiente</button>
+            </div>
+        </div>
+
+        <!--Formación Practica
+            Lado Software -->
+        <div id="question5" class="question" style="display: none;">
+            <h2>Pregunta 5: ¿Te interesaría aprender programación de alto nivel, podrás ver lenguaje como C, Java, Python, etc.?</h2>
+            <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+            <br>
+
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+            <br/>
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-primary" value="botonV5" id="botonV5" onclick="previousQuestion(5)">Volver</button>
+              <button class="btn btn-primary" onclick="nextQuestion(5)">Siguiente</button>
+            </div>
+        </div>
+
+        <div id="question6" class="question" style="display: none;">
+          <!-- Comienzo item de pregunta -->
+          <h2>Pregunta 6: ¿Te interesaría aprender a diseñar algoritmos que resuelva un problema en particular?</h2>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+          
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV6" id="botonV6" onclick="previousQuestion(6)">Volver</button>
+            <button class="btn btn-primary" value="botonS6" id="botonS6" onclick="nextQuestion(6)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question7" class="question" style="display: none;">
+          <h2>Pregunta 7: ¿Te interesaría aprender sobre materias dedicadas a la industria del software? Veras temas como:</h2>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Planificar, organizar y desarrollar software (Paginas web y/o Aplicaciones para móvil por ejemplo)
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              </a>
+            </h5>
+          </div>
+
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Sistemas de tiempo real
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              </a>
+            </h5>
+          </div>
+
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Ingeniería de Software
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              </a>
+            </h5>
+          </div>
+
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Administración y Evaluación Financiera de Proyectos Informáticos
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              </a>
+            </h5>
+          </div>
+
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar juegos
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              </a>
+            </h5>
+          </div>
+          &nbsp;
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+          
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV7" id="botonV7" onclick="previousQuestion(7)">Volver</button>
+            <button class="btn btn-primary" value="botonS7" id="botonS7" onclick="nextQuestion(7)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question8" class="question" style="display: none;">
+            <h2>Pregunta 8: ¿Te interesaría aprender sobre materias que tenga más aporte en Web? Podrás ver temas como:</h2>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Programación para páginas Web
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Aplicaciones para dispositivos móviles
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Introducción al Diseño Gráfico
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Diseño Responsivo
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Protocolos y APIs
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Usos de herramientas informática para el desarrollo web
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                </a>
+              </h5>
+            </div>
+            &nbsp;
+            <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+            &nbsp;
+
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+            
+            <br/>
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-primary" value="botonV8" id="botonV8" onclick="previousQuestion(8)">Volver</button>
+              <button class="btn btn-primary" value="botonS8" id="botonS8" onclick="nextQuestion(8)">Siguiente</button>
+            </div>
+        </div>
+
+        <div id="question9" class="question" style="display: none;">
+          <h2>Pregunta 9: ¿Te interesaría aprender el lenguaje de programación SQL y poder hacer consultas a bases de datos mediante software para base de datos, normalizar tablas de base de datos, claves foráneas, etc.?</h2>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV9" id="botonV9" onclick="previousQuestion(9)">Volver</button>
+            <button class="btn btn-primary" value="botonS9" id="botonS9" onclick="nextQuestion(9)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Lado Hardware -->
+        <div id="question10" class="question" style="display: none;">
+          <h2>Pregunta 10: ¿Te interesaría aprender seguridad informática?</h2>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+          
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV10" id="botonV10" onclick="previousQuestion(10)">Volver</button>
+            <button class="btn btn-primary" value="botonS10" id="botonS10" onclick="nextQuestion(10)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question11" class="question" style="display: none;">
+          <h2>Pregunta 11: ¿Te interesaría aprender sobre redes de computadora, sistema de comunicación, señales digitales, programación para redes, dispositivos de redes y muchas más materias enfocado a Redes?</h2>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+          
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV11" id="botonV11" onclick="previousQuestion(11)">Volver</button>
+            <button class="btn btn-primary" value="botonS11" id="botonS11" onclick="nextQuestion(11)">Siguiente</button>            
+          </div>
+        </div>
+
+        <div id="question12" class="question" style="display: none;">
+        <h2>Pregunta 12: ¿Te gustaría aprender sobre materias que tenga más aporte en la integración de hardware y software? Podrás ver temas como:</h2>
+        <div class="container mt-3">
+          <h5 class="d-flex justify-content-between align-items-center">-Comunicación de Datos
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            </a>
+          </h5>
+        </div>
+        <div class="container mt-3">
+          <h5 class="d-flex justify-content-between align-items-center">-Electrónica (principalmente digital) 
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            </a>
+          </h5>
+        </div>
+        <div class="container mt-3">
+          <h5 class="d-flex justify-content-between align-items-center">-Computación Gráfica
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            </a>
+          </h5>
+        </div>
+        <div class="container mt-3">
+          <h5 class="d-flex justify-content-between align-items-center">-Diseño de Procesadores
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            </a>
+          </h5>
+        </div>
+        &nbsp;
+        <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+        &nbsp;
+
+        <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+        <br/>
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-primary" value="botonV12" id="botonV12" onclick="previousQuestion(12)">Volver</button>
+          <button class="btn btn-primary" value="botonS12" id="botonS12" onclick="nextQuestion(12)">Siguiente</button>
+        </div>
+        </div>
+
+        <div id="question13" class="question" style="display: none;">
+          <h2>Pregunta 13: ¿Te gustaría aprender sobre mantenimiento y soporte de hardware (Redes u otros componentes de electrónicos)?</h2>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV13" id="botonV13" onclick="previousQuestion(13)">Volver</button>
+            <button class="btn btn-primary" value="botonS13" id="botonS13" onclick="nextQuestion(13)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question14" class="question" style="display: none;">
+          <!-- Comienzo item de pregunta -->
+          <h2>Pregunta 14: ¿Te interesaría aprender sobre Programación de bajo nivel?</h2>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV14" id="botonV14" onclick="previousQuestion(14)">Volver</button>
+            <button class="btn btn-primary" value="botonS14" id="botonS14" onclick="nextQuestion(14)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Fase de trabajo
+             Lado Web
+        -->
+        <div id="question15" class="question" style="display: none;">
+          <h2>Pregunta 15: ¿Te gustaría estudiar una carrera que se centre en la web? Te preparará en áreas de trabajos como:</h2>
+          <!-- Comienzo item de pregunta -->
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web y de aplicaciones móviles.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de aplicaciones móviles.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en Web.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              </a>
+            </h5>
+          </div>
+          <!-- Fin de items de pregunta --> 
+          &nbsp;
+          
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(15)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(15)">Siguiente</button>
+          </div>
+        </div>
+        
+        <!-- Lado Redes -->
+        <div id="question16" class="question" style="display: none;">
+          <h2>Pregunta 16: ¿Te gustaría estudiar una carrera que se centre en redes de computadora? Te preparará en áreas de trabajos como:</h2>
+          <!-- Comienzo item de pregunta -->
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Asesoramiento técnico.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Mantenimiento de redes.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar dispositivos de redes.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Diseño, instalación y configuración de redes de computadora.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i> -->
+            </h5>
+          </div>
+          <!-- Fin de items de pregunta --> 
+          &nbsp;
+          
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(16)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(16)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Lado Ingeniería Informática -->
+        <div id="question17" class="question" style="display: none;">
+          <h2>Pregunta 17: ¿Te gustaría estudiar una carrera que se centre en la industria del software? Te preparará en áreas de trabajos como:</h2>
+          <!-- Comienzo item de pregunta -->
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controlar Proyectos de Software teniendo en cuenta el costo y tiempo.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Aplicar la ciencia de la tecnología en mejorar productos de software ya existentes.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en Software.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área de software.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i> -->
+            </h5>
+          </div>
+          <!-- Fin de items de pregunta --> 
+          &nbsp;
+          
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(17)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(17)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Lado Ingeniería Computación -->
+        <div id="question18" class="question" style="display: none;">
+          <h2>Pregunta 18: ¿Te gustaría estudiar una carrera que tenga un enfoque en el desarrollo que integre hardware y software? Te preparará en áreas de trabajos como:</h2>
+          <!-- Comienzo item de pregunta -->
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controla arquitectura de computadoras, componentes electrónicos, la gestión de redes y comunicaciones, señales digitales. Teniendo en cuenta el costo y tiempo.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Aplicar la ciencia de la tecnología en mejorar productos de hardware y software ya existentes.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en productos de hardware y software.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i> -->
+            </h5>
+          </div>
+          <!-- Fin de items de pregunta --> 
+          &nbsp;
+          
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(18)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(18)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Lado Licenciatura en Ciencia de la Computación -->
+        <div id="question19" class="question" style="display: none;">
+          <h2>Pregunta 19: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de investigación, pero también se puede enfocar en otros roles? Te preparará en áreas de trabajos como:</h2>
+          <!-- Comienzo item de pregunta -->
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Ámbito de investigación (como Inteligencia Artificial, Datos, etc).
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Áreas informáticas de organizaciones.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Formar parte de un equipo de desarrollo de Software.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-También puedas dar enseñanzas Universitaria y capacitación en ciencias de la computación.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Con posibilidad de obtener un título intermedio 3 años que habilita actuar profesionalmente tanto en industrias como en organismos nacionales y privados de todo el país.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              </a>
+            </h5>
+          </div>
+          <!-- Fin de items de pregunta --> 
+          &nbsp;
+          
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(19)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(19)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Lado Profesorado en Ciencia de la Computación -->
+        <div id="question20" class="question" style="display: none;">
+          <h2>Pregunta 20: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de educación? Te preparará en áreas de trabajos como:</h2>
+          <!-- Comienzo item de pregunta -->
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Transmitir enseñanzas de la informática en todos los niveles.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Realizar investigación con fines educativos.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollo de Software Educativo.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              </a>
+                <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Asesoría y consultoría a empresas, instituciones educativas o gubernamentales.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              </a>
+            </h5>
+          </div>
+          <!-- Fin de items de pregunta --> 
+          &nbsp;
+          
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+
+          &nbsp;
+
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(20)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(20)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Duración  -->
+        <div id="question21" class="question" style="display: none;">
+          <h2>Pregunta 21: Selecciona la duración de la carrera:</h2>
+          <h6>Seleccione del 3 años o 4/5 años</h6>
+          &nbsp;
+          
+          <input type="text" class="sliderDuracion" name="sliderDuracion" value="" />
+          
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(21)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(21)">Siguiente</button>
+          </div>
+        </div>
+
+        <!-- Horario  -->
+        <div id="question22" class="question" style="display: none;">
+          <h2>Pregunta 22: ¿Qué tan flexible puedes ser con tus horarios para asistir a las clases, considerando tus compromisos laborales y actividades diarias? Selecciona en que horario puedes comenzar a cursar:</h2>
+          <h6>Seleccione el horario, donde 8am a 6pm</h6>
+          &nbsp;
+          
+          <input type="text" class="sliderHorario" name="sliderHorario" value="" />
+          
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(22)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(22)">Siguiente</button>
+          </div>
+        </div>
+      
+      </div><!--Fin de container-->
+      
+      <div id="results"></div>
+
+      <footer class="text-center footer" id="footer1">
+        <div class="container">
+          <h7>Hecho por Braian Paez - UNSL</h7>
+        </div>
+      </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../lib/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Slide -->
+    <!--Plugin JavaScript file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <script src="../pdf.js"></script>
+    <script src="../url.js"></script>
+    <script src="js/obtenerRespuestas2.js"></script>
+   
+    
+
+    <script>
+        function getSelectedOption(questionId) {
+            return document.querySelector(`input[name="${questionId}"]:checked`).value;
+        }
+
+        function selectRadio(radioId) {
+          const radio = document.getElementById(radioId);
+          radio.checked = true;
+        }      
+    </script>
+</body>
+</html>

@@ -611,9 +611,9 @@ function dataForTableTour(data){
         const escuela = resultado[5];
         const carreraObtenida = resultado[6];
         const idPregunta = resultado[7];
-        const opcionSeleccionada = resultado[8];
+        const valorSeleccionado = resultado[8];
 
-        const columnas = [email, edad, fecha, paisOrigen, provincia, escuela, carreraObtenida, idPregunta, opcionSeleccionada];
+        const columnas = [email, edad, fecha, paisOrigen, provincia, escuela, carreraObtenida, idPregunta, valorSeleccionado];
         columnas.forEach((columna) => {
             const celda = document.createElement("td");
             celda.textContent = columna;
