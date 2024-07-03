@@ -322,7 +322,7 @@
                                         <th scope="col">Escuela</th>
                                         <th scope="col">Carrera Obtenida</th>
                                         <th scope="col">Id de Pregunta</th>
-                                        <th scope="col">Opcion Seleccionada</th>
+                                        <th scope="col">Valor Seleccionado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -345,7 +345,7 @@
                                 <h4 class="modal-title" id="exampleModalLabel">
                                     Seguimiento del usuario<span id="emailSeguimientoModal"></span>.
                                 </h4>
-                                <h5><a href="#" onclick="watchImg()">Ver Árbol de Decisión</a></h5>
+                                <!-- <h5><a href="#" onclick="watchImg()">Ver Árbol de Decisión</a></h5> -->
                             </div>
                         <div class="modal-body">
                             <div class="container mt-3">
@@ -358,7 +358,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">ID Pregunta</th>
-                                                <th scope="col">Opción Seleccionada</th>
+                                                <th scope="col">Valor Seleccionado</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -405,7 +405,7 @@
     </div>
 
     <!-- Modal para la imagen -->
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -419,7 +419,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -518,27 +518,27 @@
         
         $('#exampleSchool').selectpicker();
 
-        function watchImg(){
-            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-            imageModal.show();
+        // function watchImg(){
+        //     const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        //     imageModal.show();
 
-            // Inicializar Panzoom en la imagen cuando el modal se muestra
-            imageModal._element.addEventListener('shown.bs.modal', () => {
-                const image = document.getElementById('decisionTreeImage');
-                const panzoomInstance = Panzoom(image, {
-                    maxScale: 5,  // Nivel máximo de zoom
-                    contain: 'outside', // Permite mayor libertad de movimiento
-                    startScale: 1, // Nivel de zoom inicial
-                    startX: 0, // Posición inicial en X
-                    startY: 0, // Posición inicial en Y
-                    pinchSpeed: 2, // Velocidad del zoom con pinch (acercar con dos dedos)
-                    zoomSpeed: 0.065 // Velocidad del zoom con la rueda del ratón
-                });
+        //     // Inicializar Panzoom en la imagen cuando el modal se muestra
+        //     imageModal._element.addEventListener('shown.bs.modal', () => {
+        //         const image = document.getElementById('decisionTreeImage');
+        //         const panzoomInstance = Panzoom(image, {
+        //             maxScale: 5,  // Nivel máximo de zoom
+        //             contain: 'outside', // Permite mayor libertad de movimiento
+        //             startScale: 1, // Nivel de zoom inicial
+        //             startX: 0, // Posición inicial en X
+        //             startY: 0, // Posición inicial en Y
+        //             pinchSpeed: 2, // Velocidad del zoom con pinch (acercar con dos dedos)
+        //             zoomSpeed: 0.065 // Velocidad del zoom con la rueda del ratón
+        //         });
 
-                // Habilitar el manejo de la rueda del ratón para el zoom
-                image.addEventListener('wheel', panzoomInstance.zoomWithWheel);
-            });
-        }
+        //         // Habilitar el manejo de la rueda del ratón para el zoom
+        //         image.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+        //     });
+        // }
    
     </script>
 </body>
