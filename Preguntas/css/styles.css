@@ -110,3 +110,9 @@ body {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
 }
+
+.slider-container {
+    width: 100%; /* Establece el ancho del contenedor */
+    max-width: 850px; /* Ajusta este valor según el tamaño deseado */
+    margin: 0 auto; /*Centra el contenedor dentro de su contenedor padre */
+}

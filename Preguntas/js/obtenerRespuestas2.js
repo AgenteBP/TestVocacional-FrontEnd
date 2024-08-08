@@ -87,7 +87,7 @@ function nextQuestion(questionId) {
             sendResults();
             break;
         default:
-            valueSliderP = $sliderDuracion.data("ionRangeSlider").result;
+            valueSliderP = $slider.data("ionRangeSlider").result;
             tour(questionId, valueSliderP.from);
             showQuestion('question'+(questionId+1));
     }
