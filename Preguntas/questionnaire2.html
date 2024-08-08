@@ -23,11 +23,15 @@
         <div id="question1" class="question">
             <h2>
               Pregunta 1: ¿Te gustaría cursar materias en donde te preparare puedas transmitir enseñanzas de la informática en todos los niveles?
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal5')">Leer más
+              </a>
             </h2>
             <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
             <br>
-
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
+            
+            <div class="slider-container">
+              <input type="text" class="slider1a10" name="slider1a10" value=""/>
+            </div>
             <!-- <input type="text" class="sliderDuracion" name="sliderDuracion" value="" /> -->
 
             <br>
@@ -36,12 +40,18 @@
               <button class="btn btn-primary" value="botonS" id="botonS" onclick="nextQuestion(1)">Siguiente</button>
             </div>
         </div>
+
         <div id="question2" class="question" style="display: none;">
-          <h2>Pregunta 2: ¿Te gustaría cursar materias donde puedas realizar investigación con fines educativos, también desarrollar y usar de Software Educativo?</h2>
+          <h2>Pregunta 2: ¿Te gustaría cursar materias donde puedas realizar investigación con fines educativos, también desarrollar y usar de Software Educativo?
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal6')">Leer más
+            </a>
+          </h2>
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           <br>
           
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br>
           <div class="d-flex justify-content-around">
@@ -51,11 +61,33 @@
         </div>
 
         <div id="question3" class="question" style="display: none;">
-            <h2>Pregunta 3: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos ya sea como inteligencia artificial, compiladores, arquitectura de pc? </h2>
+            <!-- <h2>Pregunta 3: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos ya sea como inteligencia artificial, compiladores, arquitectura de pc? </h2> -->
+            <h2>Pregunta 3: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos? Tales como: </h2>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Inteligencia artificial
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal42')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Diseño y Construcción de Compiladores
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModalLC1')">Leer más
+                </a>
+              </h5>
+            </div>
+            <div class="container mt-3">
+              <h5 class="d-flex justify-content-between align-items-center">-Bases de Datos
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal22')">Leer más
+                </a>
+              </h5>
+            </div>
+            &nbsp;
             <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
             <br>
 
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
+            <div class="slider-container">
+              <input type="text" class="slider1a10" name="slider1a10" value="" />
+            </div>
 
             <br>
 
@@ -63,16 +95,16 @@
               <button class="btn btn-primary" value="botonV3" id="botonV3" onclick="previousQuestion(3)">Volver</button> 
               <button class="btn btn-primary mr-2"  value="botonS3" id="botonS3" onclick="nextQuestion(3)">Siguiente</button>
            </div>
-        
         </div>
+
         <div id="question4" class="question " style="display: none;">
-            <h2>Pregunta 4: ¿Te gustaría cursar materias con enfoque conceptual? preparándote para que te adapte con facilidad como, por ejemplo: </h2>
-            <div class="container mt-3">
+            <h2>Pregunta 4: ¿Te gustaría cursar materias con enfoque teórico? Verás materias con un marco conceptual que te permitirán adaptar con facilidad a los rápidos cambios tecnológicos, por ejemplo: </h2>
+            <!-- <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Inteligencia artificial
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal42')">Leer más
                 </a>
               </h5>
-            </div>
+            </div> -->
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Modelos y Simulación
                 <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')">Leer más
@@ -85,15 +117,15 @@
                 </a>
               </h5>
             </div>
-            <div class="container mt-3">
+            <!-- <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Diseño y Construcción de Compiladores
                 <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')">Leer más
                 </a>
               </h5>
-            </div>
+            </div> -->
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Arquitectura de PC
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')">Leer más
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal52')">Leer más
                 </a>
               </h5>
             </div>
@@ -101,7 +133,9 @@
             <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
             <br>
             
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
+            <div class="slider-container">
+              <input type="text" class="slider1a10" name="slider1a10" value="" />
+            </div>
 
             <br>
             <div class="d-flex justify-content-around">
@@ -113,11 +147,16 @@
         <!--Formación Practica
             Lado Software -->
         <div id="question5" class="question" style="display: none;">
-            <h2>Pregunta 5: ¿Te interesaría aprender programación de alto nivel, podrás ver lenguaje como C, Java, Python, etc.?</h2>
+            <h2>Pregunta 5: ¿Te interesaría aprender programación de alto nivel, podrás ver lenguaje como C, Java, Python, etc.?
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal20')">Leer más
+            </a></h2>
+            
             <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
             <br>
 
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
+            <div class="slider-container">
+              <input type="text" class="slider1a10" name="slider1a10" value="" />
+            </div>
 
             <br/>
             <div class="d-flex justify-content-around">
@@ -128,11 +167,16 @@
 
         <div id="question6" class="question" style="display: none;">
           <!-- Comienzo item de pregunta -->
-          <h2>Pregunta 6: ¿Te interesaría aprender a diseñar algoritmos que resuelva un problema en particular?</h2>
+          <h2>Pregunta 6: ¿Te interesaría aprender a diseñar algoritmos que resuelva un problema en particular?
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal45')">Leer más
+            </a>
+          </h2>
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           &nbsp;
           
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br>
           <div class="d-flex justify-content-around">
@@ -142,38 +186,38 @@
         </div>
 
         <div id="question7" class="question" style="display: none;">
-          <h2>Pregunta 7: ¿Te interesaría aprender sobre materias dedicadas a la industria del software? Veras temas como:</h2>
+          <h2>Pregunta 7: ¿Te interesaría aprender sobre materias dedicadas a la industria del software? Podrás ver temas como:</h2>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Planificar, organizar y desarrollar software (Paginas web y/o Aplicaciones para móvil por ejemplo)
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            <h5 class="d-flex justify-content-between align-items-center">-Planificar, organizar y desarrollar software (Paginas web, software de escritorio y/o Aplicaciones para móvil por ejemplo)
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal40')">Leer más
               </a>
             </h5>
           </div>
 
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Sistemas de tiempo real
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            <h5 class="d-flex justify-content-between align-items-center">-Sistemas de tiempo real(ej: sistemas en aviones o robots industriales)
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal41')">Leer más
               </a>
             </h5>
           </div>
 
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Ingeniería de Software
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModalIF1')">Leer más
               </a>
             </h5>
           </div>
 
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Administración y Evaluación Financiera de Proyectos Informáticos
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModalIF2')">Leer más
               </a>
             </h5>
           </div>
 
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Desarrollar juegos
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal39')">Leer más
               </a>
             </h5>
           </div>
@@ -181,7 +225,9 @@
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           &nbsp;
           
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br>
           <div class="d-flex justify-content-around">
@@ -200,7 +246,7 @@
             </div>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Aplicaciones para dispositivos móviles
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal16')">Leer más
                 </a>
               </h5>
             </div>
@@ -212,19 +258,19 @@
             </div>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Diseño Responsivo
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal17')">Leer más
                 </a>
               </h5>
             </div>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Protocolos y APIs
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal18')">Leer más
                 </a>
               </h5>
             </div>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Usos de herramientas informática para el desarrollo web
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal21')">Leer más
                 </a>
               </h5>
             </div>
@@ -232,7 +278,9 @@
             <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
             &nbsp;
 
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
+            <div class="slider-container">
+              <input type="text" class="slider1a10" name="slider1a10" value="" />
+            </div>
             
             <br/>
             <div class="d-flex justify-content-around">
@@ -242,11 +290,16 @@
         </div>
 
         <div id="question9" class="question" style="display: none;">
-          <h2>Pregunta 9: ¿Te interesaría aprender el lenguaje de programación SQL y poder hacer consultas a bases de datos mediante software para base de datos, normalizar tablas de base de datos, claves foráneas, etc.?</h2>
+          <h2>Pregunta 9: ¿Te interesaría aprender el lenguaje de programación SQL y poder hacer consultas a bases de datos mediante software para base de datos, normalizar tablas de base de datos, claves foráneas, etc.?
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal43')">Leer más
+            </a>
+          </h2>
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -261,7 +314,9 @@
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           &nbsp;
           
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -271,11 +326,45 @@
         </div>
 
         <div id="question11" class="question" style="display: none;">
-          <h2>Pregunta 11: ¿Te interesaría aprender sobre redes de computadora, sistema de comunicación, señales digitales, programación para redes, dispositivos de redes y muchas más materias enfocado a Redes?</h2>
+          <!-- <h2>Pregunta 11: ¿Te interesaría aprender sobre redes de computadora, sistema de comunicación, señales digitales, programación para redes, dispositivos de redes y muchas más materias enfocado a Redes?</h2> -->
+          <h2>Pregunta 11: ¿Te interesaría aprender sobre materias enfocado a Redes? Podrás ver temas como:</h2>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Dispositivos de redes
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal27')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Redes de Computadora
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal28')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Sistema de comunicación
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Programación para redes
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal30')">Leer más
+              </a>
+            </h5>
+          </div>
+          <div class="container mt-3">
+            <h5 class="d-flex justify-content-between align-items-center">-Sistemas Digitales
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal32')">Leer más
+              </a>
+            </h5>
+          </div>
+          &nbsp;
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           &nbsp;
           
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -288,13 +377,13 @@
         <h2>Pregunta 12: ¿Te gustaría aprender sobre materias que tenga más aporte en la integración de hardware y software? Podrás ver temas como:</h2>
         <div class="container mt-3">
           <h5 class="d-flex justify-content-between align-items-center">-Comunicación de Datos
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal50')">Leer más
             </a>
           </h5>
         </div>
         <div class="container mt-3">
           <h5 class="d-flex justify-content-between align-items-center">-Electrónica (principalmente digital) 
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal53')">Leer más
             </a>
           </h5>
         </div>
@@ -314,7 +403,9 @@
         <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
         &nbsp;
 
-        <input type="text" class="slider1a10" name="slider1a10" value="" />
+        <div class="slider-container">
+          <input type="text" class="slider1a10" name="slider1a10" value="" />
+        </div>
 
         <br/>
         <div class="d-flex justify-content-around">
@@ -328,7 +419,9 @@
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
           
           <br/>
           <div class="d-flex justify-content-around">
@@ -339,11 +432,16 @@
 
         <div id="question14" class="question" style="display: none;">
           <!-- Comienzo item de pregunta -->
-          <h2>Pregunta 14: ¿Te interesaría aprender sobre Programación de bajo nivel?</h2>
+          <h2>Pregunta 14: ¿Te interesaría aprender sobre programación de bajo nivel?
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal29')">Leer más
+            </a>
+          </h2>
           <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
           
           <br/>
           <div class="d-flex justify-content-around">
@@ -359,26 +457,26 @@
           <h2>Pregunta 15: ¿Te gustaría estudiar una carrera que se centre en la web? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web y de aplicaciones móviles.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal23')">Leer más
               </a>
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de aplicaciones móviles.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal24')">Leer más
               </a>
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal25')">Leer más
               </a>
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en Web.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal26')">Leer más
               </a>
             </h5>
           </div>
@@ -389,7 +487,9 @@
 
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -437,7 +537,9 @@
 
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -452,28 +554,28 @@
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controlar Proyectos de Software teniendo en cuenta el costo y tiempo.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal46')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Aplicar la ciencia de la tecnología en mejorar productos de software ya existentes.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal47')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en Software.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal48')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área de software.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal49')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i> -->
             </h5>
@@ -485,7 +587,9 @@
 
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -500,28 +604,28 @@
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controla arquitectura de computadoras, componentes electrónicos, la gestión de redes y comunicaciones, señales digitales. Teniendo en cuenta el costo y tiempo.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal57')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Aplicar la ciencia de la tecnología en mejorar productos de hardware y software ya existentes.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal58')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en productos de hardware y software.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal59')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Participar en asuntos legales, económicos y financieros en el área.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal60')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')"></i> -->
             </h5>
@@ -533,7 +637,9 @@
 
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -548,34 +654,34 @@
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Ámbito de investigación (como Inteligencia Artificial, Datos, etc).
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal10')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Áreas informáticas de organizaciones.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal11')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Formar parte de un equipo de desarrollo de Software.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal12')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-También puedas dar enseñanzas Universitaria y capacitación en ciencias de la computación.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal13')">Leer más
               </a>
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Con posibilidad de obtener un título intermedio 3 años que habilita actuar profesionalmente tanto en industrias como en organismos nacionales y privados de todo el país.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal14')">Leer más
               </a>
             </h5>
           </div>
@@ -586,7 +692,9 @@
 
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -600,29 +708,29 @@
           <h2>Pregunta 20: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de educación? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Transmitir enseñanzas de la informática en todos los niveles.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
+            <h5 class="d-flex justify-content-between align-items-center">-Trasmitir enseñanzas de la informática en todos los niveles.
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal5')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Realizar investigación con fines educativos.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal6')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal35" id="botonModal35" onclick="modalFunction('myModal35')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Desarrollo de Software Educativo.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal7')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
             </h5>
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Asesoría y consultoría a empresas, instituciones educativas o gubernamentales.
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal37')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal8')">Leer más
               </a>
             </h5>
           </div>
@@ -633,7 +741,9 @@
 
           &nbsp;
 
-          <input type="text" class="slider1a10" name="slider1a10" value="" />
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
 
           <br/>
           <div class="d-flex justify-content-around">
@@ -648,7 +758,9 @@
           <h6>Seleccione del 3 años o 4/5 años</h6>
           &nbsp;
           
-          <input type="text" class="sliderDuracion" name="sliderDuracion" value="" />
+          <div class="slider-container">
+            <input type="text" class="sliderDuracion" name="sliderDuracion" value="" />
+          </div>
           
           <br/>
           <div class="d-flex justify-content-around">
@@ -663,7 +775,9 @@
           <h6>Seleccione el horario, donde 8am a 6pm</h6>
           &nbsp;
           
-          <input type="text" class="sliderHorario" name="sliderHorario" value="" />
+          <div class="slider-container">
+            <input type="text" class="sliderHorario" name="sliderHorario" value="" />
+          </div>
           
           <br/>
           <div class="d-flex justify-content-around">
