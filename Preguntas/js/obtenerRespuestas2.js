@@ -5,18 +5,42 @@ const esResidenteArg = localStorage.getItem('esResidenteArg');
 const paisOrigen = localStorage.getItem('paisOrigen');
 const provinciaArg = localStorage.getItem('provinciaArg');
 // Total de preguntas
-const totalQuestions = 22;
+const totalQuestions = 17;
 
 // Resultado id generado
 let idResultado;
 
-let $slider = $(".slider1a10").ionRangeSlider({
-    min: 1,
-    max: 10,
-    from: 5,         // Default start value
-    step: 1,
-    grid: false,
-    skin: "round"
+// let $slider = $(".slider1a10").ionRangeSlider({
+//     min: 1,
+//     max: 10,
+//     from: 5,         // Default start value
+//     step: 1,
+//     grid: false,
+//     skin: "round"
+// });
+
+let sliders = [];
+
+function initSliders() {
+    $(".slider1a10").each(function(index) {
+        sliders[index] = $(this).ionRangeSlider({
+            min: 1,
+            max: 10,
+            from: 5,  // Valor por defecto
+            step: 1,
+            // values: [
+            //     // "1","2","3","4","5","6","7","8","9","10"
+            //     1,2,3,4,5,6,7,8,9,10
+            // ],
+            grid: true,
+            skin: "round"
+        }).data("ionRangeSlider");
+    });
+}
+
+// Inicializar sliders después de cargar el DOM
+$(document).ready(function() {
+    initSliders();
 });
 
 let $sliderDuracion = $(".sliderDuracion").ionRangeSlider({
@@ -66,29 +90,91 @@ function showQuestionFromRight(questionId) {
     // Agrega la clase de animación a la pregunta que se está mostrando
 }
 
-function tour(idPregunta, valorSeleccionado){
-    // Agrega un objeto con la pregunta y la opción seleccionada al arreglo
-    questionsAndOption.push({ idPregunta: idPregunta, valorSeleccionado: valorSeleccionado });
+function assignTextToIDQuestions(questionId){
+    let textQuestion = null;
+    switch (questionId) {
+        case 1:
+            textQuestion = "Pregunta 1: ¿Qué tanto gustaría practica te gustaría adquirir en tu formación de programación?";
+            break;
+        case 2:
+            textQuestion = "Pregunta 2: ¿Te interesaría aprender programación de alto nivel, podrás ver lenguaje como C, Java, Python, etc.?";
+            break;
+        case 3:
+            textQuestion = "Pregunta 3: ¿Te interesaría aprender sobre programación de bajo nivel?";
+            break;
+        case 4:
+            textQuestion = "Pregunta 4: ¿Te gustaría cursar materias en donde te preparare puedas transmitir enseñanzas de la informática en todos los niveles?";
+            break;
+        case 5:
+            textQuestion = "Pregunta 5: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos?";
+            break;
+        case 6:
+            textQuestion = "Pregunta 6: ¿Te interesaría aprender sobre materias dedicadas a la industria del software?";
+            break;
+        case 7:
+            textQuestion = "Pregunta 7: ¿Te interesaría aprender sobre materias que tenga más aporte en Web?";
+            break;
+        case 8:
+            textQuestion = "Pregunta 8: ¿Te interesaría aprender sobre materias enfocado a Redes?";
+            break;
+        case 9:
+            textQuestion = "Pregunta 9: ¿Te gustaría aprender sobre materias que tenga más aporte en la integración de hardware y software?";
+            break;
+        case 10:
+            textQuestion = "Pregunta 10: ¿Te gustaría estudiar una carrera que se centre en la web?";
+            break;
+        case 11:
+            textQuestion = "Pregunta 11: ¿Te gustaría estudiar una carrera que se centre en redes de computadora?";
+            break;
+        case 12:
+            textQuestion = "Pregunta 12: ¿Te gustaría estudiar una carrera que se centre en la industria del software?";
+            break;
+        case 13:
+            textQuestion = "Pregunta 13: ¿Te gustaría estudiar una carrera que tenga un enfoque en el desarrollo que integre hardware y software?";
+            break;
+        case 14:
+            textQuestion = "Pregunta 14: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de investigación, pero también se puede enfocar en otros roles?";
+            break;
+        case 15:
+            textQuestion = "Pregunta 15: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de educación?";
+            break;
+        case 16:
+            textQuestion = "Pregunta 16: Selecciona la duración de la carrera: 3 años o 4/5 años";
+            break;
+        case 17:
+            textQuestion = "Pregunta 17: ¿Qué tan flexible puedes ser con tus horarios para asistir a las clases, considerando tus compromisos laborales y actividades diarias? Selecciona en que horario puedes comenzar a cursar: 8am a 6pm?";
+            break;
+    }
+    return textQuestion;
+}
+
+function tour(idPregunta, valorSeleccionado, preguntaTexto){
+    // Agrega un objeto con la pregunta, su texto, y la opción seleccionada al arreglo
+    console.log("ID de la pregunta: " + idPregunta + ", Texto de la pregunta: " + preguntaTexto + ", Valor seleccionado: " + valorSeleccionado);
+    questionsAndOption.push({ idPregunta: idPregunta, preguntaTexto: preguntaTexto, valorSeleccionado: valorSeleccionado });
 
 }
 
 function nextQuestion(questionId) {
+    // Capturar el texto del h2 correspondiente a la pregunta actual
+    // let questionText = document.querySelector(`#question${questionId} h2`).textContent.trim();
 
     switch (questionId){
         case totalQuestions - 1:
             valueSliderP = $sliderDuracion.data("ionRangeSlider").result.from === 1 ? "4/5 años" : "3 años";
-            tour(questionId, valueSliderP);
+            tour(questionId, valueSliderP, assignTextToIDQuestions(questionId));
             showQuestion('question' + totalQuestions);
             break;
         case totalQuestions:
             valueSliderP = $sliderHorario.data("ionRangeSlider").result.from === 1 ? "6 pm" : "8 am";
-            tour(questionId, valueSliderP);
-            // showQuestion('question22');
+            tour(questionId, valueSliderP, assignTextToIDQuestions(questionId));
             sendResults();
             break;
         default:
-            valueSliderP = $slider.data("ionRangeSlider").result;
-            tour(questionId, valueSliderP.from);
+            let sliderInstance = sliders[questionId - 1];  // Ajustar al índice del slider correspondiente
+            let valueSliderPreguntas = sliderInstance.result.from;
+            
+            tour(questionId, valueSliderPreguntas, assignTextToIDQuestions(questionId));
             showQuestion('question'+(questionId+1));
     }
 
@@ -161,8 +247,11 @@ function reloadPage() {
 
 function reloadTest(idPregunta, opcionSeleccionada, idModal){
 
+    // Capturar el texto del h2 correspondiente a la pregunta actual
+    // let questionText = document.querySelector(`#question${questionId} h2`).textContent.trim();
+
     if(idPregunta != null && opcionSeleccionada !=null){
-        tour(idPregunta, opcionSeleccionada);
+        tour(idPregunta, opcionSeleccionada, assignTextToIDQuestions(questionId));
     }
     showQuestion('question1');
 
@@ -320,6 +409,13 @@ function sendResults(){
     console.log('Es residente de Argentina:', esResidenteArg);
     console.log('País de Origen:', paisOrigen);
     console.log('Provincia en Argentina:', provinciaArg);
+
+    questionsAndOption.forEach((item, index) => {
+        console.log(`Objeto ${index + 1}:`);
+        console.log(`  ID de Pregunta: ${item.idPregunta}`);
+        console.log(`  Texto de la Pregunta: ${item.questionText}`);
+        console.log(`  Valor Seleccionado: ${item.valorSeleccionado}`);
+    });
 
     // debugger;
     const url = urlForBack+'resultados';  // Reemplaza con la URL de tu endpoint en el backend
