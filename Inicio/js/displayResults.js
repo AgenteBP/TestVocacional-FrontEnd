@@ -526,11 +526,21 @@ function dataForModalSeg(email, fecha, escuela, carrera, idResultado) {
             return response.json();
         })
         .then(data => {
+            let puntajes = data[2];
+
+            document.getElementById('plc').textContent = puntajes[2];
+            document.getElementById('ppc').textContent = puntajes[3];
+            document.getElementById('pif').textContent = puntajes[4];
+            document.getElementById('pic').textContent = puntajes[5];
+            document.getElementById('ptw').textContent = puntajes[6];
+            document.getElementById('ptr').textContent = puntajes[7];
+
             // Llenar la tabla con los datos
             data.forEach((resultado) => {
                 const fila = document.createElement("tr");
                 // Acceder a los campos dentro del objeto usuarios
                 const idPregunta = resultado[0];
+
                 const opcionSeleccionada = resultado[1];
 
                 const columnas = [idPregunta, opcionSeleccionada];
@@ -642,25 +652,25 @@ function updateUrl(urlID,paginaActual, url){
             // }
             
             url = (typeOfSearch === 0) ?
-            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=${interesSeleccionado}` :
             urlForBack+`resultados/viewAll?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&interes=${interesSeleccionado}`;
             break;
         case 2:
             url = (typeOfSearch === 0) ?
-            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=${interesSeleccionado}`;
 
             break;
         case 3:
             url = (typeOfSearch === 0) ?
-            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/esNoRes?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=${interesSeleccionado}`;
 
             break;
         case 4:
             url = (typeOfSearch === 0) ?
-            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}` :
-            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.minValue}&edadHasta=${valores.maxValue}&interes=${interesSeleccionado}`;
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=${interesSeleccionado}` :
+            urlForBack+`resultados/schoolInSanLuis?page=${paginaActual}&quantityPerPage=${elementosPorPagina}&opcion=${opcion}&valor=${valor}&edadDesde=${valores.min}&edadHasta=${valores.max}&interes=${interesSeleccionado}`;
 
             break;
         case 6:

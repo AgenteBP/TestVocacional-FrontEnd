@@ -21,11 +21,72 @@
              Formación Teórica
         -->
         <div id="question1" class="question">
+          <h2>
+            Pregunta 1: ¿Qué tanta practica te gustaría adquirir en tu formación de programación? 
+          </h2>
+          <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal61')">Leer más
+          </a>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          <br>
+          
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value=""/>
+          </div>
+          <!-- <input type="text" class="sliderDuracion" name="sliderDuracion" value="" /> -->
+
+          <br>
+          <div class="d-flex justify-content-around ">
+            <button class="btn btn-primary " style="margin-right: 1%;" value="botonV1" id="botonV1" onclick="previousQuestion(1)">Volver</button>
+            <button class="btn btn-primary" value="botonS" id="botonS" onclick="nextQuestion(1)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question2" class="question" style="display: none;">
+          <h2>Pregunta 2: ¿Te interesaría aprender programación de alto nivel, podrás ver lenguaje como C, Java, Python, etc.?
+          </h2>
+          <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal20')">Leer más
+          </a>
+          
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          <br>
+
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
+
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV5" id="botonV5" onclick="previousQuestion(2)">Volver</button>
+            <button class="btn btn-primary" onclick="nextQuestion(2)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question3" class="question" style="display: none;">
+          <!-- Comienzo item de pregunta -->
+          <h2>Pregunta 3: ¿Te interesaría aprender sobre programación de bajo nivel?
+          </h2>
+          <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal29')">Leer más
+          </a>
+          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
+          &nbsp;
+
+          <div class="slider-container">
+            <input type="text" class="slider1a10" name="slider1a10" value="" />
+          </div>
+          
+          <br/>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" value="botonV3" id="botonV3" onclick="previousQuestion(3)">Volver</button>
+            <button class="btn btn-primary" value="botonS3" id="botonS3" onclick="nextQuestion(3)">Siguiente</button>
+          </div>
+        </div>
+
+        <div id="question4" class="question" style="display: none;">
             <h2>
-              Pregunta 1: ¿Te gustaría cursar materias en donde te preparare puedas transmitir enseñanzas de la informática en todos los niveles?
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal5')">Leer más
-              </a>
+              Pregunta 4: ¿Te gustaría cursar materias en donde te preparare puedas transmitir enseñanzas de la informática en todos los niveles?
             </h2>
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal5')">Leer más
+            </a>
             <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
             <br>
             
@@ -36,33 +97,15 @@
 
             <br>
             <div class="d-flex justify-content-around ">
-              <button class="btn btn-primary " style="margin-right: 1%;" value="botonV1" id="botonV1" onclick="previousQuestion(1)">Volver</button>
-              <button class="btn btn-primary" value="botonS" id="botonS" onclick="nextQuestion(1)">Siguiente</button>
+              <button class="btn btn-primary " style="margin-right: 1%;" value="botonV4" id="botonV4" onclick="previousQuestion(4)">Volver</button>
+              <button class="btn btn-primary" value="botonS4" id="botonS4" onclick="nextQuestion(4)">Siguiente</button>
             </div>
         </div>
 
-        <div id="question2" class="question" style="display: none;">
-          <h2>Pregunta 2: ¿Te gustaría cursar materias donde puedas realizar investigación con fines educativos, también desarrollar y usar de Software Educativo?
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal6')">Leer más
-            </a>
-          </h2>
-          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-          <br>
-          
-          <div class="slider-container">
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
-          </div>
+        
 
-          <br>
-          <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV2" id="botonV2" onclick="previousQuestion(2)">Volver</button>
-            <button class="btn btn-primary " value="botonS" id="botonS" onclick="nextQuestion(2)">Siguiente</button>
-          </div>
-        </div>
-
-        <div id="question3" class="question" style="display: none;">
-            <!-- <h2>Pregunta 3: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos ya sea como inteligencia artificial, compiladores, arquitectura de pc? </h2> -->
-            <h2>Pregunta 3: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos? Tales como: </h2>
+        <div id="question5" class="question" style="display: none;">
+            <h2>Pregunta 5: ¿Te gustaría cursar materias donde puedas realizar investigación con fines científicos? Tales como: </h2>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Inteligencia artificial
                 <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal42')">Leer más
@@ -92,101 +135,15 @@
             <br>
 
             <div class="d-flex justify-content-around">            
-              <button class="btn btn-primary" value="botonV3" id="botonV3" onclick="previousQuestion(3)">Volver</button> 
-              <button class="btn btn-primary mr-2"  value="botonS3" id="botonS3" onclick="nextQuestion(3)">Siguiente</button>
+              <button class="btn btn-primary" value="botonV5" id="botonV5" onclick="previousQuestion(5)">Volver</button> 
+              <button class="btn btn-primary mr-2"  value="botonS5" id="botonS5" onclick="nextQuestion(5)">Siguiente</button>
            </div>
-        </div>
-
-        <div id="question4" class="question " style="display: none;">
-            <h2>Pregunta 4: ¿Te gustaría cursar materias con enfoque teórico? Verás materias con un marco conceptual que te permitirán adaptar con facilidad a los rápidos cambios tecnológicos, por ejemplo: </h2>
-            <!-- <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Inteligencia artificial
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal42')">Leer más
-                </a>
-              </h5>
-            </div> -->
-            <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Modelos y Simulación
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal16" id="botonModal16" onclick="modalFunction('myModal16')">Leer más
-                </a>
-              </h5>
-            </div>
-            <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Sistemas Distribuidos y Paralelismo
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal17" id="botonModal17" onclick="modalFunction('myModal17')">Leer más
-                </a>
-              </h5>
-            </div>
-            <!-- <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Diseño y Construcción de Compiladores
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal18')">Leer más
-                </a>
-              </h5>
-            </div> -->
-            <div class="container mt-3">
-              <h5 class="d-flex justify-content-between align-items-center">-Arquitectura de PC
-                <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal52')">Leer más
-                </a>
-              </h5>
-            </div>
-            &nbsp;
-            <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-            <br>
-            
-            <div class="slider-container">
-              <input type="text" class="slider1a10" name="slider1a10" value="" />
-            </div>
-
-            <br>
-            <div class="d-flex justify-content-around">
-              <button class="btn btn-primary" value="botonV4" id="botonV4" onclick="previousQuestion(4)">Volver</button>
-              <button class="btn btn-primary" value="botonS4" id="botonS4" onclick="nextQuestion(4)">Siguiente</button>
-            </div>
         </div>
 
         <!--Formación Practica
             Lado Software -->
-        <div id="question5" class="question" style="display: none;">
-            <h2>Pregunta 5: ¿Te interesaría aprender programación de alto nivel, podrás ver lenguaje como C, Java, Python, etc.?
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal20')">Leer más
-            </a></h2>
-            
-            <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-            <br>
-
-            <div class="slider-container">
-              <input type="text" class="slider1a10" name="slider1a10" value="" />
-            </div>
-
-            <br/>
-            <div class="d-flex justify-content-around">
-              <button class="btn btn-primary" value="botonV5" id="botonV5" onclick="previousQuestion(5)">Volver</button>
-              <button class="btn btn-primary" onclick="nextQuestion(5)">Siguiente</button>
-            </div>
-        </div>
-
         <div id="question6" class="question" style="display: none;">
-          <!-- Comienzo item de pregunta -->
-          <h2>Pregunta 6: ¿Te interesaría aprender a diseñar algoritmos que resuelva un problema en particular?
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModal45')">Leer más
-            </a>
-          </h2>
-          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-          &nbsp;
-          
-          <div class="slider-container">
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
-          </div>
-
-          <br>
-          <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV6" id="botonV6" onclick="previousQuestion(6)">Volver</button>
-            <button class="btn btn-primary" value="botonS6" id="botonS6" onclick="nextQuestion(6)">Siguiente</button>
-          </div>
-        </div>
-
-        <div id="question7" class="question" style="display: none;">
-          <h2>Pregunta 7: ¿Te interesaría aprender sobre materias dedicadas a la industria del software? Podrás ver temas como:</h2>
+          <h2>Pregunta 6: ¿Te interesaría aprender sobre materias dedicadas a la industria del software? Podrás ver temas como:</h2>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Planificar, organizar y desarrollar software (Paginas web, software de escritorio y/o Aplicaciones para móvil por ejemplo)
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal40')">Leer más
@@ -231,13 +188,13 @@
 
           <br>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV7" id="botonV7" onclick="previousQuestion(7)">Volver</button>
-            <button class="btn btn-primary" value="botonS7" id="botonS7" onclick="nextQuestion(7)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV6" id="botonV6" onclick="previousQuestion(6)">Volver</button>
+            <button class="btn btn-primary" value="botonS6" id="botonS6" onclick="nextQuestion(6)">Siguiente</button>
           </div>
         </div>
 
-        <div id="question8" class="question" style="display: none;">
-            <h2>Pregunta 8: ¿Te interesaría aprender sobre materias que tenga más aporte en Web? Podrás ver temas como:</h2>
+        <div id="question7" class="question" style="display: none;">
+            <h2>Pregunta 7: ¿Te interesaría aprender sobre materias que tenga más aporte en Web? Podrás ver temas como:</h2>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Programación para páginas Web
                 <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
@@ -284,50 +241,14 @@
             
             <br/>
             <div class="d-flex justify-content-around">
-              <button class="btn btn-primary" value="botonV8" id="botonV8" onclick="previousQuestion(8)">Volver</button>
-              <button class="btn btn-primary" value="botonS8" id="botonS8" onclick="nextQuestion(8)">Siguiente</button>
+              <button class="btn btn-primary" value="botonV7" id="botonV7" onclick="previousQuestion(7)">Volver</button>
+              <button class="btn btn-primary" value="botonS7" id="botonS7" onclick="nextQuestion(7)">Siguiente</button>
             </div>
         </div>
 
-        <div id="question9" class="question" style="display: none;">
-          <h2>Pregunta 9: ¿Te interesaría aprender el lenguaje de programación SQL y poder hacer consultas a bases de datos mediante software para base de datos, normalizar tablas de base de datos, claves foráneas, etc.?
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal43')">Leer más
-            </a>
-          </h2>
-          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-          &nbsp;
-
-          <div class="slider-container">
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
-          </div>
-
-          <br/>
-          <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV9" id="botonV9" onclick="previousQuestion(9)">Volver</button>
-            <button class="btn btn-primary" value="botonS9" id="botonS9" onclick="nextQuestion(9)">Siguiente</button>
-          </div>
-        </div>
-
         <!-- Lado Hardware -->
-        <div id="question10" class="question" style="display: none;">
-          <h2>Pregunta 10: ¿Te interesaría aprender seguridad informática?</h2>
-          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-          &nbsp;
-          
-          <div class="slider-container">
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
-          </div>
-
-          <br/>
-          <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV10" id="botonV10" onclick="previousQuestion(10)">Volver</button>
-            <button class="btn btn-primary" value="botonS10" id="botonS10" onclick="nextQuestion(10)">Siguiente</button>
-          </div>
-        </div>
-
-        <div id="question11" class="question" style="display: none;">
-          <!-- <h2>Pregunta 11: ¿Te interesaría aprender sobre redes de computadora, sistema de comunicación, señales digitales, programación para redes, dispositivos de redes y muchas más materias enfocado a Redes?</h2> -->
-          <h2>Pregunta 11: ¿Te interesaría aprender sobre materias enfocado a Redes? Podrás ver temas como:</h2>
+        <div id="question8" class="question" style="display: none;">
+          <h2>Pregunta 8: ¿Te interesaría aprender sobre materias enfocada a Redes? Podrás ver temas como:</h2>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Dispositivos de redes
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal27')">Leer más
@@ -342,7 +263,7 @@
           </div>
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Sistema de comunicación
-              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+              <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal33')">Leer más
               </a>
             </h5>
           </div>
@@ -368,13 +289,13 @@
 
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV11" id="botonV11" onclick="previousQuestion(11)">Volver</button>
-            <button class="btn btn-primary" value="botonS11" id="botonS11" onclick="nextQuestion(11)">Siguiente</button>            
+            <button class="btn btn-primary" value="botonV8" id="botonV8" onclick="previousQuestion(8)">Volver</button>
+            <button class="btn btn-primary" value="botonS8" id="botonS8" onclick="nextQuestion(8)">Siguiente</button>            
           </div>
         </div>
 
-        <div id="question12" class="question" style="display: none;">
-        <h2>Pregunta 12: ¿Te gustaría aprender sobre materias que tenga más aporte en la integración de hardware y software? Podrás ver temas como:</h2>
+        <div id="question9" class="question" style="display: none;">
+        <h2>Pregunta 9: ¿Te gustaría aprender sobre materias que tengas más aporte en la integración de hardware y software? Podrás ver temas como:</h2>
         <div class="container mt-3">
           <h5 class="d-flex justify-content-between align-items-center">-Comunicación de Datos
             <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal50')">Leer más
@@ -389,13 +310,13 @@
         </div>
         <div class="container mt-3">
           <h5 class="d-flex justify-content-between align-items-center">-Computación Gráfica
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal54')">Leer más
             </a>
           </h5>
         </div>
         <div class="container mt-3">
           <h5 class="d-flex justify-content-between align-items-center">-Diseño de Procesadores
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal15')">Leer más
+            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal55')">Leer más
             </a>
           </h5>
         </div>
@@ -409,55 +330,19 @@
 
         <br/>
         <div class="d-flex justify-content-around">
-          <button class="btn btn-primary" value="botonV12" id="botonV12" onclick="previousQuestion(12)">Volver</button>
-          <button class="btn btn-primary" value="botonS12" id="botonS12" onclick="nextQuestion(12)">Siguiente</button>
+          <button class="btn btn-primary" value="botonV9" id="botonV9" onclick="previousQuestion(9)">Volver</button>
+          <button class="btn btn-primary" value="botonS9" id="botonS9" onclick="nextQuestion(9)">Siguiente</button>
         </div>
-        </div>
-
-        <div id="question13" class="question" style="display: none;">
-          <h2>Pregunta 13: ¿Te gustaría aprender sobre mantenimiento y soporte de hardware (Redes u otros componentes de electrónicos)?</h2>
-          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-          &nbsp;
-
-          <div class="slider-container">
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
-          </div>
-          
-          <br/>
-          <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV13" id="botonV13" onclick="previousQuestion(13)">Volver</button>
-            <button class="btn btn-primary" value="botonS13" id="botonS13" onclick="nextQuestion(13)">Siguiente</button>
-          </div>
-        </div>
-
-        <div id="question14" class="question" style="display: none;">
-          <!-- Comienzo item de pregunta -->
-          <h2>Pregunta 14: ¿Te interesaría aprender sobre programación de bajo nivel?
-            <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal29')">Leer más
-            </a>
-          </h2>
-          <h6>Seleccione del 1 a 10, donde 1 es no me gustaría y 10 si me gustaría</h6>
-          &nbsp;
-
-          <div class="slider-container">
-            <input type="text" class="slider1a10" name="slider1a10" value="" />
-          </div>
-          
-          <br/>
-          <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV14" id="botonV14" onclick="previousQuestion(14)">Volver</button>
-            <button class="btn btn-primary" value="botonS14" id="botonS14" onclick="nextQuestion(14)">Siguiente</button>
-          </div>
         </div>
 
         <!-- Fase de trabajo
              Lado Web
         -->
-        <div id="question15" class="question" style="display: none;">
-          <h2>Pregunta 15: ¿Te gustaría estudiar una carrera que se centre en la web? Te preparará en áreas de trabajos como:</h2>
+        <div id="question10" class="question" style="display: none;">
+          <h2>Pregunta 10: ¿Te gustaría estudiar una carrera que se centre en la web? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de Software Web.
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollador de software web.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal23')">Leer más
               </a>
             </h5>
@@ -469,13 +354,13 @@
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico.
+            <h5 class="d-flex justify-content-between align-items-center">-Dar asesoramiento técnico en web y/o aplicaciones móviles.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal25')">Leer más
               </a>
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en Web.
+            <h5 class="d-flex justify-content-between align-items-center">-Brindar seguridad en web.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal26')">Leer más
               </a>
             </h5>
@@ -493,17 +378,17 @@
 
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(15)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(15)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV10" id="botonV10" onclick="previousQuestion(10)">Volver</button>
+            <button class="btn btn-primary" value="botonS10" id="botonS10" onclick="nextQuestion(10)">Siguiente</button>
           </div>
         </div>
         
         <!-- Lado Redes -->
-        <div id="question16" class="question" style="display: none;">
-          <h2>Pregunta 16: ¿Te gustaría estudiar una carrera que se centre en redes de computadora? Te preparará en áreas de trabajos como:</h2>
+        <div id="question11" class="question" style="display: none;">
+          <h2>Pregunta 11: ¿Te gustaría estudiar una carrera que se centre en redes de computadora? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Asesoramiento técnico.
+            <h5 class="d-flex justify-content-between align-items-center">-Asesoramiento técnico en redes.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
@@ -543,17 +428,17 @@
 
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(16)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(16)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV11" id="botonV11" onclick="previousQuestion(11)">Volver</button>
+            <button class="btn btn-primary" value="botonS11" id="botonS11" onclick="nextQuestion(11)">Siguiente</button>
           </div>
         </div>
 
         <!-- Lado Ingeniería Informática -->
-        <div id="question17" class="question" style="display: none;">
-          <h2>Pregunta 17: ¿Te gustaría estudiar una carrera que se centre en la industria del software? Te preparará en áreas de trabajos como:</h2>
+        <div id="question12" class="question" style="display: none;">
+          <h2>Pregunta 12: ¿Te gustaría estudiar una carrera que se centre en la industria del software? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controlar Proyectos de Software teniendo en cuenta el costo y tiempo.
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controlar proyectos de software teniendo en cuenta el costo y tiempo.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal46')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal34" id="botonModal34" onclick="modalFunction('myModal34')"></i> -->
@@ -567,7 +452,7 @@
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Seguridad Informática en Software.
+            <h5 class="d-flex justify-content-between align-items-center">-Seguridad informática en software.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal48')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
@@ -593,14 +478,14 @@
 
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(17)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(17)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV12" id="botonV12" onclick="previousQuestion(12)">Volver</button>
+            <button class="btn btn-primary" value="botonS12" id="botonS12" onclick="nextQuestion(12)">Siguiente</button>
           </div>
         </div>
 
         <!-- Lado Ingeniería Computación -->
-        <div id="question18" class="question" style="display: none;">
-          <h2>Pregunta 18: ¿Te gustaría estudiar una carrera que tenga un enfoque en el desarrollo que integre hardware y software? Te preparará en áreas de trabajos como:</h2>
+        <div id="question13" class="question" style="display: none;">
+          <h2>Pregunta 13: ¿Te gustaría estudiar una carrera que tenga un enfoque en el desarrollo que integre hardware y software? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Desarrollar, gestionar o controla arquitectura de computadoras, componentes electrónicos, la gestión de redes y comunicaciones, señales digitales. Teniendo en cuenta el costo y tiempo.
@@ -643,14 +528,14 @@
 
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(18)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(18)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV13" id="botonV13" onclick="previousQuestion(13)">Volver</button>
+            <button class="btn btn-primary" value="botonS13" id="botonS13" onclick="nextQuestion(13)">Siguiente</button>
           </div>
         </div>
 
         <!-- Lado Licenciatura en Ciencia de la Computación -->
-        <div id="question19" class="question" style="display: none;">
-          <h2>Pregunta 19: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de investigación, pero también se puede enfocar en otros roles? Te preparará en áreas de trabajos como:</h2>
+        <div id="question14" class="question" style="display: none;">
+          <h2>Pregunta 14: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de investigación, pero también se puede enfocar en otros roles? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Ámbito de investigación (como Inteligencia Artificial, Datos, etc).
@@ -674,7 +559,7 @@
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-También puedas dar enseñanzas Universitaria y capacitación en ciencias de la computación.
+            <h5 class="d-flex justify-content-between align-items-center">-También puedas dar enseñanzas universitaria y capacitación en ciencias de la computación.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal37" id="botonModal37" onclick="modalFunction('myModal13')">Leer más
               </a>
             </h5>
@@ -698,14 +583,14 @@
 
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(19)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(19)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV14" id="botonV14" onclick="previousQuestion(14)">Volver</button>
+            <button class="btn btn-primary" value="botonS14" id="botonS14" onclick="nextQuestion(14)">Siguiente</button>
           </div>
         </div>
 
         <!-- Lado Profesorado en Ciencia de la Computación -->
-        <div id="question20" class="question" style="display: none;">
-          <h2>Pregunta 20: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de educación? Te preparará en áreas de trabajos como:</h2>
+        <div id="question15" class="question" style="display: none;">
+          <h2>Pregunta 15: ¿Te gustaría estudiar una carrera que tenga un enfoque en el área de educación? Te preparará en áreas de trabajos como:</h2>
           <!-- Comienzo item de pregunta -->
           <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Trasmitir enseñanzas de la informática en todos los niveles.
@@ -722,7 +607,7 @@
             </h5>
           </div>
           <div class="container mt-3">
-            <h5 class="d-flex justify-content-between align-items-center">-Desarrollo de Software Educativo.
+            <h5 class="d-flex justify-content-between align-items-center">-Desarrollo de software educativo.
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal7')">Leer más
               </a>
                 <!-- &nbsp; <i class="bi bi-info-square" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal36" id="botonModal36" onclick="modalFunction('myModal36')"></i> -->
@@ -747,14 +632,14 @@
 
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(20)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(20)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV15" id="botonV15" onclick="previousQuestion(15)">Volver</button>
+            <button class="btn btn-primary" value="botonS15" id="botonS15" onclick="nextQuestion(15)">Siguiente</button>
           </div>
         </div>
 
         <!-- Duración  -->
-        <div id="question21" class="question" style="display: none;">
-          <h2>Pregunta 21: Selecciona la duración de la carrera:</h2>
+        <div id="question16" class="question" style="display: none;">
+          <h2>Pregunta 16: Selecciona la duración de la carrera:</h2>
           <h6>Seleccione del 3 años o 4/5 años</h6>
           &nbsp;
           
@@ -764,14 +649,14 @@
           
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(21)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(21)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV16" id="botonV16" onclick="previousQuestion(16)">Volver</button>
+            <button class="btn btn-primary" value="botonS16" id="botonS16" onclick="nextQuestion(16)">Siguiente</button>
           </div>
         </div>
 
         <!-- Horario  -->
-        <div id="question22" class="question" style="display: none;">
-          <h2>Pregunta 22: ¿Qué tan flexible puedes ser con tus horarios para asistir a las clases, considerando tus compromisos laborales y actividades diarias? Selecciona en que horario puedes comenzar a cursar:</h2>
+        <div id="question17" class="question" style="display: none;">
+          <h2>Pregunta 17: ¿Qué tan flexible puedes ser con tus horarios para asistir a las clases, considerando tus compromisos laborales y actividades diarias? Selecciona en que horario puedes comenzar a cursar:</h2>
           <h6>Seleccione el horario, donde 8am a 6pm</h6>
           &nbsp;
           
@@ -781,8 +666,8 @@
           
           <br/>
           <div class="d-flex justify-content-around">
-            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(22)">Volver</button>
-            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(22)">Siguiente</button>
+            <button class="btn btn-primary" value="botonV17" id="botonV17" onclick="previousQuestion(17)">Volver</button>
+            <button class="btn btn-primary" value="botonS17" id="botonS17" onclick="nextQuestion(17)">Siguiente</button>
           </div>
         </div>
       
