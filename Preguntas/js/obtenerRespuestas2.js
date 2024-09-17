@@ -5,7 +5,7 @@ const esResidenteArg = localStorage.getItem('esResidenteArg');
 const paisOrigen = localStorage.getItem('paisOrigen');
 const provinciaArg = localStorage.getItem('provinciaArg');
 // Total de preguntas
-const totalQuestions = 17;
+const totalQuestions = 16;
 
 // Resultado id generado
 let idResultado;
