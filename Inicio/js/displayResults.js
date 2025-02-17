@@ -12,6 +12,7 @@
 //     }
 //     }
 // var slider = wRunner(setting);
+let dateCurrent = new Date();
 
 let $slider = $(".my-js-slider").ionRangeSlider({
     type: 'double',   // Use 'double' for a range slider
@@ -26,10 +27,10 @@ let $slider = $(".my-js-slider").ionRangeSlider({
 let $sliderAno = $(".my-js-slider2").ionRangeSlider({
     type: 'double',   // Use 'double' for a range slider
     min: 2023,
-    max: 2024,
+    max: dateCurrent.getFullYear(),
     from: 2023,         // Default start value
     step: 1,
-    grid: true,
+    grid: false,
     skin: "round"
 });
 
