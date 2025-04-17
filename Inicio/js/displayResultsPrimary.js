@@ -9,6 +9,7 @@ const url4 = urlForBack+`resultados/mostFrequentSchool`;
 const urlGraphPie = urlForBack+`resultados/viewGraph?modo=1`;
 const tabulatedTableOfCareers = urlForBack+`resultados/quantityByCareerTable`;
 let tabulatedTableOfSchool = urlForBack+`resultados/quantityBySchoolTable`;
+const urlExcel = urlForBack+`resultados/excel`;
 
 let tabulatedTableCarreras = null;
 let tabulatedTableSchool = null;
@@ -410,5 +411,56 @@ function mostrarModalSesionExpirada() {
             // Redirige a index.html sin ningún parámetro
             window.location.href = '../index.html';
         }
+    });
+}
+
+///Llamar al generador de excel
+function generateExcel(){
+
+    let globalResponse; // Variable para guardar la respuesta
+    // Fetch para generar excel
+    fetch(urlExcel, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => {
+        globalResponse = response; // Guarda la respuesta
+        // Verificar si la respuesta es un Unauthorized (código 403)
+        if (response.status === 403) {
+            // El token ha expirado, muestra un modal y redirige a index.html
+            mostrarModalSesionExpirada();
+            // window.location.href = 'index.html';
+            return Promise.reject('Token expirado');
+        }
+
+        return response.blob(); // parsear respuesta como Blob
+    })
+    .then(blob => {
+        // Se puede extraer el nombre del archivo del header si lo deseas:
+        const disposition = globalResponse.headers.get('Content-Disposition');
+        let filename = 'metricas_carreras.xlsx'; // valor por defecto
+        console.log("respose trae ", disposition );
+        if (disposition && disposition.indexOf('filename=') !== -1) {
+            const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+            const matches = filenameRegex.exec(disposition);
+            if (matches != null && matches[1]) { 
+                filename = matches[1].replace(/['"]/g, '');
+            }
+        }
+
+        // Crear URL para el blob y disparar la descarga
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = filename; // Utiliza el nombre extraído o un nombre por defecto
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error('Error al cargar el archivo:', error);
     });
 }
