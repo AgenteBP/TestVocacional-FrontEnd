@@ -3,4 +3,4 @@
 // Para DB Railway
 // var urlForBack = 'https://testvocacional-backend-production.up.railway.app/';
 // Para Render
-var urlForBack = 'https://testvocacional-backend.onrender.com';
+var urlForBack = 'https://testvocacional-backend.onrender.com/';
