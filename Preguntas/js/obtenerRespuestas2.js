@@ -41,6 +41,7 @@ function initSliders() {
 // Inicializar sliders después de cargar el DOM
 $(document).ready(function() {
     initSliders();
+    updateProgress(1); // mostrará 0%
 });
 
 let $sliderDuracion = $(".sliderDuracion").ionRangeSlider({
@@ -88,6 +89,17 @@ function showQuestionFromRight(questionId) {
     currentQuestion.style.display = 'block';
     currentQuestion.classList.add('animate__animated', 'animate__fadeInLeft');
     // Agrega la clase de animación a la pregunta que se está mostrando
+}
+
+///Barra de progreso
+function updateProgress(currentQuestion) {
+  const percent = (currentQuestion / totalQuestions) * 100;
+  const rounded = Math.round(percent); // opcional
+  const $bar = $('.progress-bar');
+  $bar
+    .css('width', `${percent}%`)
+    .attr('aria-valuenow', percent)
+    .text(`${rounded}%`);
 }
 
 function assignTextToIDQuestions(questionId){
@@ -155,6 +167,7 @@ function tour(idPregunta, valorSeleccionado, preguntaTexto){
 function nextQuestion(questionId) {
     // Capturar el texto del h2 correspondiente a la pregunta actual
     // let questionText = document.querySelector(`#question${questionId} h2`).textContent.trim();
+    updateProgress(questionId + 1);
 
     switch (questionId){
         case totalQuestions - 1:
@@ -188,6 +201,7 @@ function nextQuestion(questionId) {
             tour(questionId, valueSliderPreguntas + 1, assignTextToIDQuestions(questionId));
             showQuestion('question'+(questionId+1));
     }
+
 
     
 }
@@ -523,6 +537,8 @@ function getParameterURL(dato) {
 
 function previousQuestion(questionId){
     const resultsContainer = document.getElementById('results');
+    updateProgress(questionId - 1);
+
     switch (questionId) {
         case 1:
         // primera pregunta
