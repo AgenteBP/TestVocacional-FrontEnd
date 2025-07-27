@@ -49,8 +49,8 @@ body {
 }
 
 #sidebar.expand {
-    width: 260px;
-    min-width: 260px;
+    width: 280px;
+    min-width: 280px;
 }
 
 .toggle-btn {
@@ -235,11 +235,38 @@ a.sidebar-link:hover {
   flex-grow: 1;
   max-width: 100%;
 }
+
+.col-2 {
+    flex: 0 0 auto;
+    width: 16.66666667% !important;
+}
+
+.col-10 {
+    flex: 0 0 auto;
+    width: 83.33333333% !important;
+}
+
+
+
 @media (min-width: 768px) {
-    .col-md-6 {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
+  .col-md-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+  }
+  .col-md-2{
+    flex: 0 0 auto;
+    width: 16.66666667% !important;
+  }
+
+  .col-md-3 {
+      flex: 0 0 auto;
+      width: 25%;
+  }
+
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -332,4 +359,138 @@ a.sidebar-link:hover {
     font-size: 0.9rem;
     color: black;
     
+}
+
+.text-menu{
+  color: #000;
+  font-size: 0.9rem;
+  /* white-space: nowrap; */
+  border-left: 3px solid transparent;
+}
+
+/* Para moviles */
+
+@media (max-width: 768px) {
+  /* #sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1050;
+  }
+
+  #sidebar.mobile-show {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  #menuToggle {
+    display: block;
+  }
+
+  #sidebar.mobile-show ~ #menuToggle {
+    display: none !important;
+  }
+  .expandAside {
+    display: none !important; 
+  }
+*/
+/* Mostrar el sidebar completamente y sin colapso */
+  #sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    width: 75%;
+    max-width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1050;
+    background-color: #fff; /* o el color de tu menú */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Cuando se agrega la clase .mobile-show se muestra el menú */
+  #sidebar.mobile-show {
+    transform: translateX(0%);
+  }
+
+  /* El botón de la flechita solo visible en móviles cuando el menú está abierto */
+  .expandAside {
+    display: none;
+  }
+
+  #sidebar.mobile-show .expandAside {
+    display: block !important;
+    margin: 1rem;
+  }
+
+  /* El botón hamburguesa siempre visible arriba */
+  #menuToggle {
+    /* position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    display: block; */
+    position: sticky;
+    top: 0;
+    z-index: 1030; /* debajo del navbar si tuvieras */
+  }
+
+  /* El contenido principal ocupa toda la pantalla sin margen lateral */
+  .main {
+    margin-left: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #menuToggle {
+    display: none !important;
+  }
+
+}
+
+
+/* Asegura que las tablas y filtros no se desborden */
+  @media (max-width: 768px) {
+    .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    white-space: nowrap; /* evita que se corte el contenido */
+    font-size: 0.85rem;
+  }
+
+  /* Ajustar filtros arriba de la tabla */
+  .filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+    margin-bottom: 1rem;
+  }
+
+  .filters-container > * {
+    width: 100% !important;
+  }
+
+  footer.footer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    white-space: normal;
+  }
 }

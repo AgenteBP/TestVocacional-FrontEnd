@@ -17,7 +17,6 @@ let currentPage = 0;
 // Definir una variable global para la cantidad de datos por página
 const cantidadPorPagina = 10;
 
-
 const cuentaTotalElement1 = document.getElementById('cuentaTotal');
 const cuentaTotalElement2 = document.getElementById('cuentaTotalI');
 const cuentaTotalElement3 = document.getElementById('cuentaCarrera');
@@ -318,7 +317,13 @@ Promise.all([fetchData(url1), fetchData(url2), fetchData(url3), fetchData(url4),
         // set the titles of the axes
         chart.xAxis().title("Escuelas");
         chart.yAxis().title("Cantidad");
-    
+
+        chart.xAxis().labels().format(function() {
+            var txt = this.value;
+            var max = 15;
+            return txt.length > max ? txt.substring(0, max) + '…' : txt;
+        });
+        
         // set the container id
         chart.container("graphForSchoolTop");
     

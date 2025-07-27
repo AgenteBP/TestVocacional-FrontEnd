@@ -16,12 +16,17 @@
       <h5>Test Vocacional: Área Informática</h5>
     </header>
 
-      <div class="container mt-4 " id="divPrincipal" style="margin-top: 20px;">
+      <div class="container mt-4 " id="divPrincipal" style="margin-top: 10px;">
         <!-- Fase de formación
              Formación Teórica container
         -->
-        <div class="progress" style="margin-bottom: 20px;">
+        <!-- <div class="progress" style="margin-bottom: 20px;">
+          
           <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+        </div> -->
+
+        <div id="barraProgresoContainer" style="position: relative; height: 60px;">
+          <div id="barraProgreso"></div>
         </div>
 
         <div id="question1" class="question">
@@ -99,11 +104,23 @@
                 </a>
               </h5>
             </div>
-            <div class="container mt-3">
+            <!-- <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Diseño y Construcción de Compiladores
                 <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal18" id="botonModal18" onclick="modalFunction('myModalLC1')">Leer más
                 </a>
               </h5>
+            </div> -->
+            <div class="container mt-3">
+              <div class="d-flex justify-content-between align-items-center flex-nowrap">
+                <span class="font-h5">-Diseño y Construcción de Compiladores</span>
+                <a class="icon-link icon-link-hover ms-2 text-nowrap"
+                  style="font-weight: lighter; font-size: 1rem; cursor: pointer;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  value="botonModal18"
+                  id="botonModal18"
+                  onclick="modalFunction('myModalLC1')">Leer más</a>
+              </div>
             </div>
             <div class="container mt-3">
               <h5 class="d-flex justify-content-between align-items-center">-Bases de Datos
@@ -123,7 +140,7 @@
 
             <div class="d-flex justify-content-around">            
               <button class="btn btn-primary" value="botonV4" id="botonV4" onclick="previousQuestion(4)">Volver</button> 
-              <button class="btn btn-primary mr-2"  value="botonS4" id="botonS4" onclick="nextQuestion(4)">Siguiente</button>
+              <button class="btn btn-primary "  value="botonS4" id="botonS4" onclick="nextQuestion(4)">Siguiente</button>
            </div>
         </div>
 
@@ -131,18 +148,42 @@
             Lado Software -->
         <div id="question5" class="question" style="display: none;">
           <h2>Pregunta 5: ¿Te interesaría aprender sobre materias dedicadas a la industria del software? Podrás ver temas como:</h2>
-          <div class="container mt-3">
+          <!-- <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Planificar, organizar y desarrollar software (Paginas web, software de escritorio y/o Aplicaciones para móvil por ejemplo)
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal40')">Leer más
               </a>
             </h5>
+          </div> -->
+          <div class="container mt-3">
+              <div class="d-flex justify-content-between align-items-center flex-nowrap">
+                <span class="font-h5">-Planificar, organizar y desarrollar software (Paginas web, software de escritorio y/o Aplicaciones para móvil por ejemplo)</span>
+                <a class="icon-link icon-link-hover ms-2 text-nowrap"
+                  style="font-weight: lighter; font-size: 1rem; cursor: pointer;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  value="botonModal15"
+                  id="botonModal15"
+                  onclick="modalFunction('myModal40')">Leer más</a>
+              </div>
           </div>
 
-          <div class="container mt-3">
+          <!-- <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Sistemas de tiempo real(ej: sistemas en aviones o robots industriales)
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModal41')">Leer más
               </a>
             </h5>
+          </div> -->
+          <div class="container mt-3">
+              <div class="d-flex justify-content-between align-items-center flex-nowrap">
+                <span class="font-h5">-Sistemas de tiempo real(ej: sistemas en aviones o robots industriales)</span>
+                <a class="icon-link icon-link-hover ms-2 text-nowrap"
+                  style="font-weight: lighter; font-size: 1rem; cursor: pointer;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  value="botonModal15"
+                  id="botonModal15"
+                  onclick="modalFunction('myModal41')">Leer más</a>
+              </div>
           </div>
 
           <div class="container mt-3">
@@ -152,11 +193,24 @@
             </h5>
           </div>
 
-          <div class="container mt-3">
+          <!-- <div class="container mt-3">
             <h5 class="d-flex justify-content-between align-items-center">-Administración y Evaluación Financiera de Proyectos Informáticos
               <a class="icon-link icon-link-hover" style="font-weight: lighter; font-size: 1rem; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal" value="botonModal15" id="botonModal15" onclick="modalFunction('myModalIF2')">Leer más
               </a>
             </h5>
+          </div> -->
+
+          <div class="container mt-3">
+              <div class="d-flex justify-content-between align-items-center flex-nowrap">
+                <span class="font-h5">-Administración y Evaluación Financiera de Proyectos Informáticos</span>
+                <a class="icon-link icon-link-hover ms-2 text-nowrap"
+                  style="font-weight: lighter; font-size: 1rem; cursor: pointer;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  value="botonModal15"
+                  id="botonModal15"
+                  onclick="modalFunction('myModalIF2')">Leer más</a>
+              </div>
           </div>
 
           <div class="container mt-3">
@@ -681,6 +735,8 @@
     <!-- Slide -->
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/progressbar.js@1.1.1/dist/progressbar.min.js"></script>
     <script src="../pdf.js"></script>
     <script src="../url.js"></script>
     <script src="js/obtenerRespuestas2.js"></script>
