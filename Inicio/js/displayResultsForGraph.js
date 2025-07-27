@@ -413,11 +413,17 @@ function dataForViewGraphBarOfSchool(data, currentPage) {
     cantidad.name("Cantidad");
 
     // Establecer el título del gráfico
-    chart.title("Top 5");
+    chart.title("Ranking de Escuelas");
 
     // Establecer los títulos de los ejes
     chart.xAxis().title("Escuelas");
     chart.yAxis().title("Cantidad");
+
+    chart.xAxis().labels().format(function() {
+        var txt = this.value;
+        var max = 15;
+        return txt.length > max ? txt.substring(0, max) + '…' : txt;
+    });
 
     // Establecer el contenedor del gráfico
     chart.container("graphForSchoolTop");

@@ -41,7 +41,7 @@ function initSliders() {
 // Inicializar sliders después de cargar el DOM
 $(document).ready(function() {
     initSliders();
-    updateProgress(1); // mostrará 0%
+    updateProgress(0); // mostrará 0%
 });
 
 let $sliderDuracion = $(".sliderDuracion").ionRangeSlider({
@@ -91,15 +91,56 @@ function showQuestionFromRight(questionId) {
     // Agrega la clase de animación a la pregunta que se está mostrando
 }
 
+// Inicializa solo una vez la barra (por fuera de la función)
+const barra = new ProgressBar.Line('#barraProgreso', {
+  strokeWidth: 6,
+  easing: 'easeInOut',
+  duration: 800,
+  color: '#f8dc5d', // amarillo pastel
+  trailColor: '#eee',
+  trailWidth: 2,
+  svgStyle: { width: '100%', height: '10px' },
+  text: {
+    style: {
+      position: 'absolute',
+      left: '50%',
+      top: '30px',
+      padding: 0,
+      margin: 0,
+      transform: 'translateX(-50%)',
+      color: '#888',
+      fontSize: '16px'
+    },
+    autoStyleContainer: false
+  },
+  step: (state, bar) => {
+    const value = Math.round(bar.value() * 100);
+    bar.setText(`Progreso ${value} %`);
+  }
+});
+
 ///Barra de progreso
 function updateProgress(currentQuestion) {
-  const percent = (currentQuestion / totalQuestions) * 100;
-  const rounded = Math.round(percent); // opcional
-  const $bar = $('.progress-bar');
-  $bar
-    .css('width', `${percent}%`)
-    .attr('aria-valuenow', percent)
-    .text(`${rounded}%`);
+//   const percent = (currentQuestion / totalQuestions) * 100;
+//   console.log("el resultado ", percent);
+//   const rounded = Math.round(percent); // opcional
+//   console.log("el rounded ", rounded);
+//   const $bar = $('.progress-bar');
+//   (percent != 0)?
+//   $bar
+//     .css('width', `${percent}%`)
+//     .attr('aria-valuenow', percent)
+//     .text(`${rounded}%`): 
+//   $bar
+//     .css('width', `${5}%`)
+//     .attr('aria-valuenow', percent)
+//     .text(`${rounded}%`);
+  const percent = currentQuestion / totalQuestions;
+  console.log("Porcentaje decimal: ", percent);
+
+  // Animate al nuevo valor (entre 0 y 1)
+  barra.animate(percent);
+
 }
 
 function assignTextToIDQuestions(questionId){
@@ -167,7 +208,8 @@ function tour(idPregunta, valorSeleccionado, preguntaTexto){
 function nextQuestion(questionId) {
     // Capturar el texto del h2 correspondiente a la pregunta actual
     // let questionText = document.querySelector(`#question${questionId} h2`).textContent.trim();
-    updateProgress(questionId + 1);
+    console.log("La pregunta next es "+ questionId);
+    updateProgress(questionId);
 
     switch (questionId){
         case totalQuestions - 1:
@@ -537,7 +579,8 @@ function getParameterURL(dato) {
 
 function previousQuestion(questionId){
     const resultsContainer = document.getElementById('results');
-    updateProgress(questionId - 1);
+    console.log("La pregunta previa es "+ (questionId - 2));
+    updateProgress(questionId - 2);
 
     switch (questionId) {
         case 1:

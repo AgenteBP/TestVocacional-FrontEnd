@@ -116,3 +116,33 @@ body {
     max-width: 850px; /* Ajusta este valor según el tamaño deseado */
     margin: 0 auto; /*Centra el contenedor dentro de su contenedor padre */
 }
+
+@media (max-width: 768px) {
+  .bootstrap-select .dropdown-menu{
+    max-width: 100% !important;
+  }
+
+  .select-size{
+    max-width: 100% !important;
+  }
+
+  .none-space{
+    margin-top: 0% !important;
+  }
+
+  .font-h5{
+    font-weight: 500 !important;
+    font-size: 1.20rem !important;
+  }
+
+  
+}
+
+.btn-select{
+    /*mismo ancho mínimo para los dos botones */
+    /* min-width: 220px;  */
+    font-size: 14px;
+    text-align: center;
+    padding: 6px 12px;
+
+}

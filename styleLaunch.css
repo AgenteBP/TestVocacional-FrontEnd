@@ -47,3 +47,8 @@ header {
     padding: 2rem; /* Ajuste del relleno */
 }
 
+@media (max-width: 768px) {
+  .text-movil-title{
+    font-size: 3rem !important;
+  }
+}

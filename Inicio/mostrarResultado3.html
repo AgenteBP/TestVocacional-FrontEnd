@@ -16,6 +16,10 @@
 </head>
 
 <body>
+    <!-- <button id="menuToggle" class="btn btn-primary d-md-none">
+        <i class="fa fa-bars"></i>
+    </button> -->
+
     <div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex" style="text-align: center; padding: 1rem 1rem;">
@@ -109,6 +113,18 @@
                 <button class="btn btn-outline-primary bi bi-box-arrow-right ml-auto" onclick="logOut()">Cerrar Sesión</button>
             </header>
             <hr class="text-black d-none d-sm-block"> -->
+            <div class="d-md-none mb-3">
+                <div class="row g-2">
+                    <div class="col-2">
+                        <button id="menuToggle" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+                </button>
+                    </div>
+                    <div class="col-10 text-menu">
+                        <h4>Apoyo a la Elección de una Carrera Universitaria en Informática de la UNSL</h4>
+                    </div>
+                </div>
+            </div>
             <main>
                 <div class="row">
                     <!-- Cantidad total del test vocacional y de las consultas hechas -->
@@ -190,7 +206,7 @@
                                 Top 5 de escuelas que mas han usado el sitio
                             </div>
                             <div class="card-body">
-                                <div id="graphForSchoolTop" style="width: 80%; height: 350px;"></div>
+                                <div id="graphForSchoolTop" style="width: 100%; height: 350px;"></div>
                             </div>
                         </div>
                     </div>
@@ -217,17 +233,19 @@
                             </div>
                             <div class="card-body" style="padding-left: 0; padding-right: 0;">
                                 <div id="tableForQuantityCarrer" class="result-view">
-                                    <table id="miTabla" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Carreras</th>
-                                                <th scope="col">Cantidades Obtenidas</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Los datos se llenarán aquí mediante JavaScript -->
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table id="miTabla" class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Carreras</th>
+                                                    <th scope="col">Cantidades Obtenidas</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Los datos se llenarán aquí mediante JavaScript -->
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -240,24 +258,27 @@
                             </div>
                             <div class="card-body" style="padding-left: 0; padding-right: 0;">
                                 <div id="tableForQuantitySchool" class="result-view">
-                                    <table id="miTabla" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Escuelas</th>
-                                                <th scope="col">Resultados Obtenidos</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Los datos se llenarán aquí mediante JavaScript -->
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table id="miTabla" class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Escuelas</th>
+                                                    <th scope="col">Resultados Obtenidos</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Los datos se llenarán aquí mediante JavaScript -->
+                                            </tbody>
+                                        </table>
+                                        <nav aria-label="Page navigation example" class="text-center">
+                                            <ul id="paginacionSchool" class="pagination justify-content-center">
+                                                <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
-                            <nav aria-label="Page navigation example" class="text-center">
-                                <ul id="paginacionSchool" class="pagination justify-content-center">
-                                    <!-- Los botones de paginación se llenarán aquí mediante JavaScript -->
-                                </ul>
-                            </nav>
+                            
                         </div>
                     </div>
                 </div>
@@ -297,9 +318,9 @@
         crossorigin="anonymous">
     </script>
     <!-- Any chart -->
-    <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-pie.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-cartesian.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-pie.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-cartesian.min.js"></script>
 
     <script src="../url.js"></script>
     <script src="js/displayResultsPrimary.js"></script>
@@ -308,10 +329,11 @@
         const hamBurger = document.querySelector(".toggle-btn");
 
         hamBurger.addEventListener("click", function () {
-        document.querySelector("#sidebar").classList.toggle("expand");
+            document.querySelector("#sidebar").classList.toggle("expand");
         });
 
         document.querySelector('.expandAside').addEventListener('click', function() {
+            
             // Cambiar la clase expand del elemento #sidebar
             document.querySelector('#sidebar').classList.toggle('expand');
 
@@ -331,6 +353,7 @@
                 icon.classList.remove('fa-left-long');
                 icon.classList.add('fa-right-long');
             }
+            
         });
 
         function redirectToResumen(){
@@ -355,7 +378,51 @@
             // Redirigir a la nueva página
             window.location.href = "graph.html";
         }
+
+
+        // Para moviles
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const menuToggle = document.getElementById("menuToggle");
+            const sidebar = document.getElementById("sidebar");
+            const expandAside = document.querySelector(".expandAside");
+            // Obtener el ícono dentro del botón
+            const icon = expandAside.querySelector('i');
+            
+            // Mostrar sidebar
+            menuToggle.addEventListener("click", () => {
+                document.querySelector('#sidebar').classList.toggle('expand');
+                sidebar.classList.add("mobile-show");
+                icon.classList.remove('fa-right-long');
+                icon.classList.add('fa-left-long');
+                menuToggle.style.display = "none"; // Oculta el botón hamburguesa
+            });
+
+            // Ocultar sidebar cuando se hace click en la flechita
+            expandAside.addEventListener("click", () => {
+                sidebar.classList.remove("mobile-show");
+                menuToggle.style.display = "block"; // Muestra el botón hamburguesa
+            });
+
+            
+
+            // Cambiar la clase del ícono dependiendo del estado de expansión de la barra lateral
+            if (document.querySelector('#sidebar').classList.contains('expand')) {
+                // Si la barra lateral está expandida, cambiar el ícono a fa-left-long
+                icon.classList.remove('fa-right-long');
+                icon.classList.add('fa-left-long');
+            } else {
+                icon.classList.remove("fa-left-long");
+                icon.classList.add("fa-right-long");
+            }
+
+            
+        });
+
     </script>
 </body>
+
+
 
 </html>
